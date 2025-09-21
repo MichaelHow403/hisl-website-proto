@@ -32,7 +32,7 @@ export default function AboutMichael() {
                 <p className="text-muted leading-relaxed mb-6">
                   I started out on the tools as a carpenter—where you quickly learn that 
                   nothing is perfectly square and problem-solving is part of the job. 
-                  Measure twice, cut once wasn't advice; it was survival.
+                  Measure twice, cut once wasn&apos;t advice; it was survival.
                 </p>
               </section>
 
@@ -65,16 +65,16 @@ export default function AboutMichael() {
                 </h2>
                 <p className="text-muted leading-relaxed mb-6">
                   On the side, I explore how well-designed AI can remove repetitive load, 
-                  reduce waste, and still respect compliance and sustainability. It's not 
-                  about replacing people—it's about testing how human + AI can actually 
-                  build better. I'm currently validating this approach with the Nimbus 
+                  reduce waste, and still respect compliance and sustainability. It&apos;s not 
+                  about replacing people—it&apos;s about testing how human + AI can actually 
+                  build better. I&apos;m currently validating this approach with the Nimbus 
                   Research Centre (MTU), backed by an Enterprise Ireland Innovation Voucher.
                 </p>
               </section>
 
               <section className="mb-12">
                 <h2 className="text-2xl font-spectral font-semibold mb-4 text-brandGold">
-                  Why I'm cautious and optimistic
+                  Why I&apos;m cautious and optimistic
                 </h2>
                 <p className="text-muted leading-relaxed mb-6">
                   Eighteen months of hands-on trials taught me the difference between hype 

@@ -2,9 +2,28 @@
 
 import { useEffect, useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
+import Link from "next/link";
 import Img from "@/components/ui/Img";
 
-export default function HeroCosmic() {
+type Props = {
+  headline: string;
+  subheadline: string;
+  primaryCTA: {
+    text: string;
+    href: string;
+  };
+  secondaryCTA: {
+    text: string;
+    href: string;
+  };
+};
+
+export default function HeroCosmic({ 
+  headline, 
+  subheadline, 
+  primaryCTA, 
+  secondaryCTA 
+}: Props) {
   const prefersReduced = useReducedMotion();
   const [mounted, setMounted] = useState(false);
 
@@ -34,7 +53,7 @@ export default function HeroCosmic() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            AI + Human… with soul.
+            {headline}
           </motion.h1>
           <motion.p 
             className="mt-6 text-white/90 text-lg md:text-xl max-w-2xl"
@@ -42,8 +61,7 @@ export default function HeroCosmic() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            This is a demonstration of what one human, augmented by AI, can achieve. 
-            Sovereign AI tailored to you.
+            {subheadline}
           </motion.p>
           <motion.div 
             className="mt-8 flex flex-col sm:flex-row gap-4"
@@ -51,12 +69,12 @@ export default function HeroCosmic() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
           >
-            <button className="btn btn-gold px-8 py-3 text-lg font-semibold">
-              Start a Demo
-            </button>
-            <button className="btn btn-ghost px-8 py-3 text-lg">
-              Learn about AI prompts
-            </button>
+            <Link href={primaryCTA.href} className="btn btn-gold px-8 py-3 text-lg font-semibold">
+              {primaryCTA.text}
+            </Link>
+            <Link href={secondaryCTA.href} className="btn btn-ghost px-8 py-3 text-lg">
+              {secondaryCTA.text}
+            </Link>
           </motion.div>
         </div>
       </div>
