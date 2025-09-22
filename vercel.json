@@ -1,13 +1,7 @@
 {
+  "version": 2,
   "framework": "nextjs",
-  "buildCommand": "pnpm build",
-  "outputDirectory": ".vercel/output",
   "installCommand": "pnpm install",
-  "devCommand": "pnpm dev",
-  "regions": ["iad1"],
-  "functions": {
-    "app/**/*.tsx": {
-      "runtime": "nodejs20.x"
-    }
-  }
+  "buildCommand": "pnpm build",
+  "outputDirectory": ".vercel/output"
 }
