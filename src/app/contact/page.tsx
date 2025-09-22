@@ -31,10 +31,10 @@ export default function ContactPage() {
                   Thank you!
                 </h1>
                 <p className="text-muted mb-8">
-                  {formType === "contact" && "We'll reply soon."}
-                  {formType === "rfp" && "We'll schedule a discovery call."}
-                  {formType === "newsletter" && "Welcome aboard."}
-                  {formType === "careers" && "We'll review and be in touch."}
+                  {formType === "contact" && "Thanks — we'll reply soon."}
+                  {formType === "rfp" && "Received — we'll schedule a discovery call."}
+                  {formType === "newsletter" && "Subscribed — welcome aboard."}
+                  {formType === "careers" && "Thanks — we'll review and be in touch."}
                 </p>
                 <button 
                   onClick={() => setSubmitted(false)}
@@ -61,7 +61,7 @@ export default function ContactPage() {
           <div className="max-w-2xl mx-auto">
             <div className="text-center mb-12">
               <h1 className="text-4xl md:text-5xl font-spectral font-semibold mb-6">
-                Let's build responsibly, together
+                Let's build responsibly, together.
               </h1>
               <p className="text-xl text-muted">
                 Ready to explore sovereign AI? Get in touch and let's discuss how 
@@ -156,7 +156,7 @@ export default function ContactPage() {
                 {formType !== "newsletter" && (
                   <div>
                     <label htmlFor="message" className="block text-sm font-medium text-text mb-2">
-                      {formType === "rfp" ? "IntegAI Project Brief" : "Message"} *
+                      {formType === "rfp" ? "Project brief" : "Message"} *
                     </label>
                     <textarea
                       id="message"
@@ -165,7 +165,7 @@ export default function ContactPage() {
                       className="w-full bg-bg border border-edge rounded-lg px-4 py-3 text-text placeholder-muted focus:border-aiGreen focus:outline-none resize-none"
                       placeholder={
                         formType === "rfp" 
-                          ? "Tell us about your project, timeline, and how IntegAI can help with your construction, pharma, or regulated environment needs..."
+                          ? "Name, company, email, project brief."
                           : "How can we help you with sovereign AI solutions?"
                       }
                     />

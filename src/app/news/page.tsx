@@ -1,5 +1,12 @@
 import GlobalHeader from "@/components/sections/GlobalHeader";
 import GlobalFooter from "@/components/sections/GlobalFooter";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "HISL News — Signals, Not Noise",
+  description:
+    "Live AI and construction trends, curated by HISL to cut through hype.",
+};
 
 const mockNews = [
   {
@@ -46,11 +53,11 @@ export default function NewsPage() {
           <div className="max-w-4xl mx-auto">
             {/* Header */}
             <div className="text-center mb-12">
-              <h1 className="text-4xl md:text-5xl font-spectral font-semibold mb-6">
-                HISL News & Insights
+              <h1 className="text-4xl md:text-5xl font-spectral font-semibold mb-2">
+                Live News & Trends
               </h1>
               <p className="text-xl text-muted mb-8">
-                Stay updated on sovereign AI developments, construction innovation, and HISL's journey in regulated environments.
+                Signal over noise
               </p>
               
               {/* Search Bar */}
@@ -66,7 +73,7 @@ export default function NewsPage() {
             {/* Filters */}
             <div className="mb-8">
               <div className="flex flex-wrap gap-2 justify-center">
-                {["All", "HISL", "IntegAI", "Construction", "Pharma", "Innovation", "Research"].map((filter) => (
+                {["All", "AI", "Construction", "Pharma", "Sustainability"].map((filter) => (
                   <button
                     key={filter}
                     className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
@@ -147,9 +154,7 @@ export default function NewsPage() {
             {/* Disclaimer */}
             <div className="mt-12 p-4 bg-edge/30 border border-edge rounded-xl">
               <p className="text-sm text-muted text-center">
-                <strong>Note:</strong> Content is curated by HISL team and reflects our focus on 
-                sovereign AI, construction innovation, and regulated environments. 
-                This feed showcases our journey and industry insights.
+                Live content may be unvetted.
               </p>
             </div>
           </div>

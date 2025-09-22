@@ -1,0 +1,25 @@
+# What it is
+
+IntegAI is an offline-first orchestration platform for your website and operations. The site calls one surface --- `/api/v1/site/*` --- and IntegAI handles the rest. No direct third-party calls from the site.
+
+# How it thinks
+
+A disciplined 9-role agent graph (Planner, Retriever, Judge, Executor, Memory, Safety, Tools, Observer, Publisher) routes work cache → local RAG → adapter, with latency and observability baked in. Local RAG leverages Chroma + Neo4j.
+
+# How it ships
+
+Changes publish as immutable `.integpkg` artifacts to MinIO with checksums and provenance. Forms are idempotent by default. SEO, search, and assets are API-owned, so the site never refactors when backends evolve.
+
+# Values: Privacy • Performance • Provenance
+
+**Privacy**
+
+Your data stays under your control with sovereign-by-design routing.
+
+**Performance**
+
+Offline-first with cache → local RAG → adapter routing for speed.
+
+**Provenance**
+
+Immutable `.integpkg` artifacts with full audit trails.

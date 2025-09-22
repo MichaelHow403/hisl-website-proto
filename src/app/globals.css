@@ -1,79 +1,44 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@tailwind base; @tailwind components; @tailwind utilities;
 
 /* Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Spectral:wght@400;500;700&display=swap');
 
 :root {
-  --bg: #0b1220;
-  --panel: #0f1828;
-  --edge: #1e2a42;
-  --text: #e8f0ff;
-  --muted: #a8b8d6;
-  --brandGold: #d4af37;
-  --aiGreen: #39d7c9;
+  --bg:#0b1220;
+  --panel:#0f1828;
+  --edge:#1e2a42;
+  --text:#e8f0ff;
+  --muted:#a8b8d6;
+  --brandGold:#d4af37;
+  --aiGreen:#39d7c9;
 }
 
 /* Base */
-html,
-body {
-  height: 100%;
-  background: var(--bg);
-  color: var(--text);
-}
+html,body{height:100%; background:var(--bg); color:var(--text);}
 
-body {
-  font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
-}
+body{font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;}
 
-a:focus-visible,
-button:focus-visible {
-  outline: none;
-  box-shadow: var(--ring, 0 0 0 3px rgba(158, 197, 255, 0.45));
-  border-radius: 0.6rem;
-}
+a:focus-visible, button:focus-visible{ outline: none; box-shadow: var(--ring, 0 0 0 3px rgba(158,197,255,.45)); border-radius:.6rem;}
 
 /* Helpers */
-.container-wrap {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1.25rem;
-}
+.container-wrap{max-width:1200px;margin:0 auto;padding:0 1.25rem;}
 
-.vignette {
-  background: radial-gradient(60% 60% at 50% 40%, transparent 0%, rgba(0, 0, 0, 0.55) 60%, rgba(0, 0, 0, 0.75) 100%);
-}
+.vignette{background: radial-gradient(60% 60% at 50% 40%, transparent 0%, rgba(0,0,0,.55) 60%, rgba(0,0,0,.75) 100%);}
 
 /* Buttons */
 @layer components {
-  .btn {
-    @apply inline-flex items-center justify-center rounded-xl px-4 py-2 text-[15px] border transition;
+  .btn { @apply inline-flex items-center justify-center rounded-xl px-4 py-2 text-[15px] border transition;
     border-color: var(--edge);
-    background: color-mix(in srgb, var(--panel) 90%, transparent);
-  }
+    background: color-mix(in srgb, var(--panel) 90%, transparent); }
 
-  .btn:hover {
-    box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.06);
-  }
+  .btn:hover{ box-shadow: inset 0 0 0 2px rgba(255,255,255,.06); }
 
-  .btn-gold {
-    @apply text-black border-0;
-    background: linear-gradient(#f6d36a, var(--brandGold));
-    box-shadow: 0 6px 24px rgba(212, 175, 55, 0.25);
-  }
+  .btn-gold{ @apply text-black border-0; background: linear-gradient(#f6d36a,var(--brandGold));
+    box-shadow: 0 6px 24px rgba(212,175,55,.25); }
 
-  .btn-ghost {
-    color: #bed3ff;
-    background: transparent;
-    border-color: var(--edge);
-  }
+  .btn-ghost{ color:#bed3ff; background: transparent; border-color: var(--edge); }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  * {
-    animation-duration: 0.001ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.001ms !important;
-  }
+@media (prefers-reduced-motion: reduce){
+  *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important}
 }
