@@ -4,35 +4,35 @@ import GlobalFooter from "@/components/sections/GlobalFooter";
 const mockNews = [
   {
     id: 1,
-    title: "AI Construction Safety Standards Updated",
-    excerpt: "New guidelines for AI-assisted construction monitoring released by industry consortium.",
-    source: "Construction Tech Weekly",
-    timestamp: "2 hours ago",
-    tags: ["AI", "Construction", "Safety"]
+    title: "HISL Launches IntegAI Platform for Construction Industry",
+    excerpt: "New offline-first AI orchestration platform designed specifically for construction, pharma, and regulated environments.",
+    source: "HISL Press Release",
+    timestamp: "1 day ago",
+    tags: ["HISL", "IntegAI", "Construction", "AI"]
   },
   {
     id: 2,
-    title: "Pharma AI Compliance Framework Released",
-    excerpt: "Regulatory body publishes comprehensive framework for AI use in pharmaceutical development.",
-    source: "Pharma Regulatory News",
-    timestamp: "4 hours ago",
-    tags: ["Pharma", "Compliance", "AI"]
+    title: "Michael Howard MCIOB Joins Johnson & Johnson Innovation Team",
+    excerpt: "Construction industry veteran brings lean delivery expertise to pharmaceutical innovation projects.",
+    source: "Industry News",
+    timestamp: "3 days ago",
+    tags: ["Michael Howard", "J&J", "Innovation", "Construction"]
   },
   {
     id: 3,
-    title: "Sustainable AI: Energy Efficiency Breakthrough",
-    excerpt: "New research shows 40% reduction in AI model energy consumption through novel architecture.",
-    source: "Green Tech Journal",
-    timestamp: "6 hours ago",
-    tags: ["Sustainability", "AI", "Energy"]
+    title: "Sovereign AI: The Future of Regulated Industries",
+    excerpt: "How offline-first AI platforms are transforming compliance and data sovereignty in construction and pharma.",
+    source: "Tech Innovation Weekly",
+    timestamp: "1 week ago",
+    tags: ["Sovereign AI", "Compliance", "Data Sovereignty", "Innovation"]
   },
   {
     id: 4,
-    title: "Data Sovereignty Legislation Advances",
-    excerpt: "European Parliament moves forward with enhanced data sovereignty requirements for AI systems.",
-    source: "Tech Policy Today",
-    timestamp: "8 hours ago",
-    tags: ["Policy", "Data Sovereignty", "EU"]
+    title: "Enterprise Ireland Innovation Voucher Supports HISL Research",
+    excerpt: "Nimbus Research Centre collaboration advances human-AI integration in construction workflows.",
+    source: "Enterprise Ireland",
+    timestamp: "2 weeks ago",
+    tags: ["Enterprise Ireland", "Research", "Innovation", "HISL"]
   }
 ];
 
@@ -47,17 +47,17 @@ export default function NewsPage() {
             {/* Header */}
             <div className="text-center mb-12">
               <h1 className="text-4xl md:text-5xl font-spectral font-semibold mb-6">
-                Live News & Trends
+                HISL News & Insights
               </h1>
               <p className="text-xl text-muted mb-8">
-                Signals, not noise. A curated window onto trends that matter to builders, clients, and teams.
+                Stay updated on sovereign AI developments, construction innovation, and HISL's journey in regulated environments.
               </p>
               
               {/* Search Bar */}
               <div className="max-w-md mx-auto">
                 <input 
                   type="search"
-                  placeholder="Search news and trends..."
+                  placeholder="Search HISL news and insights..."
                   className="w-full bg-panel border border-edge rounded-xl px-4 py-3 text-text placeholder-muted"
                 />
               </div>
@@ -66,7 +66,7 @@ export default function NewsPage() {
             {/* Filters */}
             <div className="mb-8">
               <div className="flex flex-wrap gap-2 justify-center">
-                {["All", "AI", "Construction", "Pharma", "Sustainability", "Policy"].map((filter) => (
+                {["All", "HISL", "IntegAI", "Construction", "Pharma", "Innovation", "Research"].map((filter) => (
                   <button
                     key={filter}
                     className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
@@ -147,8 +147,9 @@ export default function NewsPage() {
             {/* Disclaimer */}
             <div className="mt-12 p-4 bg-edge/30 border border-edge rounded-xl">
               <p className="text-sm text-muted text-center">
-                <strong>Note:</strong> Live content is curated but may be unvetted. 
-                This feed is powered by your Grok/X pipeline when enabled.
+                <strong>Note:</strong> Content is curated by HISL team and reflects our focus on 
+                sovereign AI, construction innovation, and regulated environments. 
+                This feed showcases our journey and industry insights.
               </p>
             </div>
           </div>

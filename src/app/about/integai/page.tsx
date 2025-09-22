@@ -30,9 +30,9 @@ export default function AboutIntegAI() {
                   What it is
                 </h2>
                 <p className="text-muted leading-relaxed text-lg mb-6">
-                  IntegAI is an offline-first orchestration platform for your website and 
-                  operations. The site calls one surface — /api/v1/site/* — and IntegAI handles 
-                  the rest. No direct third-party calls from the site.
+                  IntegAI is an offline-first orchestration platform designed specifically for 
+                  construction, pharma, and regulated environments. The site calls one surface — 
+                  /api/v1/site/* — and IntegAI handles the rest. No direct third-party calls from the site.
                 </p>
               </section>
 
@@ -163,14 +163,15 @@ export default function AboutIntegAI() {
                   Ready to explore sovereign AI?
                 </h2>
                 <p className="text-muted mb-8">
-                  Experience the platform that puts humans first and keeps data under your control.
+                  Experience the platform that puts humans first and keeps data under your control 
+                  in construction, pharma, and regulated environments.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <a href="/contact" className="btn btn-gold px-8 py-3">
                     Start a conversation
                   </a>
-                  <a href="/globe" className="btn btn-ghost px-8 py-3">
-                    See how it works
+                  <a href="/about/michael" className="btn btn-ghost px-8 py-3">
+                    Meet the founder
                   </a>
                 </div>
               </section>

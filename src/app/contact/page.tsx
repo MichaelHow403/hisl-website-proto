@@ -65,7 +65,7 @@ export default function ContactPage() {
               </h1>
               <p className="text-xl text-muted">
                 Ready to explore sovereign AI? Get in touch and let's discuss how 
-                IntegAI can amplify your team's capabilities.
+                IntegAI can amplify your team's capabilities in construction, pharma, and regulated environments.
               </p>
             </div>
 
@@ -73,9 +73,9 @@ export default function ContactPage() {
             <div className="flex flex-wrap gap-2 mb-8 justify-center">
               {[
                 { key: "contact", label: "General Contact" },
-                { key: "rfp", label: "Project Inquiry" },
-                { key: "newsletter", label: "Newsletter" },
-                { key: "careers", label: "Careers" }
+                { key: "rfp", label: "IntegAI Inquiry" },
+                { key: "newsletter", label: "HISL Updates" },
+                { key: "careers", label: "Join HISL" }
               ].map((type) => (
                 <button
                   key={type.key}
@@ -126,13 +126,13 @@ export default function ContactPage() {
                 {formType === "rfp" && (
                   <div>
                     <label htmlFor="company" className="block text-sm font-medium text-text mb-2">
-                      Company
+                      Company/Organization
                     </label>
                     <input
                       type="text"
                       id="company"
                       className="w-full bg-bg border border-edge rounded-lg px-4 py-3 text-text placeholder-muted focus:border-aiGreen focus:outline-none"
-                      placeholder="Your company name"
+                      placeholder="Your company or organization name"
                     />
                   </div>
                 )}
@@ -156,7 +156,7 @@ export default function ContactPage() {
                 {formType !== "newsletter" && (
                   <div>
                     <label htmlFor="message" className="block text-sm font-medium text-text mb-2">
-                      {formType === "rfp" ? "Project Brief" : "Message"} *
+                      {formType === "rfp" ? "IntegAI Project Brief" : "Message"} *
                     </label>
                     <textarea
                       id="message"
@@ -165,8 +165,8 @@ export default function ContactPage() {
                       className="w-full bg-bg border border-edge rounded-lg px-4 py-3 text-text placeholder-muted focus:border-aiGreen focus:outline-none resize-none"
                       placeholder={
                         formType === "rfp" 
-                          ? "Tell us about your project, timeline, and requirements..."
-                          : "How can we help you?"
+                          ? "Tell us about your project, timeline, and how IntegAI can help with your construction, pharma, or regulated environment needs..."
+                          : "How can we help you with sovereign AI solutions?"
                       }
                     />
                   </div>
@@ -175,7 +175,7 @@ export default function ContactPage() {
                 {/* Newsletter-specific message */}
                 {formType === "newsletter" && (
                   <p className="text-sm text-muted">
-                    Stay updated on sovereign AI developments, industry insights, and HISL news.
+                    Stay updated on HISL developments, IntegAI platform updates, construction innovation, and sovereign AI insights.
                   </p>
                 )}
 
@@ -185,9 +185,9 @@ export default function ContactPage() {
                   className="w-full btn btn-gold py-4 text-lg font-semibold"
                 >
                   {formType === "contact" && "Send Message"}
-                  {formType === "rfp" && "Submit Project Inquiry"}
-                  {formType === "newsletter" && "Subscribe"}
-                  {formType === "careers" && "Submit Application"}
+                  {formType === "rfp" && "Submit IntegAI Inquiry"}
+                  {formType === "newsletter" && "Subscribe to HISL Updates"}
+                  {formType === "careers" && "Apply to Join HISL"}
                 </button>
               </form>
 

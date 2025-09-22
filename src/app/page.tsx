@@ -16,14 +16,14 @@ export default function Home() {
       {/* Hero Section */}
       <HeroCosmic 
         headline="AI + Human… with soul."
-        subheadline="This is a demonstration of what one human, augmented by AI, can achieve. Sovereign AI tailored to you."
+        subheadline="Sovereign AI tailored to you. Offline-first orchestration platform for construction, pharma, and regulated environments where compliance and sustainability matter."
         primaryCTA={{
-          text: "Start a Demo",
-          href: "#chat"
+          text: "Start a Conversation",
+          href: "/contact"
         }}
         secondaryCTA={{
-          text: "Learn about AI prompts",
-          href: "/globe"
+          text: "Learn about IntegAI",
+          href: "/about/integai"
         }}
       />
       
@@ -68,8 +68,8 @@ export default function Home() {
           }
         ]}
         cta={{
-          text: "Start a Demo",
-          href: "#chat"
+          text: "Start a Conversation",
+          href: "/contact"
         }}
       />
       
