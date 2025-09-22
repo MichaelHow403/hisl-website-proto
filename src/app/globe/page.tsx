@@ -5,6 +5,13 @@ import { Canvas } from "@react-three/fiber";
 import { OrbitControls, Sphere } from "@react-three/drei";
 import GlobalHeader from "@/components/sections/GlobalHeader";
 import GlobalFooter from "@/components/sections/GlobalFooter";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "HISL Globe — Prompt Journeys Made Visible",
+  description:
+    "Explore the HISL prompt globe: see where your queries go, how energy is used, and why sovereignty matters.",
+};
 
 function Globe() {
   return (
@@ -143,8 +150,7 @@ export default function GlobePage() {
               {/* Demo Disclaimer */}
               <div className="bg-edge/30 border border-edge rounded-xl p-4">
                 <p className="text-sm text-muted">
-                  <strong>Demo note:</strong> This runs locally/offline by default; 
-                  online adapters are gated by policy for full data sovereignty.
+                  Demo runs locally/offline by default; online adapters are gated by policy.
                 </p>
               </div>
             </div>

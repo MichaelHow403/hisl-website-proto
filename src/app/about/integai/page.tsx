@@ -5,6 +5,14 @@ import ApiContractsStrip from "@/components/sections/ApiContractsStrip";
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import { promises as fs } from 'fs';
 import path from 'path';
+import type { Metadata } from "next";
+import Img from "@/components/ui/Img";
+
+export const metadata: Metadata = {
+  title: "IntegAI — Sovereign Offline-First Orchestrator",
+  description:
+    "IntegAI powers the HISL site: one API, nine agents, sovereign by design. Secure, performant, future‑proof.",
+};
 
 export default async function AboutIntegAI() {
   const mdxPath = path.join(process.cwd(), 'src/content/about/integai.mdx');
@@ -41,8 +49,7 @@ export default async function AboutIntegAI() {
               <div className="bg-panel border border-edge rounded-xl p-8">
                 <div className="text-center">
                   <div className="relative aspect-video max-w-2xl mx-auto">
-                    {/* Placeholder for system diagram image */}
-                    <img src="/public/imagery/processed/ai_technology.jpeg" alt="IntegAI System Diagram" className="w-full h-full object-contain" />
+                    <Img assetId="ai_technology" sizes="(max-width: 768px) 100vw, 600px" />
                   </div>
                   <p className="text-sm text-muted mt-4">
                     Browser → NGINX → IntegAI → (Cache | RAG | Adapters) → Artifact Store

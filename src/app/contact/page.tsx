@@ -3,6 +3,13 @@
 import { useState } from "react";
 import GlobalHeader from "@/components/sections/GlobalHeader";
 import GlobalFooter from "@/components/sections/GlobalFooter";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Contact HISL — Build Responsibly, Together",
+  description:
+    "Reach HISL to discuss sovereign AI, careers, or project inquiries. Idempotent forms keep data secure.",
+};
 
 export default function ContactPage() {
   const [formType, setFormType] = useState<"contact" | "rfp" | "newsletter" | "careers">("contact");
