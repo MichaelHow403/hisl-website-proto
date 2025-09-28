@@ -8,9 +8,9 @@ export const LOCKED_CONTENT = {
   // ========== HOME PAGE ==========
   home: {
     hero: {
-      title: "Industrial intelligence that keeps people safe — and operations sustainable.",
-      subtitle: "Sovereign AI that runs offline-first. Auditable pipelines. Human-in-the-loop by design.",
-      primaryCta: { label: "Start a Demo", to: "/contact" },
+      title: "Sovereign AI, built on the ground — for the ground.",
+      subtitle: "I'm Michael Howard MCIOB, a hands-on Chartered Construction Manager working in the field, delivering projects in pharma, energy, and manufacturing.",
+      primaryCta: { label: "Book a Demo", to: "/contact" },
       secondaryCta: { label: "Where your prompts go", to: "/globe" },
       imageId: "home_hero_main",
       overlayImageId: "home_hero_overlay",

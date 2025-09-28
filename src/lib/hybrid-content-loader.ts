@@ -39,7 +39,16 @@ export async function loadHybridHomeContent(): Promise<HybridSection[]> {
       primaryCTA: LOCKED_CONTENT.home.hero.primaryCta,
       secondaryCTA: LOCKED_CONTENT.home.hero.secondaryCta,
       imageId: LOCKED_CONTENT.home.hero.imageId,
-      overlayImageId: LOCKED_CONTENT.home.hero.overlayImageId
+      overlayImageId: LOCKED_CONTENT.home.hero.overlayImageId,
+      // Add expanded content from 01-hero.mdx
+      expandedContent: `I founded **HISL** and built our platform **IntegAI** because the tools I needed didn't exist: AI that works inside regulated environments, cuts downtime, and drives sustainability — without leaking data to the cloud or breaking compliance.
+
+**What sets us apart:**
+- **Built from the field up** — designed by someone delivering projects daily.
+- **Sovereign by design** — data stays under your control, within your jurisdiction.
+- **Auditable & ethical** — every run is logged, hashed, and replayable.
+- **Energy-aware** — orchestration minimises carbon footprint and shows the true energy cost of AI.
+- **Human + AI partnership** — practical expertise amplified by transparent intelligence.`
     }
   });
 
