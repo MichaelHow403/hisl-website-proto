@@ -24,31 +24,35 @@ export const LOCKED_CONTENT = {
       note: "Fast-path Gemma via llama.cpp; Mistral‑7B Q4_0 fallback"
     },
     problem: {
-      title: "Blind spots become risks. Drift costs money. Sustainability stalls.",
+      title: "From pain points to practical outcomes",
       bullets: [
-        "Paperwork & siloed tools hide hazards and waste.",
-        "Operational drift creeps in when data isn't joined-up.",
-        "Sustainability targets need transparent, trusted metrics."
+        "Blind spots create risks - Identify hazards before they occur. On-site sensing + AI oversight reveal weak signals early — from safety non-conformances to asset drift.",
+        "Inefficiency drains resources - Optimize performance in-line. Continuous tuning keeps throughput high, resources lean, and downtime low across teams and shifts.",
+        "Sustainability is fragmented - Measure what matters. Track impact, cut waste, and prove emissions reductions with evidence that stands up to audit."
       ],
       imageId: "home_problem_main"
     },
     solution: {
-      intro: "One surface for content, search, forms, and publishing — owned by IntegAI.",
+      intro: "Technology with sovereignty at its core",
       features: [
-        { title: "Offline‑first RAG", desc: "Obsidian → E5-small-v2 (GGUF) → Chroma + Neo4j. No external calls by default.", iconId: "globe.svg" },
-        { title: "Deterministic Agents", desc: "9‑core graph: Planner, Retriever, Judge, Executor, Memory, Safety, Tools, Observer, Publisher.", iconId: "file.svg" },
-        { title: "Immutable Artifacts", desc: "All substantial outputs are packaged as .integpkg to MinIO with checksums.", iconId: "window.svg" },
-        { title: "Idempotent Forms", desc: "Every POST uses Idempotency‑Key; no duplicates, ever.", iconId: "home_solution_security" },
-        { title: "Data Sovereignty", desc: "NGINX + Keycloak + Vault front‑door; air‑gap by policy.", iconId: "home_solution_badge" }
+        { title: "ComplianceGuard", desc: "GDPR/NIS2 monitoring with human-readable evidence.", iconId: "home_solution_security" },
+        { title: "DataSovereign", desc: "Local-first processing keeps sensitive data in-region.", iconId: "globe.svg" },
+        { title: "PrivacyShield", desc: "Encrypted channels, hardened agent comms.", iconId: "home_solution_badge" },
+        { title: "AuditTrail", desc: "Immutable logs with prompt/response hashing.", iconId: "file.svg" },
+        { title: "EthicsCore", desc: "Human-aligned decision rules with escalation paths.", iconId: "window.svg" },
+        { title: "SecureComms", desc: "Enforced encryption and access control.", iconId: "home_solution_security" },
+        { title: "DocuGenie", desc: "Document intelligence tailored for regulated industries.", iconId: "file.svg" },
+        { title: "BuildLens", desc: "Construction ops insight: RAMS, QA/QC, handover.", iconId: "window.svg" }
       ],
       brandStrip: ["footer_logo_hisl", "footer_logo_integai"]
     },
     ethics: {
-      title: "Sovereign by design.",
+      title: "Engineering with human dignity",
       bullets: [
-        "Agentic graph with human gates (Judge, Safety).",
-        "Strict enterprise policy: no online fetch without explicit allow.",
-        "Traceable outputs with provenance and audit trails."
+        "Then prove we now with best endeavour, What from our efforts yet may spring;",
+        "He justly is despised who never Did thought to aid his labours bring;",
+        "For this is Art's true indication, When skill is minister to thought,",
+        "When types that are the mind's creation — The hand to perfect form has wrought."
       ],
       leftImageId: "fusion_michael",
       rightImageId: "fusion_ai_ethics"
@@ -63,11 +67,15 @@ export const LOCKED_CONTENT = {
     },
     aboutTeasers: {
       cards: [
-        { title: "About Michael", body: "From hands‑on build to sovereign AI.", to: "/about/michael", imageId: "about_teaser_michael" },
-        { title: "About IntegAI", body: "Offline‑first orchestration for websites & ops.", to: "/about/integai", imageId: "about_teaser_integai" }
+        { title: "About Michael", body: "From hands‑on build to sovereign AI.", to: "/about/michael", imageId: "fusion_michael" },
+        { title: "About IntegAI", body: "Offline‑first orchestration for websites & ops.", to: "/about/integai", imageId: "integai_bio" }
       ]
     },
-    globeTeaser: { title: "Where your prompts go", caption: "Planner → Retriever → Judge → Executor, visualized.", link: "/globe" },
+    globeTeaser: { 
+      title: "Where Your Intelligence Lives", 
+      caption: "See how your queries route through sovereign infrastructure. Your data travels intelligently across our global mesh — always private, always observable, always under your control.", 
+      link: "/globe" 
+    },
     newsTeaser: { title: "Live News & Trends", caption: "Signal over noise.", link: "/news" },
     ctaContact: { title: "Build with IntegAI", primary: "Talk to us", to: "/contact" }
   },
@@ -131,8 +139,8 @@ export const LOCKED_CONTENT = {
     index: {
       title: "People, craft, and sovereign AI.",
       cards: [
-        { title: "About Michael", to: "/about/michael", imageId: "about_michael_portrait" },
-        { title: "About IntegAI", to: "/about/integai", imageId: "about_integai_main" },
+        { title: "About Michael", to: "/about/michael", imageId: "fusion_michael" },
+        { title: "About IntegAI", to: "/about/integai", imageId: "integai_bio" },
         { title: "The Craftsman's Creed", to: "/poem", imageId: "poem_backdrop" }
       ]
     },
@@ -155,7 +163,7 @@ export const LOCKED_CONTENT = {
           "Local indexes first (Chroma + Neo4j); no public web by default.",
           "Artifact everything: .integpkg with checksums and provenance."
         ],
-        imageId: "about_integai_main"
+        imageId: "integai_bio"
       },
       perfTargets: { 
         ttftTargetMs: 800, 
