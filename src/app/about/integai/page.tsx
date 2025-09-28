@@ -6,7 +6,8 @@ import { MDXRemote } from 'next-mdx-remote/rsc';
 import { promises as fs } from 'fs';
 import path from 'path';
 import type { Metadata } from "next";
-import Img from "@/components/Img";
+import OptimizedImage from "@/components/OptimizedImage";
+import { ImageId } from "@/lib/imagery";
 
 export const metadata: Metadata = {
   title: "IntegAI — Sovereign Offline-First Orchestrator",
@@ -49,7 +50,12 @@ export default async function AboutIntegAI() {
               <div className="bg-panel border border-edge rounded-xl p-8">
                 <div className="text-center">
                   <div className="relative aspect-video max-w-2xl mx-auto">
-                    <Img name="ai_technology" alt="AI technology visualization" sizes="(max-width: 768px) 100vw, 600px" />
+                    <OptimizedImage 
+                      imageId="home_hero_overlay" 
+                      alt="AI technology visualization" 
+                      className="w-full h-full"
+                      sizes="(max-width: 768px) 100vw, 600px" 
+                    />
                   </div>
                   <p className="text-sm text-muted mt-4">
                     Browser → NGINX → IntegAI → (Cache | RAG | Adapters) → Artifact Store

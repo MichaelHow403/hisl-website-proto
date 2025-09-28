@@ -26,12 +26,14 @@ export const IMAGES = {
 
   // Home — Problem
   home_problem_main: "Hard_Hat_digital_paperwork.jpeg",
+    home_problem_main: "ai_brain_network.png",
 
   // Home — Solution
   home_solution_badge: "data_sovereignty_badge.png",
   home_solution_security: "compliance_shield_premium.png",
   home_solution_glyphs: ["globe.svg", "file.svg", "window.svg"],
   home_solution_logos: ["HISL_Logo.jpeg", "integai_logo.png"],
+    home_solution_image: "ai_brain_network.png",
 
   // Home — Fusion (Ethics)
   fusion_michael: "michael_howardbio.jpeg",
@@ -50,17 +52,17 @@ export const IMAGES = {
   globe_raven_muninn: "raven_muninn.png",
 
   // News
-  news_motif: "FeatherPNG",
+  news_motif: "friendship.png",
 
   // About Michael
   about_michael_portrait: "michael_howardbio.jpeg",
-  about_michael_timeline: "ireland_landscape.jpg",
+  about_michael_timeline: "ai_technology.jpeg",
 
   // About IntegAI
   about_integai_main: "integai_logo.png",
 
   // Footer / Contact
-  footer_accent: "huma_AI-space.jpg",
+  footer_accent: "inspiring.jpg",
   footer_logo_hisl: "HISL_Logo.jpeg",
   footer_logo_integai: "integai_logo.png",
 } as const;
@@ -92,9 +94,9 @@ export type ImageId = keyof typeof IMAGES;
 | globe_raven_muninn | raven_muninn.png | /public/imagery/earth/raven_muninn.png |
 | news_motif | FeatherPNG | /public/imagery/processed/FeatherPNG.png |
 | about_michael_portrait | michael_howardbio.jpeg | /public/imagery/processed/michael_howardbio.jpeg |
-| about_michael_timeline | ireland_landscape.jpg | /public/imagery/processed/ireland_landscape.jpg |
+| about_michael_timeline | friendship.png | /public/imagery/processed/friendship.png |
 | about_integai_main | integai_logo.png | /public/imagery/logos/integai_logo.png |
-| footer_accent | huma_AI-space.jpg | /public/imagery/galaxies/huma_AI-space.jpg |
+| footer_accent | inspiring.jpg | /public/imagery/galaxies/inspiring.jpg |
 | footer_logo_hisl | HISL_Logo.jpeg | /public/imagery/logos/HISL_Logo.jpeg |
 | footer_logo_integai | integai_logo.png | /public/imagery/logos/integai_logo.png |
 

@@ -1,0 +1,85 @@
+{
+  "timestamp": "2025-09-28T15:07:10.108Z",
+  "sourceDirectory": "/home/michael/Public/images",
+  "outputDirectory": "./public/imagery/processed",
+  "processedCount": 15,
+  "errorCount": 0,
+  "errors": [],
+  "images": [
+    {
+      "imageId": "footer_accent",
+      "fileName": "inspiring.jpg",
+      "sizes": "1200x686"
+    },
+    {
+      "imageId": "fusion_michael",
+      "fileName": "michael_howardbio.jpeg",
+      "sizes": "1200x1941"
+    },
+    {
+      "imageId": "home_hero_overlay",
+      "fileName": "ai_technology.jpeg",
+      "sizes": "1200x719"
+    },
+    {
+      "imageId": "footer_logo_hisl",
+      "fileName": "HISL_Logo.jpeg",
+      "sizes": "1200x1244"
+    },
+    {
+      "imageId": "poem_backdrop",
+      "fileName": "reach_for_the_stars.png",
+      "sizes": "1200x1200"
+    },
+    {
+      "imageId": "globe_raven_muninn",
+      "fileName": "raven_muninn.png",
+      "sizes": "1200x1200"
+    },
+    {
+      "imageId": "globe_raven_huginn",
+      "fileName": "raven_huginn.png",
+      "sizes": "1200x1200"
+    },
+    {
+      "imageId": "footer_logo_integai",
+      "fileName": "integai_logo.png",
+      "sizes": "1200x1143"
+    },
+    {
+      "imageId": "news_motif",
+      "fileName": "friendship.png",
+      "sizes": "1200x1200"
+    },
+    {
+      "imageId": "globe_base",
+      "fileName": "earth_globe_realistic.png",
+      "sizes": "1200x1200"
+    },
+    {
+      "imageId": "home_solution_badge",
+      "fileName": "data_sovereignty_badge.png",
+      "sizes": "1200x1200"
+    },
+    {
+      "imageId": "home_solution_security",
+      "fileName": "compliance_shield_premium.png",
+      "sizes": "1200x1200"
+    },
+    {
+      "imageId": "home_hero_main",
+      "fileName": "ai_construction_bridge_banner.png",
+      "sizes": "1200x655"
+    },
+    {
+      "imageId": "home_problem_image",
+      "fileName": "ai_brain_network.png",
+      "sizes": "1200x800"
+    },
+    {
+      "imageId": "fusion_ai_ethics",
+      "fileName": "AI_DNA.png",
+      "sizes": "1200x1200"
+    }
+  ]
+}

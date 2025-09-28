@@ -1,11 +1,11 @@
-import Img from '@/components/Img';
+import OptimizedImage from '@/components/OptimizedImage';
 import GlobalHeader from '@/components/sections/GlobalHeader';
 import GlobalFooter from '@/components/sections/GlobalFooter';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Image Demo - HISL',
-  description: 'Demonstration of the optimized Img component for Sharp-generated images.',
+  title: 'Sharp Pipeline Demo - HISL',
+  description: 'Demonstration of the Sharp-processed images using OptimizedImage component.',
 };
 
 export default function ImageDemoPage() {
@@ -18,10 +18,10 @@ export default function ImageDemoPage() {
           {/* Page Header */}
           <div className="mb-12 text-center">
             <h1 className="text-4xl font-spectral font-bold text-brandGold mb-4">
-              Optimized Image Component Demo
+              Sharp Pipeline Demo
             </h1>
             <p className="text-xl text-muted max-w-2xl mx-auto">
-              Examples of using the &lt;Img&gt; component with Sharp-optimized images.
+              Examples of using the &lt;OptimizedImage&gt; component with Sharp-processed images.
             </p>
           </div>
           
@@ -33,16 +33,16 @@ export default function ImageDemoPage() {
             <div className="bg-panel border border-edge rounded-lg p-6">
               <h3 className="text-lg font-semibold text-text mb-4">Code:</h3>
               <pre className="bg-bg border border-edge rounded p-4 text-sm text-muted overflow-x-auto">
-{`<Img 
-  name="AI_DNA" 
+{`<OptimizedImage 
+  imageId="fusion_ai_ethics" 
   alt="Abstract double helix made of circuitry representing AI DNA"
 />`}
               </pre>
               
               <h3 className="text-lg font-semibold text-text mb-4 mt-6">Result:</h3>
               <div className="max-w-2xl">
-                <Img 
-                  name="AI_DNA" 
+                <OptimizedImage 
+                  imageId="fusion_ai_ethics" 
                   alt="Abstract double helix made of circuitry representing AI DNA"
                 />
               </div>
@@ -57,8 +57,8 @@ export default function ImageDemoPage() {
             <div className="bg-panel border border-edge rounded-lg p-6">
               <h3 className="text-lg font-semibold text-text mb-4">Code:</h3>
               <pre className="bg-bg border border-edge rounded p-4 text-sm text-muted overflow-x-auto">
-{`<Img 
-  name="ai_technology" 
+{`<OptimizedImage 
+  imageId="home_hero_overlay" 
   alt="AI technology visualization"
   width={800}
   height={600}
@@ -68,8 +68,8 @@ export default function ImageDemoPage() {
               
               <h3 className="text-lg font-semibold text-text mb-4 mt-6">Result:</h3>
               <div className="max-w-2xl">
-                <Img 
-                  name="ai_technology" 
+                <OptimizedImage 
+                  imageId="home_hero_overlay" 
                   alt="AI technology visualization"
                   width={800}
                   height={600}
@@ -87,8 +87,8 @@ export default function ImageDemoPage() {
             <div className="bg-panel border border-edge rounded-lg p-6">
               <h3 className="text-lg font-semibold text-text mb-4">Code:</h3>
               <pre className="bg-bg border border-edge rounded p-4 text-sm text-muted overflow-x-auto">
-{`<Img 
-  name="ai_construction_bridge_banner" 
+{`<OptimizedImage 
+  imageId="home_hero_main" 
   alt="Bridge construction scene augmented by AI overlays"
   priority={true}
   width={1200}
@@ -98,8 +98,8 @@ export default function ImageDemoPage() {
               
               <h3 className="text-lg font-semibold text-text mb-4 mt-6">Result:</h3>
               <div className="max-w-4xl">
-                <Img 
-                  name="ai_construction_bridge_banner" 
+                <OptimizedImage 
+                  imageId="home_hero_main" 
                   alt="Bridge construction scene augmented by AI overlays"
                   priority={true}
                   width={1200}
@@ -118,17 +118,17 @@ export default function ImageDemoPage() {
               <h3 className="text-lg font-semibold text-text mb-4">Code:</h3>
               <pre className="bg-bg border border-edge rounded p-4 text-sm text-muted overflow-x-auto">
 {`<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-  <Img name="data_sovereignty_badge" alt="Data sovereignty badge" />
-  <Img name="compliance_shield_premium" alt="Premium compliance shield" />
-  <Img name="ai_construction_bridge_banner" alt="Bridge construction scene" />
+  <OptimizedImage imageId="home_solution_badge" alt="Data sovereignty badge" />
+  <OptimizedImage imageId="home_solution_security" alt="Premium compliance shield" />
+  <OptimizedImage imageId="home_hero_main" alt="Bridge construction scene" />
 </div>`}
               </pre>
               
               <h3 className="text-lg font-semibold text-text mb-4 mt-6">Result:</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                  <Img name="data_sovereignty_badge" alt="Data sovereignty badge" />
-                  <Img name="compliance_shield_premium" alt="Premium compliance shield" />
-                  <Img name="ai_construction_bridge_banner" alt="Bridge construction scene" />
+                  <OptimizedImage imageId="home_solution_badge" alt="Data sovereignty badge" />
+                  <OptimizedImage imageId="home_solution_security" alt="Premium compliance shield" />
+                  <OptimizedImage imageId="home_hero_main" alt="Bridge construction scene" />
               </div>
             </div>
           </section>
@@ -152,22 +152,22 @@ export default function ImageDemoPage() {
 
                 <h3>2. Use the Component</h3>
                 <pre>
-{`import Img from '@/components/Img';
+{`import OptimizedImage from '@/components/OptimizedImage';
 
 // Basic usage
-<Img name="AI_DNA" alt="Abstract double helix made of circuitry representing AI DNA" />
+<OptimizedImage imageId="fusion_ai_ethics" alt="Abstract double helix made of circuitry representing AI DNA" />
 
 // With custom dimensions
-<Img 
-  name="ai_technology" 
+<OptimizedImage 
+  imageId="home_hero_overlay" 
   alt="AI technology visualization"
   width={800} 
   height={600} 
 />
 
 // Priority loading for above-the-fold images
-<Img 
-  name="hero-image" 
+<OptimizedImage 
+  imageId="home_hero_main" 
   alt="Hero image description"
   priority={true} 
 />`}

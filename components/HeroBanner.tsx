@@ -3,12 +3,15 @@
 import { useEffect, useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import Link from "next/link";
-import { IMAGES } from "@/src/app/lib/imagery";
+import { LOCKED_CONTENT } from "@/lib/content-lock";
+import { IMAGES, ImageId } from "@/lib/imagery";
 import HeroParallax from "./HeroParallax";
+import OptimizedImage from "@/components/OptimizedImage";
 
 type Props = {
-  title: string;
-  subtitle: string;
+  // Optional override props - if not provided, uses locked content
+  title?: string;
+  subtitle?: string;
   primaryCta?: {
     label: string;
     to: string;
@@ -17,47 +20,50 @@ type Props = {
     label: string;
     to: string;
   };
-  imageId?: string;
-  overlayImageId?: string;
+  imageId?: ImageId;
+  overlayImageId?: ImageId;
   backdrop?: "parallax" | "static";
   respectReducedMotion?: boolean;
-  // Legacy props for backward compatibility
-  src?: string;
-  overlaySrc?: string;
 };
 
 export default function HeroBanner({ 
-  title, 
-  subtitle, 
-  primaryCta, 
+  title,
+  subtitle,
+  primaryCta,
   secondaryCta,
   imageId,
   overlayImageId,
-  backdrop = "static",
-  respectReducedMotion = true,
-  // Legacy props
-  src,
-  overlaySrc
+  backdrop,
+  respectReducedMotion
 }: Props) {
+  // Use locked content as defaults, allow props to override
+  const hero = LOCKED_CONTENT.home.hero;
+  const finalTitle = title || hero.title;
+  const finalSubtitle = subtitle || hero.subtitle;
+  const finalPrimaryCta = primaryCta || hero.primaryCta;
+  const finalSecondaryCta = secondaryCta || hero.secondaryCta;
+  const finalImageId = imageId || hero.imageId;
+  const finalOverlayImageId = overlayImageId || hero.overlayImageId;
+  const finalBackdrop = backdrop || hero.backdrop;
+  const finalRespectReducedMotion = respectReducedMotion !== undefined ? respectReducedMotion : hero.respectReducedMotion;
   const [mounted, setMounted] = useState(false);
   const prefersReducedMotion = useReducedMotion();
 
   useEffect(() => setMounted(true), []);
 
-  // Resolve image sources from imageId or fall back to legacy src
-  const getImageSrc = (id?: string, fallbackSrc?: string) => {
-    if (id && IMAGES[id as keyof typeof IMAGES]) {
-      const imageFile = IMAGES[id as keyof typeof IMAGES];
-      return `/imagery/${imageFile}`;
+  // Resolve image data from imageId using IMAGES manifest
+  const getImageData = (id?: ImageId) => {
+    if (id && IMAGES[id]) {
+      return IMAGES[id];
     }
-    return fallbackSrc || '';
+    return null;
   };
 
-  const mainImageSrc = getImageSrc(imageId, src);
-  const overlayImageSrc = getImageSrc(overlayImageId, overlaySrc);
+  const mainImageData = getImageData(finalImageId as ImageId);
+  const overlayImageData = getImageData(finalOverlayImageId as ImageId);
   
   // Determine if we should use parallax
-  const useParallax = backdrop === "parallax" && !prefersReducedMotion && respectReducedMotion;
+  const useParallax = finalBackdrop === "parallax" && !prefersReducedMotion && finalRespectReducedMotion;
 
   if (!mounted) {
     return (
@@ -65,10 +71,10 @@ export default function HeroBanner({
         <div className="container-wrap flex items-center min-h-screen">
           <div className="max-w-5xl mx-auto text-center">
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold leading-[0.9] mb-8">
-              <span className="gradient-text">{title}</span>
+              <span className="gradient-text">{finalTitle}</span>
             </h1>
             <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed mb-12">
-              {subtitle}
+              {finalSubtitle}
             </p>
           </div>
         </div>
@@ -80,25 +86,26 @@ export default function HeroBanner({
     <section className="relative min-h-screen w-full overflow-hidden bg-gradient-to-br from-gray-900 via-gray-800 to-black">
       {/* Background Image */}
       <div className="absolute inset-0">
-        {useParallax && overlayImageSrc ? (
+        {useParallax && overlayImageData ? (
           <HeroParallax 
             baseId={imageId || ''} 
             overlayId={overlayImageId || ''} 
           />
         ) : (
           <>
-            {mainImageSrc && (
-              <img 
-                src={mainImageSrc}
-                alt=""
-                className="w-full h-full object-cover"
+            {mainImageData && (
+              <OptimizedImage 
+                imageId={finalImageId as ImageId}
+                alt="Hero background"
+                className="w-full h-full"
+                priority
               />
             )}
-            {overlayImageSrc && !prefersReducedMotion && (
-              <img 
-                src={overlayImageSrc}
-                alt=""
-                className="absolute inset-0 w-full h-full object-cover opacity-35"
+            {overlayImageData && !prefersReducedMotion && (
+              <OptimizedImage 
+                imageId={finalOverlayImageId as ImageId}
+                alt="Hero overlay"
+                className="absolute inset-0 w-full h-full opacity-35"
               />
             )}
           </>
@@ -127,7 +134,7 @@ export default function HeroBanner({
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <span className="gradient-text">{title}</span>
+            <span className="gradient-text">{finalTitle}</span>
           </motion.h1>
           
           <motion.p 
@@ -136,24 +143,24 @@ export default function HeroBanner({
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            {subtitle}
+            {finalSubtitle}
           </motion.p>
           
-          {(primaryCta || secondaryCta) && (
+          {(finalPrimaryCta || finalSecondaryCta) && (
             <motion.div 
               className="flex flex-col sm:flex-row gap-6 justify-center items-center"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
             >
-              {primaryCta && (
-                <Link href={primaryCta.to} className="btn btn-gold px-8 py-4 text-lg font-semibold min-w-[200px]">
-                  {primaryCta.label}
+              {finalPrimaryCta && (
+                <Link href={finalPrimaryCta.to} className="btn btn-gold px-8 py-4 text-lg font-semibold min-w-[200px]">
+                  {finalPrimaryCta.label}
                 </Link>
               )}
-              {secondaryCta && (
-                <Link href={secondaryCta.to} className="btn btn-ghost px-8 py-4 text-lg font-semibold min-w-[200px]">
-                  {secondaryCta.label}
+              {finalSecondaryCta && (
+                <Link href={finalSecondaryCta.to} className="btn btn-ghost px-8 py-4 text-lg font-semibold min-w-[200px]">
+                  {finalSecondaryCta.label}
                 </Link>
               )}
             </motion.div>

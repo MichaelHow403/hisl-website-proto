@@ -2,64 +2,74 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { LOCKED_CONTENT } from "@/lib/content-lock";
 
 type Props = {
-  title: string;
-  primary: string;
-  to: string;
-  subtitle?: string;
+  title?: string;
+  primary?: string;
+  to?: string;
   secondary?: string;
   secondaryTo?: string;
 };
 
 export default function BigCTA({ 
-  title, 
-  primary, 
-  to, 
-  subtitle,
+  title,
+  primary,
+  to,
   secondary,
-  secondaryTo 
+  secondaryTo
 }: Props) {
+  // Use locked content as defaults
+  const ctaData = LOCKED_CONTENT.home.cta_contact;
+  const finalTitle = title || ctaData.title;
+  const finalPrimary = primary || ctaData.primary;
+  const finalTo = to || ctaData.to;
+
   return (
-    <section className="py-20 bg-gradient-to-br from-panel to-bg relative overflow-hidden">
-      {/* Background decoration */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-10 left-10 w-32 h-32 rounded-full bg-aiGreen/20 blur-3xl" />
-        <div className="absolute bottom-10 right-10 w-40 h-40 rounded-full bg-brandGold/20 blur-3xl" />
-      </div>
-      
-      <div className="container-wrap relative z-10">
-        <motion.div
+    <section className="py-20 bg-gradient-to-br from-gray-900 via-gray-800 to-black">
+      <div className="container-wrap">
+        <motion.div 
           className="text-center max-w-4xl mx-auto"
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="text-4xl md:text-5xl font-spectral font-semibold mb-6">
-            {title}
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-8">
+            <span className="gradient-text">{finalTitle}</span>
           </h2>
           
-          {subtitle && (
-            <p className="text-lg text-muted mb-10 max-w-2xl mx-auto">
-              {subtitle}
-            </p>
-          )}
-          
-          <motion.div
-            className="flex flex-col sm:flex-row gap-4 justify-center"
+          <motion.div 
+            className="flex flex-col sm:flex-row gap-6 justify-center items-center"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <Link href={to} className="btn btn-gold px-10 py-4 text-lg font-semibold">
-              {primary}
+            <Link 
+              href={finalTo} 
+              className="btn btn-gold px-12 py-4 text-xl font-semibold min-w-[240px] transform hover:scale-105 transition-transform"
+            >
+              {finalPrimary}
             </Link>
             
             {secondary && secondaryTo && (
-              <Link href={secondaryTo} className="btn btn-ghost px-10 py-4 text-lg">
+              <Link 
+                href={secondaryTo} 
+                className="btn btn-ghost px-12 py-4 text-xl font-semibold min-w-[240px]"
+              >
                 {secondary}
               </Link>
             )}
+          </motion.div>
+          
+          <motion.div 
+            className="mt-8 text-center"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+          >
+            <p className="text-muted text-sm">
+              Ready to build with sovereign AI? Let's start the conversation.
+            </p>
           </motion.div>
         </motion.div>
       </div>

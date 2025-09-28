@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import { useState } from 'react';
-import { IMAGERY, getImageInfo, hasImage } from '@/lib/imagery';
+import { IMAGES, ImageId } from '@/lib/imagery';
 
 interface ImgProps {
   name: string;
@@ -18,8 +18,8 @@ interface ImgProps {
 export default function Img({
   name,
   alt,
-  width = 1200,
-  height = 800,
+  width,
+  height,
   className = '',
   priority = false,
   quality = 85,
@@ -28,19 +28,15 @@ export default function Img({
   const [isLoading, setIsLoading] = useState(true);
   const [hasError, setHasError] = useState(false);
 
-  // Generate defensive alt text
   const safeAlt = alt?.trim() || name;
+  const imageData = IMAGES[name as ImageId];
 
-  // Get image info from manifest
-  const imageInfo = getImageInfo(name);
-  
-  if (!imageInfo) {
+  if (!imageData) {
     if (process.env.NODE_ENV === 'development') {
-      console.warn(`Img: Image "${name}" not found in manifest. Available images:`, Object.keys(IMAGERY));
+      console.warn(`Img: Image "${name}" not found in manifest. Available images:`, Object.keys(IMAGES));
     }
-    
     return (
-      <div 
+      <div
         className={`relative overflow-hidden bg-panel border border-edge flex items-center justify-center ${className}`}
         style={{ width, height }}
       >
@@ -52,32 +48,25 @@ export default function Img({
     );
   }
 
-  // Determine which image to use
-  const useOptimized = imageInfo.src1200;
-  const imageSrc = useOptimized ? imageInfo.src1200! : imageInfo.fallback!;
-  const imageSrcSet = useOptimized && imageInfo.src2400 
-    ? `${imageInfo.src1200} 1200w, ${imageInfo.src2400} 2400w`
-    : undefined;
-  const blurDataURL = useOptimized ? imageInfo.blur : undefined;
-
-  // Log fallback in development
-  if (!useOptimized && process.env.NODE_ENV === 'development') {
-    console.warn(`Img: Using fallback image for "${name}" (optimized not available)`);
-  }
+  const finalImageSrc = imageData.src;
+  const finalImageSrc2x = imageData.src2x;
+  const placeholder = imageData.placeholder;
+  const imageWidth = width || imageData.width;
+  const imageHeight = height || imageData.height;
 
   return (
     <div className={`relative overflow-hidden ${className}`}>
       <Image
-        src={imageSrc}
+        src={finalImageSrc}
         alt={safeAlt}
-        width={width}
-        height={height}
+        width={imageWidth}
+        height={imageHeight}
         quality={quality}
         priority={priority}
-        placeholder={blurDataURL ? "blur" : "empty"}
-        blurDataURL={blurDataURL}
+        placeholder={placeholder ? "blur" : "empty"}
+        blurDataURL={placeholder}
         sizes={sizes}
-        srcSet={imageSrcSet}
+        srcSet={`${finalImageSrc} 1200w, ${finalImageSrc2x} 2400w`}
         className={`transition-opacity duration-300 ${
           isLoading ? 'opacity-0' : 'opacity-100'
         }`}
@@ -86,7 +75,7 @@ export default function Img({
           setHasError(false);
         }}
         onError={() => {
-          console.warn(`Failed to load image: ${name} (${imageSrc})`);
+          console.warn(`Failed to load image: ${name} (${finalImageSrc})`);
           setIsLoading(false);
           setHasError(true);
         }}
@@ -98,32 +87,9 @@ export default function Img({
           className="absolute inset-0 bg-panel animate-pulse flex items-center justify-center"
           style={{ width, height }}
         >
-          <div className="text-muted text-sm">
-            {!useOptimized ? 'Loading fallback...' : 'Loading...'}
-          </div>
-        </div>
-      )}
-      
-      {/* Fallback indicator (only in development) */}
-      {!useOptimized && process.env.NODE_ENV === 'development' && !isLoading && (
-        <div className="absolute top-1 right-1 bg-yellow-500 text-black text-xs px-1 py-0.5 rounded">
-          Fallback
+          <div className="text-muted text-sm">Loading...</div>
         </div>
       )}
     </div>
   );
-}
-
-// Export a helper function to generate image paths for manual use
-export function getOptimizedImagePath(name: string, variant: '1200' | '2400' | 'blur' = '1200'): string {
-  return `/optimized/${name}-${variant}.webp`;
-}
-
-// Export a helper function to get all variants of an image
-export function getOptimizedImageVariants(name: string) {
-  return {
-    src: getOptimizedImagePath(name, '1200'),
-    srcSet: `${getOptimizedImagePath(name, '1200')} 1200w, ${getOptimizedImagePath(name, '2400')} 2400w`,
-    blur: getOptimizedImagePath(name, 'blur')
-  };
 }

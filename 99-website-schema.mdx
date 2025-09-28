@@ -1,0 +1,178 @@
+---
+kicker: Single source of truth for HISL site
+media:
+  alt: Website schema diagram and flow
+  src: /images/hero-fallback.jpg
+  type: image
+title: Website Schema & Design Contract
+updated: 2025-09-15
+---
+
+# HISL Website Schema
+
+This document defines the **information architecture, design tokens,
+hero spec, globe page, and acceptance criteria** for the HISL website.\
+It acts as the **living contract** between content, design, and
+implementation.
+
+------------------------------------------------------------------------
+
+## Pass 1 --- Global Style System + Apple-Style Hero
+
+**Goal:** Apply a premium, Apple-style system across the site. Rebuild
+the Hero with layered imagery + scroll polish.\
+Do not remove sections --- refine and enhance.
+
+### Design Tokens (Tailwind)
+
+-   **Fonts:** Inter (UI) + Spectral (poem / display)
+-   **Colors:**
+    -   bg: `#0b1220`
+    -   panel: `#0f1828`
+    -   edge: `#1e2a42`
+    -   text: `#e8f0ff`
+    -   muted: `#a8b8d6`
+    -   gold: `#f6c650`
+    -   teal: `#39d7c9`
+-   **Layout:** container max-width `1200px`, generous paddings
+    (`px-6 md:px-8`, `py-24`)
+-   **Typography:**
+    -   H1 = clamp(40px, 6vw, 80px), tight tracking\
+    -   H2 = clamp(24px, 3vw, 40px)\
+    -   Body = 18--19px desktop
+
+### Buttons
+
+-   Primary: subtle gold gradient, rounded-xl, shadow, hover lift
+-   Secondary: ghost, edge border, soft glow hover
+
+### Hero (Landing)
+
+-   **Headline:** AI + Human... *with soul.*\
+-   **Subline:** Sovereign AI agents that respect your data, privacy,
+    and humanity.\
+-   **CTAs:**
+    -   Start a Demo → scrolls to chat preview\
+    -   Explore the Globe → routes to `/globe`
+-   **Visuals:**
+    -   `dna_bg.png` faint (opacity 6--10%)\
+    -   Radial vignette edges darkened\
+    -   Foreground parallax DNA/silhouette accent\
+    -   Mini-globe badge (240--300px) on right
+
+### MiniGlobe Teaser
+
+-   Lightweight Three.js canvas
+-   Slow autorotation
+-   Warmer, realistic shading + gold rim-light
+-   Ravens: `/images/raven_huginn.png` & `/images/raven_muninn.png` in
+    distinct slow orbits
+
+### Features Grid
+
+-   2--4 columns responsive, equal card heights
+-   Soft glass look (`bg-panel/70 + border + shadow`)
+-   Hover: raise + glow
+
+### Poem / Ethos
+
+-   Background: `reach_stars.png` (5--8% opacity) with radial mask
+-   Typography: Spectral, 20--22px, 1.5--1.6 line-height
+-   Poem text:\
+    \> Then prove we now with best endeavour, what from our efforts yet
+    may spring, he justly is despised who never, did thought to aid his
+    labours bring; for this is Art's true indication, when skill is
+    minister to thought, when types that are the mind's creation --- the
+    hand to perfect form has wrought.
+-   Caption: --- Family verse, adapted
+
+### Footer
+
+-   HISL logo + tagline: *Smart Solutions, Solid Foundations*
+-   Links: Substack, LinkedIn (open in new tab)
+-   Legal: © 2025 Howard Integritas Solutions Ltd · Reg. No. 786214
+
+------------------------------------------------------------------------
+
+## Pass 2 --- Full Globe Page
+
+**Goal:** Upgrade `/globe` into the marquee experience: realistic Earth,
+data-centre overlay, ravens, pulse-lines, prompt → output simulation.
+
+### Globe Visuals
+
+-   High-quality textures: `earth_daymap.jpg`, `earth_nightmap.jpg`,
+    `earth_clouds.jpg`
+-   Atmosphere shader (thin blue rim), subtle bloom
+-   Camera autorotate, touch/scroll drag
+
+### Ravens
+
+-   Huginn + Muninn (real gold assets) in distinct orbits (different
+    inclinations & speeds)
+-   Small gold trail dots, fading, no placeholder rings
+
+### Data-Centre Overlay
+
+-   Jurisdiction pins (EU, NA, LATAM, AFR, APAC, etc. full list
+    included)
+-   Hover/tap: label + provider
+-   Heatmap overlay (faint)
+
+### Prompt Simulation (IntegAI Mode)
+
+-   Left column: textarea, Run button, output panel
+-   On submit:
+    1.  Pick 2--3 hops (eg: Dublin → Frankfurt → Ashburn)\
+    2.  Animate pulse along path (ravens lead)\
+    3.  Return pulse to output box\
+    4.  Reveal text + metrics
+-   Metrics row: tokens, energy estimate (Wh), hops
+-   Badge: "IntegAI Simulation Mode" (with logo)
+-   JSON output includes: runId, promptHash, responseHash
+
+### API & Stability
+
+-   Defensive fetch w/ try/catch, timeout, graceful error
+-   If env key missing: show banner "Live responses offline; running
+    local simulation."
+-   UI names: "HISL Sovereign Assistant" / "IntegAI Simulation" (no
+    vendor branding)
+
+------------------------------------------------------------------------
+
+## Acceptance Criteria
+
+1.  Hero is premium, CTAs functional, scroll smooth.\
+2.  MiniGlobe bright, ravens orbit smoothly.\
+3.  Feature cards uniform & elegant.\
+4.  Poem renders exact text with faint star background.\
+5.  Footer logo + legal correct, links working.\
+6.  `/globe`: realistic Earth, atmosphere + clouds, ravens,
+    data-centres, pulse simulation.\
+7.  Reduced-motion disables parallax + heavy motion.\
+8.  Lighthouse ≥ 90 (mobile + desktop).\
+9.  Errors never blank screen; users see branded error.
+
+------------------------------------------------------------------------
+
+## Asset Map
+
+-   `/public/images/dna_bg.png` --- Hero accent\
+-   `/public/images/reach_stars.png` --- Poem backdrop\
+-   `/public/images/raven_huginn.png` --- Gold raven 1\
+-   `/public/images/raven_muninn.png` --- Gold raven 2\
+-   `/public/images/integai_logo.svg` --- Badge for IntegAI Simulation\
+-   `/public/assets/earth_daymap.jpg`\
+-   `/public/assets/earth_nightmap.jpg`\
+-   `/public/assets/earth_clouds.jpg`
+
+------------------------------------------------------------------------
+
+## Optional Micro-Interactions
+
+-   Sticky nav: blur + border + active section highlight\
+-   Features: staggered reveal, inner glow on hover\
+-   Buttons: 150--200ms spring, shadow shift\
+-   Typography: light tracking, optical margin tweaks\
+-   Reduced motion: turn off parallax, keep fades only

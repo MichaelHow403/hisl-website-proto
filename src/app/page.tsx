@@ -11,7 +11,7 @@ import SplitFeature from "@/components/sections/SplitFeature";
 import PoemPanel from "@/components/sections/PoemPanel"; // Import PoemPanel
 import BigCTA from "@/components/sections/BigCTA";
 import GlobalFooter from "@/components/sections/GlobalFooter";
-import Img from "@/components/Img"; // Import the new Img component
+import OptimizedImage from "@/components/OptimizedImage"; // Import the Sharp-optimized component
 import { POEM_LOCK, getLockedPoemText } from "@/lib/poem-lock"; // Import POEM_LOCK and getLockedPoemText
 import { loadMasterSectionsClient } from "@/app/lib/master-content-loader";
 import dynamic from 'next/dynamic';
@@ -333,15 +333,15 @@ export default function Home() {
               Advanced AI infrastructure built for industrial safety and operational excellence
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <Img
-                name="AI_DNA"
-                alt="Abstract double helix made of circuitry representing AI DNA"
+              <OptimizedImage
+                imageId="fusion_ai_ethics"
+                alt="AI ethics and fusion visualization"
                 width={600}
                 height={400}
                 className="rounded-xl shadow-lg"
               />
-              <Img 
-                name="ai_technology" 
+              <OptimizedImage 
+                imageId="home_hero_overlay" 
                 alt="AI technology visualization"
                 width={600}
                 height={400}

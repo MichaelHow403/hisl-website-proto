@@ -2,23 +2,34 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import Img from "@/components/Img";
+import { LOCKED_CONTENT } from "@/lib/content-lock";
+import { IMAGES, ImageId } from "@/lib/imagery";
+import OptimizedImage from "@/components/OptimizedImage";
 
 type Props = {
-  title: string;
-  bullets: string[];
+  title?: string;
+  bullets?: string[];
   link?: string;
-  imageId?: string;
+  imageId?: ImageId;
+  leftImageId?: ImageId;
+  rightImageId?: ImageId;
   reverse?: boolean;
 };
 
 export default function SplitFeature({ 
-  title, 
-  bullets, 
+  title,
+  bullets,
   link,
   imageId,
+  leftImageId,
+  rightImageId,
   reverse = false 
 }: Props) {
+  // Use locked content as defaults for problem section
+  const problemData = LOCKED_CONTENT.home.problem;
+  const finalTitle = title || problemData.title;
+  const finalBullets = bullets || problemData.bullets;
+  const finalImageId = imageId || problemData.imageId;
   const content = (
     <div className="space-y-6">
       <motion.h2
@@ -27,7 +38,7 @@ export default function SplitFeature({
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
       >
-        {title}
+        {finalTitle}
       </motion.h2>
       
       <motion.ul
@@ -36,7 +47,7 @@ export default function SplitFeature({
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8, delay: 0.2 }}
       >
-        {bullets.map((bullet, index) => (
+        {finalBullets.map((bullet, index) => (
           <motion.li
             key={index}
             className="flex items-start gap-3"
@@ -64,14 +75,19 @@ export default function SplitFeature({
     </div>
   );
 
-  const image = imageId && (
+  const image = finalImageId && (
     <motion.div
       className="relative aspect-video rounded-xl overflow-hidden"
       initial={{ opacity: 0, scale: 0.95 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.8, delay: 0.4 }}
     >
-      <Img name={imageId} alt={title} sizes="(max-width: 768px) 100vw, 600px" />
+      <OptimizedImage 
+        imageId={finalImageId as ImageId} 
+        alt={finalTitle} 
+        className="w-full h-full"
+        sizes="(max-width: 768px) 100vw, 600px" 
+      />
     </motion.div>
   );
 

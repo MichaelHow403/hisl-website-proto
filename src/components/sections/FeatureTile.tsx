@@ -2,12 +2,13 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import Img from "@/components/Img";
+import OptimizedImage from "@/components/OptimizedImage";
+import { ImageId } from "@/lib/imagery";
 
 type Props = {
   title: string;
   link: string;
-  thumb: string;
+  thumb: ImageId;
   caption?: string;
   description?: string;
 };
@@ -30,9 +31,10 @@ export default function FeatureTile({
       <Link href={link} className="block">
         <div className="bg-panel border border-edge rounded-xl overflow-hidden hover:border-aiGreen/50 transition-all duration-300 hover:shadow-glow">
           <div className="relative aspect-video overflow-hidden">
-            <Img 
-              name={thumb} 
+            <OptimizedImage 
+              imageId={thumb} 
               alt={title}
+              className="w-full h-full"
               sizes="(max-width: 768px) 100vw, 400px"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />

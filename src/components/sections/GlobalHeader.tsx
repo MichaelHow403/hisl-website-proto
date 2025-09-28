@@ -3,7 +3,8 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import Img from "@/components/Img";
+import OptimizedImage from "@/components/OptimizedImage";
+import { ImageId } from "@/lib/imagery";
 
 type MenuItem = {
   label: string;
@@ -80,8 +81,8 @@ export default function GlobalHeader({
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-3">
-            <Img 
-              name="hisl_logo"
+            <OptimizedImage 
+              imageId="footer_logo_hisl"
               alt="HISL company logo"
               width={40}
               height={40}

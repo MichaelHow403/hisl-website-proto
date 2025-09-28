@@ -1,7 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Img from "@/components/Img";
+import OptimizedImage from "@/components/OptimizedImage";
+import { ImageId } from "@/lib/imagery";
 
 type Props = {
   sectionTitle: string;
@@ -46,7 +47,13 @@ export default function FusionPrinciple({
           >
             <div className="flex items-start gap-6 mb-6">
               <div className="w-16 h-16 rounded-full overflow-hidden flex-shrink-0">
-                <Img name="michael_howardbio" alt="Michael Howard headshot" sizes="64px" />
+                <OptimizedImage 
+                  imageId="fusion_michael" 
+                  alt="Michael Howard headshot" 
+                  width={64}
+                  height={64}
+                  className="w-full h-full object-cover"
+                />
               </div>
               <div>
                 <h3 className="text-xl font-semibold text-text mb-2">

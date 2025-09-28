@@ -3,27 +3,38 @@
 import { useEffect, useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import Link from "next/link";
-import Img from "@/components/Img";
+import OptimizedImage from "@/components/OptimizedImage";
+import { LOCKED_CONTENT } from "@/lib/content-lock";
+import { ImageId } from "@/lib/imagery";
 
 type Props = {
-  headline: string;
-  subheadline: string;
-  primaryCTA: {
+  headline?: string;
+  subheadline?: string;
+  primaryCTA?: {
     text: string;
     href: string;
   };
-  secondaryCTA: {
+  secondaryCTA?: {
     text: string;
     href: string;
   };
+  imageId?: ImageId;
 };
 
 export default function HeroCosmic({ 
   headline, 
   subheadline, 
   primaryCTA, 
-  secondaryCTA 
+  secondaryCTA,
+  imageId
 }: Props) {
+  // Use locked content as defaults
+  const hero = LOCKED_CONTENT.home.hero;
+  const finalHeadline = headline || hero.title;
+  const finalSubheadline = subheadline || hero.subtitle;
+  const finalPrimaryCTA = primaryCTA || hero.primaryCta;
+  const finalSecondaryCTA = secondaryCTA || hero.secondaryCta;
+  const finalImageId = imageId || "home_hero_main" as ImageId;
   const prefersReduced = useReducedMotion();
   const [mounted, setMounted] = useState(false);
 
@@ -33,11 +44,10 @@ export default function HeroCosmic({
     <section className="relative min-h-screen w-full overflow-hidden bg-gradient-to-br from-gray-900 via-gray-800 to-black">
       {/* Space background with AI theme */}
       <div className="absolute inset-0">
-        <Img 
-          name="huma_ai_space"
+        <OptimizedImage 
+          imageId={finalImageId}
           alt="AI space background with neural networks"
-          className="w-full h-full object-cover"
-          fill
+          className="w-full h-full"
           priority
         />
         <div className="absolute inset-0 bg-gradient-to-br from-gray-900/80 via-gray-800/70 to-black/80 z-10" />
@@ -72,7 +82,7 @@ export default function HeroCosmic({
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <span className="gradient-text">{headline}</span>
+            <span className="gradient-text">{finalHeadline}</span>
           </motion.h1>
           
           <motion.p 
@@ -81,7 +91,7 @@ export default function HeroCosmic({
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            {subheadline}
+            {finalSubheadline}
           </motion.p>
           
           <motion.div 
@@ -90,12 +100,16 @@ export default function HeroCosmic({
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
           >
-            <Link href={primaryCTA.href} className="btn btn-gold px-8 py-4 text-lg font-semibold min-w-[200px]">
-              {primaryCTA.text}
-            </Link>
-            <Link href={secondaryCTA.href} className="btn btn-outline px-8 py-4 text-lg min-w-[200px]">
-              {secondaryCTA.text}
-            </Link>
+            {finalPrimaryCTA && (
+              <Link href={finalPrimaryCTA.to} className="btn btn-gold px-8 py-4 text-lg font-semibold min-w-[200px]">
+                {finalPrimaryCTA.label}
+              </Link>
+            )}
+            {finalSecondaryCTA && (
+              <Link href={finalSecondaryCTA.to} className="btn btn-outline px-8 py-4 text-lg min-w-[200px]">
+                {finalSecondaryCTA.label}
+              </Link>
+            )}
           </motion.div>
         </div>
       </div>
