@@ -5,20 +5,29 @@ import { motion, useReducedMotion } from "framer-motion";
 import Link from "next/link";
 import OptimizedImage from "@/components/OptimizedImage";
 import { LOCKED_CONTENT } from "@/lib/content-lock";
+import { loadMDXContent, parseMDXForComponent } from "@/lib/mdx-content";
 import { ImageId } from "@/lib/imagery";
 
 type Props = {
   headline?: string;
   subheadline?: string;
   primaryCTA?: {
-    text: string;
-    href: string;
+    label?: string;
+    text?: string;
+    to?: string;
+    href?: string;
   };
   secondaryCTA?: {
-    text: string;
-    href: string;
+    label?: string;
+    text?: string;
+    to?: string;
+    href?: string;
   };
   imageId?: ImageId;
+  overlayImageId?: ImageId;
+  // MDX enrichment
+  expandedContent?: string;
+  mdxContent?: any;
 };
 
 export default function HeroCosmic({ 
@@ -26,19 +35,41 @@ export default function HeroCosmic({
   subheadline, 
   primaryCTA, 
   secondaryCTA,
-  imageId
+  imageId,
+  overlayImageId,
+  expandedContent,
+  mdxContent
 }: Props) {
-  // Use locked content as defaults
-  const hero = LOCKED_CONTENT.home.hero;
-  const finalHeadline = headline || hero.title;
-  const finalSubheadline = subheadline || hero.subtitle;
-  const finalPrimaryCTA = primaryCTA || hero.primaryCta;
-  const finalSecondaryCTA = secondaryCTA || hero.secondaryCta;
-  const finalImageId = imageId || "home_hero_main" as ImageId;
   const prefersReduced = useReducedMotion();
   const [mounted, setMounted] = useState(false);
+  const [mdxData, setMdxData] = useState<any>(null);
 
-  useEffect(() => setMounted(true), []);
+  // Load MDX content on mount
+  useEffect(() => {
+    try {
+      const heroMDX = loadMDXContent('01-hero');
+      const parsedData = parseMDXForComponent(heroMDX);
+      setMdxData(parsedData);
+    } catch (error) {
+      console.error('Error loading hero MDX:', error);
+      // Fallback to locked content
+      const hero = LOCKED_CONTENT.home.hero;
+      setMdxData({
+        title: hero.title,
+        subtitle: hero.subtitle,
+        cta: hero.primaryCta,
+        media: { type: 'image', src: '', alt: '' }
+      });
+    }
+    setMounted(true);
+  }, []);
+
+  // Use MDX content as defaults, with props as overrides
+  const finalHeadline = headline || mdxData?.title || LOCKED_CONTENT.home.hero.title;
+  const finalSubheadline = subheadline || mdxData?.subtitle || LOCKED_CONTENT.home.hero.subtitle;
+  const finalPrimaryCTA = primaryCTA || mdxData?.cta || LOCKED_CONTENT.home.hero.primaryCta;
+  const finalSecondaryCTA = secondaryCTA || LOCKED_CONTENT.home.hero.secondaryCta;
+  const finalImageId = imageId || "home_hero_main" as ImageId;
 
   return (
     <section className="relative min-h-screen w-full overflow-hidden bg-gradient-to-br from-gray-900 via-gray-800 to-black">
@@ -50,6 +81,13 @@ export default function HeroCosmic({
           className="w-full h-full"
           priority
         />
+        {overlayImageId && (
+          <OptimizedImage 
+            imageId={overlayImageId}
+            alt="AI overlay visualization"
+            className="absolute inset-0 w-full h-full object-cover opacity-35"
+          />
+        )}
         <div className="absolute inset-0 bg-gradient-to-br from-gray-900/80 via-gray-800/70 to-black/80 z-10" />
         <div className="absolute inset-0 opacity-20">
           <div className="absolute inset-0" style={{
@@ -86,13 +124,27 @@ export default function HeroCosmic({
           </motion.h1>
           
           <motion.p 
-            className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed mb-12"
+            className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed mb-8"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
             {finalSubheadline}
           </motion.p>
+          
+          {/* Expanded MDX Content */}
+          {expandedContent && (
+            <motion.div 
+              className="max-w-4xl mx-auto mb-12"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+            >
+              <div className="prose prose-lg prose-invert max-w-none text-gray-300">
+                <div dangerouslySetInnerHTML={{ __html: expandedContent.replace(/\n/g, '<br />') }} />
+              </div>
+            </motion.div>
+          )}
           
           <motion.div 
             className="flex flex-col sm:flex-row gap-6 justify-center items-center"

@@ -131,3 +131,4 @@ export function isComponentAllowed(component: string): boolean {
   const allowedComponents = sectionRegistry.allowedComponents as string[];
   return allowedComponents.includes(component);
 }
+

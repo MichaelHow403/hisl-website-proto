@@ -4,3 +4,4 @@
   { "slug": "about/integai", "title": "IntegAI — Offline-first Orchestrator", "description": "Deterministic pipelines, artifacted outputs, and v1 contracts.", "og": { "imageId": "about_integai_main" } },
   { "slug": "poem", "title": "The Craftsman's Creed", "description": "Our philosophical anchor, rendered verbatim.", "og": { "imageId": "poem_backdrop" } }
 ]
+

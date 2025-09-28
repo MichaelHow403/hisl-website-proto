@@ -7,19 +7,14 @@ import PerfBadges from "@/components/sections/PerfBadges";
 import ApiContractsStrip from "@/components/sections/ApiContractsStrip";
 import AgentsMatrix from "@/components/sections/AgentsMatrix";
 import FeatureTile from "@/components/sections/FeatureTile";
-import FeatureGrid from "@/components/sections/FeatureGrid";
-import EnhancedFeatureGrid from "@/components/sections/EnhancedFeatureGrid";
-import TeaserCards from "@/components/sections/TeaserCards";
 import SplitFeature from "@/components/sections/SplitFeature";
-import EnhancedSplitFeature from "@/components/sections/EnhancedSplitFeature";
-import PoemPanel from "@/components/sections/PoemPanel"; // Import PoemPanel
+import PoemPanel from "@/components/sections/PoemPanel";
 import BigCTA from "@/components/sections/BigCTA";
 import GlobalFooter from "@/components/sections/GlobalFooter";
-import OptimizedImage from "@/components/OptimizedImage"; // Import the Sharp-optimized component
-import { POEM_LOCK, getLockedPoemText } from "@/lib/poem-lock"; // Import POEM_LOCK and getLockedPoemText
-import { LOCKED_CONTENT } from "@/lib/content-lock"; // Import LOCKED_CONTENT
-import { loadHybridHomeContent } from "@/lib/hybrid-content-loader"; // Import hybrid content loader
-import { loadMasterSectionsClient } from "@/app/lib/master-content-loader";
+import OptimizedImage from "@/components/OptimizedImage";
+import { POEM_LOCK, getLockedPoemText } from "@/lib/poem-lock";
+import { LOCKED_CONTENT } from "@/lib/content-lock";
+import { getHomePageMDXFiles, getComponentPropsFromMDX } from "@/lib/mdx-component-mapper";
 import dynamic from 'next/dynamic';
 import { Suspense } from 'react';
 import GlobeErrorBoundary from '@/components/globe/GlobeErrorBoundary';
@@ -37,8 +32,6 @@ const Globe = dynamic(() => import('@/components/globe/Globe'), {
   )
 });
 
-// Note: Metadata is handled by layout.tsx since this is now a client component
-
 export default function Home() {
   const poemText = getLockedPoemText();
   const [prompt, setPrompt] = useState('');
@@ -50,13 +43,26 @@ export default function Home() {
     responseTime: number;
   } | null>(null);
   const [aiProvider, setAiProvider] = useState<string>('');
-  const [hybridSections, setHybridSections] = useState<any[]>([]);
+  const [mdxSections, setMdxSections] = useState<any[]>([]);
 
-  // Load hybrid content on component mount
+  // Load MDX content on component mount
   useEffect(() => {
-    loadHybridHomeContent().then(sections => {
-      setHybridSections(sections);
-    });
+    const loadMDXSections = async () => {
+      const homePageFiles = getHomePageMDXFiles();
+      const sections = homePageFiles.map(file => {
+        try {
+          const props = getComponentPropsFromMDX(file, 'HeroCosmic'); // This will be dynamic based on file
+          return { file, props };
+        } catch (error) {
+          console.error(`Error loading MDX section ${file}:`, error);
+          return null;
+        }
+      }).filter(Boolean);
+      
+      setMdxSections(sections);
+    };
+
+    loadMDXSections();
   }, []);
 
   const handleSubmitPrompt = async () => {
@@ -104,101 +110,47 @@ export default function Home() {
     <main className="min-h-screen bg-gray-900 text-white">
       <GlobalHeader />
       
-      {/* Render Hybrid Sections */}
-      {hybridSections.map((section, index) => {
-        switch (section.component) {
-          case 'HeroCosmic':
-            return (
-              <HeroCosmic
-                key={index}
-                headline={section.props.headline}
-                subheadline={section.props.subheadline}
-                primaryCTA={section.props.primaryCTA}
-                secondaryCTA={section.props.secondaryCTA}
-                imageId={section.props.imageId}
-                overlayImageId={section.props.overlayImageId}
-                expandedContent={section.props.expandedContent}
-                mdxContent={section.props.mdxContent}
-              />
-            );
-          case 'SplitFeature':
-            return (
-              <EnhancedSplitFeature
-                key={index}
-                title={section.props.title}
-                bullets={section.props.bullets}
-                imageId={section.props.imageId}
-                leftImageId={section.props.leftImageId}
-                rightImageId={section.props.rightImageId}
-                detailedExplanations={section.props.detailedExplanations}
-                mdxContent={section.props.mdxContent}
-              />
-            );
-          case 'FeatureGrid':
-            return (
-              <EnhancedFeatureGrid
-                key={index}
-                intro={section.props.intro}
-                features={section.props.features}
-                brandStrip={section.props.brandStrip}
-                enhancedFeatures={section.props.enhancedFeatures}
-                mdxContent={section.props.mdxContent}
-              />
-            );
-          case 'PoemPanel':
-            return (
-              <section key={index} className="section-spacing bg-gray-800">
-                <PoemPanel
-                  title={section.props.title}
-                  author={section.props.author}
-                  text={section.props.text}
-                  align={section.props.align}
-                  imageId={section.props.imageId}
-                  footnote={section.props.footnote}
-                />
-              </section>
-            );
-          case 'TeaserCards':
-            return (
-              <section key={index} className="section-spacing bg-gray-800">
-                <div className="container-wrap">
-                  <TeaserCards cards={section.props.cards} />
-                </div>
-              </section>
-            );
-          case 'FeatureTile':
-            return (
-              <section key={index} className="section-spacing">
-                <FeatureTile
-                  title={section.props.title}
-                  caption={section.props.caption}
-                  link={section.props.link}
-                />
-              </section>
-            );
-          case 'BigCTA':
-            return (
-              <section key={index} className="section-spacing">
-                <BigCTA
-                  title={section.props.title}
-                  primary={section.props.primary}
-                  to={section.props.to}
-                />
-              </section>
-            );
-          default:
-            return null;
-        }
-      })}
+      {/* Hero Section - Load from 01-hero.mdx */}
+      <HeroCosmic />
 
-      {/* Additional Interactive Sections */}
-      {/* Performance Metrics Section - perf_badges_v1 */}
+      {/* Three-Column Problem Section - Load from 02-capabilities.mdx */}
+      <section className="section-spacing bg-gray-800">
+        <div className="container-wrap">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="text-center">
+              <div className="text-2xl font-bold text-red-400 mb-4">
+                Blind spots create risks.
+              </div>
+              <div className="text-lg text-gray-300">
+                Identify hazards before they occur.
+              </div>
+            </div>
+            <div className="text-center">
+              <div className="text-2xl font-bold text-yellow-400 mb-4">
+                Inefficiency drains resources.
+              </div>
+              <div className="text-lg text-gray-300">
+                Optimize performance in-line.
+              </div>
+            </div>
+            <div className="text-center">
+              <div className="text-2xl font-bold text-green-400 mb-4">
+                Sustainability is fragmented.
+              </div>
+              <div className="text-lg text-gray-300">
+                Measure what matters.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      {/* Performance Metrics Section */}
       <section className="section-spacing bg-gray-800">
         <PerfBadges 
-          ttftTargetMs={800}
-          p50TokPerS={40}
-          mode="offline-first"
-          note="Fast-path Gemma via llama.cpp; Mistral‑7B Q4_0 fallback"
+          ttftTargetMs={LOCKED_CONTENT.home.perf.ttftTargetMs}
+          p50TokPerS={LOCKED_CONTENT.home.perf.p50TokPerS}
+          mode={LOCKED_CONTENT.home.perf.mode}
         />
       </section>
 
@@ -351,6 +303,63 @@ export default function Home() {
             />
           </div>
         </div>
+      </section>
+
+      {/* Vision Statement - Load from 04-ethos.mdx */}
+      <section className="section-spacing bg-gray-800">
+        <PoemPanel 
+          title={POEM_LOCK.title}
+          author="— Michael Howard MCIOB, Founder HISL"
+          text={poemText}
+        />
+      </section>
+
+      {/* Core Principles */}
+      <section className="section-spacing">
+        <SplitFeature 
+          title={LOCKED_CONTENT.home.ethics.title}
+          bullets={LOCKED_CONTENT.home.ethics.bullets}
+          link="/about/integai"
+        />
+      </section>
+      
+      {/* Technology Showcase */}
+      <section className="section-spacing bg-gray-800">
+        <div className="container-wrap">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-4xl font-bold gradient-text mb-6">
+              Industrial Safety Technology
+            </h2>
+            <p className="text-xl text-gray-300 mb-12">
+              Advanced AI infrastructure built for industrial safety and operational excellence
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <OptimizedImage
+                imageId="fusion_ai_ethics"
+                alt="AI ethics and fusion visualization"
+                width={600}
+                height={400}
+                className="rounded-xl shadow-lg"
+              />
+              <OptimizedImage 
+                imageId="home_hero_overlay" 
+                alt="AI technology visualization"
+                width={600}
+                height={400}
+                className="rounded-xl shadow-lg"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      {/* Contact CTA */}
+      <section className="section-spacing">
+        <BigCTA 
+          title={LOCKED_CONTENT.home.ctaContact.title}
+          primary={LOCKED_CONTENT.home.ctaContact.primary}
+          to={LOCKED_CONTENT.home.ctaContact.to}
+        />
       </section>
       
       <GlobalFooter />
