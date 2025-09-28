@@ -1,0 +1,29 @@
+{
+  "slug": "globe",
+  "title": "Where your prompts go — Sovereign AI",
+  "sections": [
+    { "sectionId": "nav_primary_v1", "component": "GlobalHeader", "props": {} },
+    {
+      "sectionId": "hero_globe_v1",
+      "component": "HeroGlobe",
+      "props": {
+        "title": "Where your prompts go.",
+        "subtitle": "See the 9‑core agent pass and energy estimate for each answer.",
+        "autoplay": true,
+        "respectReducedMotion": true,
+        "baseImageId": "globe_base",
+        "sprites": ["globe_raven_huginn", "globe_raven_muninn"]
+      }
+    },
+    {
+      "sectionId": "prompt_console_v1",
+      "component": "PromptConsole",
+      "props": { "placeholder": "Ask anything…", "modelOptions": ["Gemma fast‑path", "Mistral‑7B fallback"], "showLatency": true, "maxTokens": 1024 }
+    },
+    { "sectionId": "arcs_visual_v1", "component": "PromptArcMap", "props": { "mode": "offline-first", "dataCenters": ["Lenovo host", "Edge cache"], "arcs": "prompt->planner->retriever->judge->executor", "toggle": "Agent pass" } },
+    { "sectionId": "energy_badge_v1", "component": "EnergyBadge", "props": { "baseWh": 0.3, "per100TokWh": 0.1, "co2FactorKgPerKWh": 0.233, "showEstimates": true } },
+    { "sectionId": "result_panel_v1", "component": "ResultPanel", "props": { "diffView": true, "provenance": true } },
+    { "sectionId": "demo_disclaimer_v1", "component": "InlineNote", "props": { "text": "Demo runs offline by default; online adapters are policy‑gated." } },
+    { "sectionId": "footer_v1", "component": "GlobalFooter", "props": {} }
+  ]
+}

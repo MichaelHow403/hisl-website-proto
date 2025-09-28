@@ -1,0 +1,9 @@
+{
+  "slug": "sectors/procurement",
+  "title": "Public Procurement — Transparent by default",
+  "sections": [
+    { "sectionId": "nav_primary_v1", "component": "GlobalHeader", "props": {} },
+    { "sectionId": "sector_features_v1", "component": "FeatureGrid", "props": { "features": [ { "title": "Procurement Agent", "desc": "Tender drafting, evaluation, compliance guardrails." }, { "title": "Anti‑Corruption Oversight Agent", "desc": "Anomaly detection, audit reporting." } ] } },
+    { "sectionId": "footer_v1", "component": "GlobalFooter", "props": {} }
+  ]
+}

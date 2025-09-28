@@ -1,0 +1,10 @@
+{
+  "slug": "sectors/construction",
+  "title": "Construction — Safer sites, smarter ops",
+  "sections": [
+    { "sectionId": "nav_primary_v1", "component": "GlobalHeader", "props": {} },
+    { "sectionId": "sector_intro_v1", "component": "HeroMinimal", "props": { "title": "Construction", "subtitle": "EHS, PMO, and BIM agents working as one." } },
+    { "sectionId": "sector_features_v1", "component": "FeatureGrid", "props": { "features": [ { "title": "EHS Agent", "desc": "Site safety & compliance checks, risk triage." }, { "title": "Project PM Agent", "desc": "Scheduling, resource planning, delivery rhythm." }, { "title": "BIM/Design Agent", "desc": "Drawing QA, cost/scope deltas, handover packs." } ] } },
+    { "sectionId": "footer_v1", "component": "GlobalFooter", "props": {} }
+  ]
+}

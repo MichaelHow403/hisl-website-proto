@@ -1,0 +1,23 @@
+{
+  "slug": "about/integai",
+  "title": "About IntegAI",
+  "sections": [
+    { "sectionId": "nav_primary_v1", "component": "GlobalHeader", "props": {} },
+    {
+      "sectionId": "intro_platform_v1",
+      "component": "SplitFeature",
+      "props": {
+        "title": "Sovereign, offline‑first orchestration.",
+        "bullets": [
+          "9‑core agent graph for deterministic pipelines.",
+          "Local indexes first (Chroma + Neo4j); no public web by default.",
+          "Artifact everything: .integpkg with checksums and provenance."
+        ],
+        "imageId": "about_integai_main"
+      }
+    },
+    { "sectionId": "perf_targets_v1", "component": "PerfBadges", "props": { "ttftTargetMs": 800, "p50TokPerS": 40, "note": "Fast‑path Gemma via llama.cpp" } },
+    { "sectionId": "api_contracts_v1", "component": "ApiContractsStrip", "props": { "endpoints": ["/v1/site/page", "/v1/site/menu", "/v1/site/search", "/v1/site/seo", "/v1/site/forms/{id}"], "note": "Immutable v1 contracts." } },
+    { "sectionId": "footer_v1", "component": "GlobalFooter", "props": {} }
+  ]
+}

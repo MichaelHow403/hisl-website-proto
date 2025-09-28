@@ -1,0 +1,9 @@
+{
+  "slug": "sectors/insurance",
+  "title": "Insurance — Faster ops, lower fraud",
+  "sections": [
+    { "sectionId": "nav_primary_v1", "component": "GlobalHeader", "props": {} },
+    { "sectionId": "sector_features_v1", "component": "FeatureGrid", "props": { "features": [ { "title": "Ops Agent", "desc": "Claims processing & policy admin." }, { "title": "Fraud Detection Agent", "desc": "Anomaly & fraud detection." } ] } },
+    { "sectionId": "footer_v1", "component": "GlobalFooter", "props": {} }
+  ]
+}

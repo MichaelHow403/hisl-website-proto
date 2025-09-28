@@ -18,3 +18,4 @@ export async function GET(request: NextRequest) {
     message: `Found ${availableProviders.length} configured AI providers: ${availableProviders.join(', ')}`
   });
 }
+

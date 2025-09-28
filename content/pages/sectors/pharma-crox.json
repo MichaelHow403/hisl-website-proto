@@ -1,0 +1,12 @@
+{
+  "slug": "sectors/pharma-crox",
+  "title": "CROx — Clinical R&D Orchestrator",
+  "sections": [
+    { "sectionId": "nav_primary_v1", "component": "GlobalHeader", "props": {} },
+    { "sectionId": "crox_hero_v1", "component": "HeroSplit", "props": { "title": "CROx — Clinical R&D Orchestrator", "subtitle": "Protocol → Patients → KPIs → Audit", "cta": "Request demo" } },
+    { "sectionId": "crox_features_v1", "component": "FeatureColumns", "props": { "items": ["Protocol Copilot (drafts & diffs; amendment risk)", "Recruitment & Retention Intelligence", "Ops Unifier (10–20 vendor systems → one surface)", "Regulatory & CSR Drafting (traceable citations)", "Patient Monitoring Hub (wearables/ePRO)", "KPI Dashboard (amendment cost, velocity, ROI)"] } },
+    { "sectionId": "crox_kpis_v1", "component": "KPIGrid", "props": { "metrics": ["Amendment rate↓", "Recruitment velocity↑", "Dropout rate↓", "CSR drafting cycle↓", "ROI↑"] } },
+    { "sectionId": "crox_auditability_v1", "component": "ProofBlocks", "props": { "bullets": ["Traceable citations", ".integpkg artifacts", "HITL gates via Judge"], "link": "/about/integai" } },
+    { "sectionId": "footer_v1", "component": "GlobalFooter", "props": {} }
+  ]
+}

@@ -1,0 +1,111 @@
+{
+  "slug": "home",
+  "title": "HISL — Human-first Industrial Intelligence",
+  "sections": [
+    {
+      "sectionId": "nav_primary_v1",
+      "component": "GlobalHeader",
+      "props": { "logo": "footer_logo_hisl", "menu": { "primary": ["/", "/about", "/sectors", "/agents", "/globe", "/news", "/contact"] } }
+    },
+    {
+      "sectionId": "hero_industrial_v1",
+      "component": "HeroBanner",
+      "props": {
+        "title": "Industrial intelligence that keeps people safe — and operations sustainable.",
+        "subtitle": "Sovereign AI that runs offline-first. Auditable pipelines. Human-in-the-loop by design.",
+        "primaryCta": { "label": "Start a Demo", "to": "/contact" },
+        "secondaryCta": { "label": "Where your prompts go", "to": "/globe" },
+        "imageId": "home_hero_main",
+        "overlayImageId": "home_hero_overlay",
+        "backdrop": "parallax",
+        "respectReducedMotion": true
+      }
+    },
+    {
+      "sectionId": "perf_badges_v1",
+      "component": "PerfBadges",
+      "props": {
+        "ttftTargetMs": 800,
+        "p50TokPerS": 40,
+        "mode": "offline-first",
+        "note": "Fast-path Gemma via llama.cpp; Mistral‑7B Q4_0 fallback"
+      }
+    },
+    {
+      "sectionId": "problem_panel_v1",
+      "component": "SplitFeature",
+      "props": {
+        "title": "Blind spots become risks. Drift costs money. Sustainability stalls.",
+        "bullets": [
+          "Paperwork & siloed tools hide hazards and waste.",
+          "Operational drift creeps in when data isn't joined-up.",
+          "Sustainability targets need transparent, trusted metrics."
+        ],
+        "imageId": "home_problem_main"
+      }
+    },
+    {
+      "sectionId": "solution_grid_v1",
+      "component": "FeatureGrid",
+      "props": {
+        "intro": "One surface for content, search, forms, and publishing — owned by IntegAI.",
+        "features": [
+          { "title": "Offline‑first RAG", "desc": "Obsidian → E5-small-v2 (GGUF) → Chroma + Neo4j. No external calls by default.", "iconId": "globe.svg" },
+          { "title": "Deterministic Agents", "desc": "9‑core graph: Planner, Retriever, Judge, Executor, Memory, Safety, Tools, Observer, Publisher.", "iconId": "file.svg" },
+          { "title": "Immutable Artifacts", "desc": "All substantial outputs are packaged as .integpkg to MinIO with checksums.", "iconId": "window.svg" },
+          { "title": "Idempotent Forms", "desc": "Every POST uses Idempotency‑Key; no duplicates, ever.", "iconId": "home_solution_security" },
+          { "title": "Data Sovereignty", "desc": "NGINX + Keycloak + Vault front‑door; air‑gap by policy.", "iconId": "home_solution_badge" }
+        ],
+        "brandStrip": ["HISL_Logo.jpeg", "integai_logo.png"]
+      }
+    },
+    {
+      "sectionId": "ethics_sovereignty_v1",
+      "component": "SplitFeature",
+      "props": {
+        "title": "Sovereign by design.",
+        "bullets": [
+          "Agentic graph with human gates (Judge, Safety).",
+          "Strict enterprise policy: no online fetch without explicit allow.",
+          "Traceable outputs with provenance and audit trails."
+        ],
+        "leftImageId": "fusion_michael",
+        "rightImageId": "fusion_ai_ethics"
+      }
+    },
+    {
+      "sectionId": "poem_panel_v1",
+      "component": "PoemPanel",
+      "props": {
+        "title": "",
+        "author": "The Craftsman's Creed",
+        "text": "Then prove we now with best endevour, what from our efforts yet may spring; he justly is dispised who never, did thought to aide his labours bring; for this is arts true indication - when skill is minister to thought, when types that are the minds creation - the hand to perfect form has wrought",
+        "align": "center",
+        "imageId": "poem_backdrop",
+        "footnote": "Locked verbatim; guarded by SHA‑256 in build."
+      }
+    },
+    {
+      "sectionId": "about_teasers_v1",
+      "component": "TeaserCards",
+      "props": {
+        "cards": [
+          { "title": "About Michael", "body": "From hands‑on build to sovereign AI.", "to": "/about/michael", "imageId": "about_teaser_michael" },
+          { "title": "About IntegAI", "body": "Offline‑first orchestration for websites & ops.", "to": "/about/integai", "imageId": "about_teaser_integai" }
+        ]
+      }
+    },
+    { "sectionId": "globe_teaser_v1", "component": "FeatureTile", "props": { "title": "Where your prompts go", "caption": "Planner → Retriever → Judge → Executor, visualized.", "link": "/globe" } },
+    { "sectionId": "news_teaser_v1", "component": "FeatureTile", "props": { "title": "Live News & Trends", "caption": "Signal over noise.", "link": "/news" } },
+    { "sectionId": "cta_contact_v1", "component": "BigCTA", "props": { "title": "Build with IntegAI", "primary": "Talk to us", "to": "/contact" } },
+    {
+      "sectionId": "footer_v1",
+      "component": "GlobalFooter",
+      "props": {
+        "logos": ["footer_logo_hisl", "footer_logo_integai"],
+        "links": { "primary": ["/about", "/sectors", "/agents", "/globe", "/news", "/contact"], "legal": ["/legal/privacy", "/legal/terms"] },
+        "accentImageId": "footer_accent"
+      }
+    }
+  ]
+}

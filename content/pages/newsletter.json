@@ -1,0 +1,9 @@
+{
+  "slug": "newsletter",
+  "title": "Newsletter",
+  "sections": [
+    { "sectionId": "nav_primary_v1", "component": "GlobalHeader", "props": {} },
+    { "sectionId": "newsletter_form_v1", "component": "Form", "props": { "formId": "newsletter", "fields": ["email"], "submitLabel": "Subscribe", "idempotent": true } },
+    { "sectionId": "footer_v1", "component": "GlobalFooter", "props": {} }
+  ]
+}

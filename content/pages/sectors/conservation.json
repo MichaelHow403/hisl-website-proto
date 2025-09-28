@@ -1,0 +1,9 @@
+{
+  "slug": "sectors/conservation",
+  "title": "Conservation / SPAB — Respecting heritage",
+  "sections": [
+    { "sectionId": "nav_primary_v1", "component": "GlobalHeader", "props": {} },
+    { "sectionId": "sector_features_v1", "component": "FeatureGrid", "props": { "features": [ { "title": "Heritage Preservation Agent", "desc": "Restoration planning, asset scans." }, { "title": "Planning Approvals Agent", "desc": "Permits & SPAB guidance workflows." } ] } },
+    { "sectionId": "footer_v1", "component": "GlobalFooter", "props": {} }
+  ]
+}

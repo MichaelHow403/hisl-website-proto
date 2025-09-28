@@ -1,0 +1,9 @@
+{
+  "slug": "careers",
+  "title": "Careers",
+  "sections": [
+    { "sectionId": "nav_primary_v1", "component": "GlobalHeader", "props": {} },
+    { "sectionId": "careers_intro_v1", "component": "HeroMinimal", "props": { "title": "Build sovereign AI with us.", "subtitle": "We hire for craft, care, and clarity." } },
+    { "sectionId": "footer_v1", "component": "GlobalFooter", "props": {} }
+  ]
+}

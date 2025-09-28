@@ -1,0 +1,36 @@
+{
+  "slug": "agents",
+  "title": "Agents Directory",
+  "sections": [
+    { "sectionId": "nav_primary_v1", "component": "GlobalHeader", "props": {} },
+    {
+      "sectionId": "agents_grid_v1",
+      "component": "AgentCards",
+      "props": {
+        "agents": [
+          { "name": "EHS Agent", "sector": "Construction" },
+          { "name": "Project PM Agent", "sector": "Construction" },
+          { "name": "BIM/Design Agent", "sector": "Construction" },
+          { "name": "ESG Agent", "sector": "Environmental" },
+          { "name": "Sustainability Metrics Agent", "sector": "Environmental" },
+          { "name": "Heritage Preservation Agent", "sector": "Conservation" },
+          { "name": "Planning Approvals Agent", "sector": "Conservation" },
+          { "name": "CROx", "sector": "Pharma" },
+          { "name": "Procurement Agent", "sector": "Public Procurement" },
+          { "name": "Anti-Corruption Oversight Agent", "sector": "Public Procurement" },
+          { "name": "Crop Monitoring Agent", "sector": "Agriculture" },
+          { "name": "Agri-Supply Agent", "sector": "Agriculture" },
+          { "name": "Market Signals Agent", "sector": "Trader/Economics" },
+          { "name": "Risk & Portfolio Agent", "sector": "Trader/Economics" },
+          { "name": "Clinical Workflow Agent", "sector": "Healthcare" },
+          { "name": "Pet Care Agent", "sector": "Healthcare" },
+          { "name": "Ops Agent", "sector": "Insurance" },
+          { "name": "Fraud Detection Agent", "sector": "Insurance" },
+          { "name": "Wizard Agent", "sector": "Custom" },
+          { "name": "Child Agents", "sector": "Custom" }
+        ]
+      }
+    },
+    { "sectionId": "footer_v1", "component": "GlobalFooter", "props": {} }
+  ]
+}

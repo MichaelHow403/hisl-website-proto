@@ -1,0 +1,9 @@
+{
+  "slug": "legal/privacy",
+  "title": "Privacy Policy",
+  "sections": [
+    { "sectionId": "nav_primary_v1", "component": "GlobalHeader", "props": {} },
+    { "sectionId": "privacy_body_v1", "component": "LegalDoc", "props": { "mdx": ["We collect only what we need to respond to you.", "Forms are idempotent and stored as normalized records or artifacts.", "We do not sell your data. You can request deletion via /contact."] } },
+    { "sectionId": "footer_v1", "component": "GlobalFooter", "props": {} }
+  ]
+}

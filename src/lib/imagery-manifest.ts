@@ -42,3 +42,4 @@ export const IMAGERY_MANIFEST = {
 } as const;
 
 export type AssetId = keyof typeof IMAGERY_MANIFEST;
+

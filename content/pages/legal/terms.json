@@ -1,0 +1,9 @@
+{
+  "slug": "legal/terms",
+  "title": "Terms of Use",
+  "sections": [
+    { "sectionId": "nav_primary_v1", "component": "GlobalHeader", "props": {} },
+    { "sectionId": "terms_body_v1", "component": "LegalDoc", "props": { "mdx": ["Use of this site implies agreement to fair and lawful use.", "Content is provided as-is; availability may change.", "All trademarks are property of their respective owners."] } },
+    { "sectionId": "footer_v1", "component": "GlobalFooter", "props": {} }
+  ]
+}

@@ -1,0 +1,6 @@
+[
+  { "slug": "home", "title": "HISL — Human-first Industrial Intelligence", "description": "Sovereign, offline-first AI that keeps people safe and operations sustainable.", "og": { "imageId": "home_hero_main" } },
+  { "slug": "globe", "title": "Where your prompts go — Sovereign AI", "description": "Watch the agent pass and energy estimate per answer.", "og": { "imageId": "globe_base" } },
+  { "slug": "about/integai", "title": "IntegAI — Offline-first Orchestrator", "description": "Deterministic pipelines, artifacted outputs, and v1 contracts.", "og": { "imageId": "about_integai_main" } },
+  { "slug": "poem", "title": "The Craftsman's Creed", "description": "Our philosophical anchor, rendered verbatim.", "og": { "imageId": "poem_backdrop" } }
+]

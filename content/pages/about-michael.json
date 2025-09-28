@@ -1,0 +1,21 @@
+{
+  "slug": "about/michael",
+  "title": "About Michael Howard",
+  "sections": [
+    { "sectionId": "nav_primary_v1", "component": "GlobalHeader", "props": {} },
+    {
+      "sectionId": "founder_story_v1",
+      "component": "BioLongform",
+      "props": {
+        "portraitId": "about_michael_portrait",
+        "backdropId": "about_michael_timeline",
+        "mdx": [
+          "Michael founded HISL to join practical construction wisdom with sovereign AI.",
+          "His focus: safer sites, clearer decisions, and measurable sustainability.",
+          "HISL's work is anchored in hands‑on craft and accountable engineering."
+        ]
+      }
+    },
+    { "sectionId": "footer_v1", "component": "GlobalFooter", "props": {} }
+  ]
+}

@@ -15,7 +15,10 @@
     "lighthouse": "lhci autorun",
     "lighthouse:local": "node scripts/lighthouse-test.js http://localhost:3000",
     "lighthouse:vercel": "node scripts/lighthouse-test.js https://hisl-website-proto.vercel.app",
-    "lighthouse:strict": "lhci autorun --config=lighthouserc.strict.json"
+    "lighthouse:strict": "lhci autorun --config=lighthouserc.strict.json",
+    "qa:imagery": "node scripts/test-imagery-ids.mjs",
+    "qa:links": "node scripts/audit-links.mjs",
+    "qa:images": "node scripts/imaging.mjs"
   },
   "dependencies": {
     "@next/mdx": "^15.5.3",

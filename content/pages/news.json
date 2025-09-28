@@ -1,0 +1,12 @@
+{
+  "slug": "news",
+  "title": "Live News & Trends",
+  "sections": [
+    { "sectionId": "nav_primary_v1", "component": "GlobalHeader", "props": {} },
+    { "sectionId": "hero_news_v1", "component": "HeroMinimal", "props": { "title": "Live News & Trends", "subtitle": "Signal over noise.", "imageId": "news_motif" } },
+    { "sectionId": "stream_filters_v1", "component": "StreamFilters", "props": { "topics": ["AI", "Construction", "Pharma", "Sustainability"], "sources": ["X/Grok", "Docs"], "autoRefresh": true } },
+    { "sectionId": "live_stream_v1", "component": "NewsStream", "props": { "provider": "Grok", "itemsPerPage": 20, "hydrateOnVisible": true, "disclaimer": "Live content may be unvetted." } },
+    { "sectionId": "annotation_bar_v1", "component": "AnnotationBar", "props": { "actions": ["Pin", "Save", "Send to /agents", "Open in new tab"] } },
+    { "sectionId": "footer_v1", "component": "GlobalFooter", "props": {} }
+  ]
+}

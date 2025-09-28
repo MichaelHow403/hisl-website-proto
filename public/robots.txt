@@ -1,0 +1,20 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://hisl.ai/sitemap.xml
+
+# Disallow admin and API endpoints
+Disallow: /api/
+Disallow: /admin/
+Disallow: /_next/
+Disallow: /scripts/
+
+# Allow important pages
+Allow: /globe
+Allow: /about/
+Allow: /sectors/
+Allow: /agents
+Allow: /news
+Allow: /contact
+Allow: /legal/

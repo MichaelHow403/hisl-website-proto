@@ -1,0 +1,10 @@
+{
+  "slug": "contact",
+  "title": "Talk to us",
+  "sections": [
+    { "sectionId": "nav_primary_v1", "component": "GlobalHeader", "props": {} },
+    { "sectionId": "contact_form_v1", "component": "Form", "props": { "formId": "contact", "fields": ["name", "email", "company", "message"], "submitLabel": "Send", "idempotent": true } },
+    { "sectionId": "contact_panel_v1", "component": "Panel", "props": { "imageId": "footer_accent", "text": "We respond quickly. Your details stay private." } },
+    { "sectionId": "footer_v1", "component": "GlobalFooter", "props": {} }
+  ]
+}

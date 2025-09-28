@@ -1,0 +1,9 @@
+{
+  "slug": "sectors/custom",
+  "title": "Custom Builds — Bespoke orchestration",
+  "sections": [
+    { "sectionId": "nav_primary_v1", "component": "GlobalHeader", "props": {} },
+    { "sectionId": "sector_features_v1", "component": "FeatureGrid", "props": { "features": [ { "title": "Wizard Agent", "desc": "Bespoke automation with callbacks." }, { "title": "Child Agents", "desc": "Sector‑specific specializations that inherit core DNA." } ] } },
+    { "sectionId": "footer_v1", "component": "GlobalFooter", "props": {} }
+  ]
+}

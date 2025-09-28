@@ -1,0 +1,9 @@
+{
+  "slug": "sectors/healthcare",
+  "title": "Healthcare / Pet Care — Better notes, better care",
+  "sections": [
+    { "sectionId": "nav_primary_v1", "component": "GlobalHeader", "props": {} },
+    { "sectionId": "sector_features_v1", "component": "FeatureGrid", "props": { "features": [ { "title": "Clinical Workflow Agent", "desc": "Notes summarization & triage workflows." }, { "title": "Pet Care Agent", "desc": "Diagnostics & treatment planning aids." } ] } },
+    { "sectionId": "footer_v1", "component": "GlobalFooter", "props": {} }
+  ]
+}

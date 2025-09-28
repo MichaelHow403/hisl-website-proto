@@ -1,0 +1,9 @@
+{
+  "slug": "sectors/agriculture",
+  "title": "Agriculture — From soil to supply",
+  "sections": [
+    { "sectionId": "nav_primary_v1", "component": "GlobalHeader", "props": {} },
+    { "sectionId": "sector_features_v1", "component": "FeatureGrid", "props": { "features": [ { "title": "Crop Monitoring Agent", "desc": "Soil & irrigation, yield optimization." }, { "title": "Agri‑Supply Agent", "desc": "Logistics planning & pricing intelligence." } ] } },
+    { "sectionId": "footer_v1", "component": "GlobalFooter", "props": {} }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "slug": "sectors/environmental",
+  "title": "Environmental — Metrics that matter",
+  "sections": [
+    { "sectionId": "nav_primary_v1", "component": "GlobalHeader", "props": {} },
+    { "sectionId": "sector_features_v1", "component": "FeatureGrid", "props": { "features": [ { "title": "ESG Agent", "desc": "Emissions tracking & ESG reporting." }, { "title": "Sustainability Metrics Agent", "desc": "Lifecycle analysis, biodiversity signals." } ] } },
+    { "sectionId": "footer_v1", "component": "GlobalFooter", "props": {} }
+  ]
+}
