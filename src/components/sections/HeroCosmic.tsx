@@ -30,16 +30,16 @@ export default function HeroCosmic({
   useEffect(() => setMounted(true), []);
 
   return (
-    <section className="relative min-h-screen w-full overflow-hidden bg-gradient-to-br from-white via-gray-50 to-gray-100">
-      {/* Professional background with subtle patterns */}
+    <section className="relative min-h-screen w-full overflow-hidden bg-gradient-to-br from-gray-900 via-gray-800 to-black">
+      {/* Industrial background with safety patterns */}
       <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-gradient-to-br from-white/90 via-white/80 to-gray-50/90 z-10" />
-        <div className="absolute inset-0 opacity-5">
+        <div className="absolute inset-0 bg-gradient-to-br from-gray-900/95 via-gray-800/90 to-black/95 z-10" />
+        <div className="absolute inset-0 opacity-10">
           <div className="absolute inset-0" style={{
-            backgroundImage: `radial-gradient(circle at 25% 25%, #D9A441 2px, transparent 2px),
-                             radial-gradient(circle at 75% 75%, #D9A441 1px, transparent 1px)`,
-            backgroundSize: '60px 60px, 40px 40px',
-            backgroundPosition: '0 0, 30px 30px'
+            backgroundImage: `linear-gradient(90deg, transparent 0%, #D9A441 50%, transparent 100%),
+                             linear-gradient(0deg, transparent 0%, #D9A441 50%, transparent 100%)`,
+            backgroundSize: '100px 100px, 100px 100px',
+            backgroundPosition: '0 0, 50px 50px'
           }} />
         </div>
       </div>
@@ -53,9 +53,9 @@ export default function HeroCosmic({
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
           >
-            <div className="inline-flex items-center px-4 py-2 rounded-full bg-gradient-to-r from-yellow-50 to-amber-50 border border-yellow-200 text-sm font-medium text-amber-800 mb-6">
-              <span className="w-2 h-2 bg-amber-500 rounded-full mr-2 animate-pulse"></span>
-              Enterprise AI Platform
+            <div className="inline-flex items-center px-6 py-3 rounded-full bg-gradient-to-r from-amber-900/50 to-yellow-900/50 border border-amber-600/30 text-sm font-medium text-amber-300 mb-6">
+              <span className="w-2 h-2 bg-amber-400 rounded-full mr-3 animate-pulse"></span>
+              Industrial Safety Intelligence
             </div>
           </motion.div>
           
@@ -69,7 +69,7 @@ export default function HeroCosmic({
           </motion.h1>
           
           <motion.p 
-            className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed mb-12"
+            className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed mb-12"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}

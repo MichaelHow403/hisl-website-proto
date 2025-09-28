@@ -1,3 +1,5 @@
+"use client";
+
 import GlobalHeader from "@/components/sections/GlobalHeader";
 import HeroCosmic from "@/components/sections/HeroCosmic";
 import PerfBadges from "@/components/sections/PerfBadges";
@@ -10,34 +12,36 @@ import BigCTA from "@/components/sections/BigCTA";
 import GlobalFooter from "@/components/sections/GlobalFooter";
 import Img from "@/components/Img"; // Import the new Img component
 import { POEM_LOCK, getLockedPoemText } from "@/lib/poem-lock"; // Import POEM_LOCK and getLockedPoemText
-import { generateSEOMetadata } from "@/lib/seo";
-import type { Metadata } from "next";
+import dynamic from 'next/dynamic';
+import { Suspense } from 'react';
+import GlobeErrorBoundary from '@/components/globe/GlobeErrorBoundary';
 
-export const metadata: Metadata = generateSEOMetadata({
-  title: "HISL — AI + Human... with Soul",
-  description: "Experience sovereign AI built to amplify human capability, cut waste, and respect compliance and sustainability.",
-  slug: "",
-  keywords: ["AI", "artificial intelligence", "sovereign AI", "compliance", "sustainability", "HISL", "IntegAI", "human-AI collaboration"],
-  section: "Home"
-}, {
-  siteName: "HISL",
-  siteUrl: "https://hisl.ai",
-  defaultImage: "/optimized/hisl-logo-1200.webp",
-  twitterHandle: "@HISL_AI",
-  author: "HISL Team"
+// Dynamic import with SSR disabled for the Globe component
+const Globe = dynamic(() => import('@/components/globe/Globe'), { 
+  ssr: false,
+  loading: () => (
+    <div className="h-[70vh] w-full flex items-center justify-center">
+      <div className="text-center">
+        <div className="text-amber-400 text-lg mb-2">Loading Globe...</div>
+        <div className="text-gray-400">Initializing 3D visualization</div>
+      </div>
+    </div>
+  )
 });
+
+// Note: Metadata is handled by layout.tsx since this is now a client component
 
 export default function Home() {
   const poemText = getLockedPoemText();
 
   return (
-    <main className="min-h-screen bg-white text-gray-900">
+    <main className="min-h-screen bg-gray-900 text-white">
       <GlobalHeader />
       
       {/* Hero Section */}
       <HeroCosmic 
-        headline="AI + Human... with soul."
-        subheadline="Enterprise-grade AI platform built to amplify human capability, ensure compliance, and drive sustainable innovation across industries."
+        headline="Industrial intelligence that keeps people safe — and operations sustainable"
+        subheadline="AI-powered safety systems that protect workers, optimize operations, and ensure compliance across high-risk industries."
         primaryCTA={{
           text: "Start a Demo →",
           href: "#chat"
@@ -49,7 +53,7 @@ export default function Home() {
       />
       
       {/* Performance Metrics Section */}
-      <section className="section-spacing bg-gray-50">
+      <section className="section-spacing bg-gray-800">
         <PerfBadges 
           ttftTargetMs={800}
           p50TokPerS={40}
@@ -66,11 +70,38 @@ export default function Home() {
       </section>
 
       {/* Industry Sectors Section */}
-      <section className="section-spacing bg-gray-50">
+      <section className="section-spacing bg-gray-800">
         <AgentsMatrix 
           sectors={["Construction", "Environmental", "Conservation", "Pharma (CROx)", "Public Procurement", "Agriculture", "Trader/Economics", "Healthcare/Pet", "Insurance", "Custom"]}
           cta="Explore agents"
         />
+      </section>
+
+      {/* Globe Section - WHERE YOUR PROMPTS GO */}
+      <section className="section-spacing bg-gray-800">
+        <div className="container-wrap">
+          <div className="mb-12 text-center">
+            <h2 className="text-4xl md:text-5xl font-bold gradient-text mb-6">
+              WHERE YOUR PROMPTS GO
+            </h2>
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+              Real-time visualization of AI activity across global operations, ensuring every prompt reaches its destination safely and efficiently.
+            </p>
+          </div>
+          
+          <GlobeErrorBoundary>
+            <Suspense fallback={
+              <div className="h-[70vh] w-full flex items-center justify-center">
+                <div className="text-center">
+                  <div className="text-amber-400 text-lg mb-2">Loading textures...</div>
+                  <div className="text-gray-400">Preparing 3D Earth</div>
+                </div>
+              </div>
+            }>
+              <Globe />
+            </Suspense>
+          </GlobeErrorBoundary>
+        </div>
       </section>
 
       {/* Platform Features */}
@@ -78,23 +109,23 @@ export default function Home() {
         <div className="container-wrap">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <FeatureTile 
-              title="Interactive Platform"
-              link="/globe"
-              thumb="globe_3d_with_ravens"
-              caption="3D visualization and analytics"
-            />
-            <FeatureTile 
               title="Real-time Intelligence"
               link="/news"
               thumb="starfield_cosmic"
               caption="Live data streams and insights"
+            />
+            <FeatureTile 
+              title="Safety Analytics"
+              link="/sectors"
+              thumb="ai_technology"
+              caption="Industry-specific safety metrics"
             />
           </div>
         </div>
       </section>
 
       {/* Vision Statement */}
-      <section className="section-spacing bg-gray-50">
+      <section className="section-spacing bg-gray-800">
         <PoemPanel 
           title={POEM_LOCK.title}
           author="— Michael Howard MCIOB, Founder HISL"
@@ -112,14 +143,14 @@ export default function Home() {
       </section>
       
       {/* Technology Showcase */}
-      <section className="section-spacing bg-gray-50">
+      <section className="section-spacing bg-gray-800">
         <div className="container-wrap">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-4xl font-bold gradient-text mb-6">
-              Advanced AI Technology
+              Industrial Safety Technology
             </h2>
-            <p className="text-xl text-gray-600 mb-12">
-              Cutting-edge AI infrastructure built for enterprise scale and reliability
+            <p className="text-xl text-gray-300 mb-12">
+              Advanced AI infrastructure built for industrial safety and operational excellence
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <Img

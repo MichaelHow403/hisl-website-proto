@@ -86,7 +86,7 @@ export default function GlobalHeader({
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
 
   return (
-    <header className="sticky top-0 z-50 glass-effect border-b border-gray-200/50">
+    <header className="sticky top-0 z-50 bg-gray-900/95 backdrop-blur-sm border-b border-gray-700/50">
       <div className="container-wrap">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
@@ -105,7 +105,7 @@ export default function GlobalHeader({
               >
                 <Link
                   href={item.href}
-                  className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors flex items-center py-2 px-3 rounded-lg hover:bg-gray-50"
+                  className="text-sm font-medium text-gray-300 hover:text-white transition-colors flex items-center py-2 px-3 rounded-lg hover:bg-gray-800"
                 >
                   {item.label}
                   {item.children && (
@@ -121,14 +121,14 @@ export default function GlobalHeader({
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 10 }}
-                    className="absolute top-full left-0 mt-2 w-64 bg-white border border-gray-200 rounded-xl shadow-xl z-50"
+                    className="absolute top-full left-0 mt-2 w-64 bg-gray-800 border border-gray-700 rounded-xl shadow-xl z-50"
                   >
                     <div className="py-2 max-h-96 overflow-y-auto">
                       {item.children.map((child, childIndex) => (
                         <Link
                           key={createStableKey(child.href, childIndex)}
                           href={child.href}
-                          className="block px-4 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-amber-50 transition-colors"
+                          className="block px-4 py-2 text-sm text-gray-300 hover:text-white hover:bg-amber-900/20 transition-colors"
                         >
                           {child.label}
                         </Link>
