@@ -5,7 +5,6 @@ import { motion, useReducedMotion } from "framer-motion";
 import Link from "next/link";
 import OptimizedImage from "@/components/OptimizedImage";
 import { LOCKED_CONTENT } from "@/lib/content-lock";
-import { loadMDXContent, parseMDXForComponent } from "@/lib/mdx-content";
 import { ImageId } from "@/lib/imagery";
 
 type Props = {
@@ -42,32 +41,13 @@ export default function HeroCosmic({
 }: Props) {
   const prefersReduced = useReducedMotion();
   const [mounted, setMounted] = useState(false);
-  const [mdxData, setMdxData] = useState<any>(null);
 
-  // Load MDX content on mount
-  useEffect(() => {
-    try {
-      const heroMDX = loadMDXContent('01-hero');
-      const parsedData = parseMDXForComponent(heroMDX);
-      setMdxData(parsedData);
-    } catch (error) {
-      console.error('Error loading hero MDX:', error);
-      // Fallback to locked content
-      const hero = LOCKED_CONTENT.home.hero;
-      setMdxData({
-        title: hero.title,
-        subtitle: hero.subtitle,
-        cta: hero.primaryCta,
-        media: { type: 'image', src: '', alt: '' }
-      });
-    }
-    setMounted(true);
-  }, []);
+  useEffect(() => setMounted(true), []);
 
-  // Use MDX content as defaults, with props as overrides
-  const finalHeadline = headline || mdxData?.title || LOCKED_CONTENT.home.hero.title;
-  const finalSubheadline = subheadline || mdxData?.subtitle || LOCKED_CONTENT.home.hero.subtitle;
-  const finalPrimaryCTA = primaryCTA || mdxData?.cta || LOCKED_CONTENT.home.hero.primaryCta;
+  // Use props as overrides, fallback to locked content
+  const finalHeadline = headline || LOCKED_CONTENT.home.hero.title;
+  const finalSubheadline = subheadline || LOCKED_CONTENT.home.hero.subtitle;
+  const finalPrimaryCTA = primaryCTA || LOCKED_CONTENT.home.hero.primaryCta;
   const finalSecondaryCTA = secondaryCTA || LOCKED_CONTENT.home.hero.secondaryCta;
   const finalImageId = imageId || "home_hero_main" as ImageId;
 

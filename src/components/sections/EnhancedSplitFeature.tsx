@@ -3,6 +3,8 @@
 import { useState, useEffect } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import OptimizedImage from "@/components/OptimizedImage";
+import { LOCKED_CONTENT } from "@/lib/content-lock";
+import { IMAGES } from "@/lib/imagery";
 import { ImageId } from "@/lib/imagery";
 
 type Props = {

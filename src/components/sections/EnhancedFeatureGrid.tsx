@@ -3,6 +3,8 @@
 import { useState, useEffect } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import OptimizedImage from "@/components/OptimizedImage";
+import { LOCKED_CONTENT } from "@/lib/content-lock";
+import { IMAGES } from "@/lib/imagery";
 import { ImageId } from "@/lib/imagery";
 
 type Feature = {
@@ -70,7 +72,7 @@ export default function EnhancedFeatureGrid({
                   {feature.iconId.endsWith('.svg') ? (
                     <div className="w-12 h-12 bg-amber-500/20 rounded-lg flex items-center justify-center">
                       <img 
-                        src={`/imagery/processed/${feature.iconId}`} 
+                        src={IMAGES[feature.iconId as ImageId]?.src || `/imagery/processed/${feature.iconId}`} 
                         alt={feature.title}
                         className="w-8 h-8"
                       />
