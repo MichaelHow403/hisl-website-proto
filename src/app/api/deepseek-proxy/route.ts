@@ -55,8 +55,8 @@ export async function POST(request: NextRequest) {
       throw new Error('Prompt is required');
     }
     
-    const deepseekApiKey = process.env.DEEPSEEK_API_KEY;
-    if (!deepseekApiKey) {
+    const apiKey = process.env.DEEPSEEK_API_KEY;
+    if (!apiKey) {
       throw new Error('DeepSeek API key not configured');
     }
     
@@ -64,7 +64,7 @@ export async function POST(request: NextRequest) {
     const deepseekResponse = await fetch('https://api.deepseek.com/v1/chat/completions', {
       method: 'POST',
       headers: {
-        'Authorization': `Bearer ${deepseekApiKey}`,
+        'Authorization': `Bearer ${apiKey}`,
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({

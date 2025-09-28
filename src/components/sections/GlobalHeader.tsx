@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Img from "@/components/Img";
 
 type MenuItem = {
   label: string;
@@ -23,25 +24,13 @@ const curatedRoutes = new Set([
   '/demo'
 ]);
 
-// Docs markdown files with clean names for display
-// Exclude any files that conflict with curated routes
+// User-facing documentation links
 const docsFiles = [
-  { label: "Master Text", href: "/master_text" },
-  { label: "Full Style Guide", href: "/full_style_guide_sept25_1" },
-  { label: "HISL Poem Lock Docs", href: "/HISL_Poem_Lock_docs_sept25" },
-  { label: "IntegAI Update", href: "/IntegAI_sept_update" },
-  { label: "Imagery Spec & Gallery", href: "/IntegAI-HISL_Website-Imagery-Spec_and_Gallery_v1_0_2025-09-20" },
-  { label: "Build Specs & Templates", href: "/IntegAI_HISL_Website-Build_Specs-_-Templates_v1_0_2025-09-20_1" },
-  { label: "Mermaid Style Guide", href: "/mermaid_style_guide_sept25" },
-  { label: "Mermaid Wireframe", href: "/mermaid_wireframe_sept25" },
-  { label: "Mermaid Wireframe (Alt)", href: "/mermaid_wireframe" },
-  { label: "Publishing Guide", href: "/publishing_sept25" },
-  { label: "Publishing (Alt)", href: "/publishing" },
-  { label: "README", href: "/README_sept25" },
-  { label: "Storage Solutions", href: "/Storage_solutions_sept25" },
-  { label: "Website Guide", href: "/website_sept25" },
-  { label: "Workflow Guide", href: "/workflow_sept25" }
-].filter(item => !curatedRoutes.has(item.href));
+  { label: "Platform Overview", href: "/docs/platform-overview" },
+  { label: "API Documentation", href: "/docs/api" },
+  { label: "Integration Guide", href: "/docs/integration" },
+  { label: "Case Studies", href: "/docs/case-studies" }
+];
 
 // Helper function to create stable, unique keys
 function createStableKey(href: string, index: number): string {
@@ -90,8 +79,17 @@ export default function GlobalHeader({
       <div className="container-wrap">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link href="/" className="text-2xl font-bold gradient-text">
-            {logo}
+          <Link href="/" className="flex items-center space-x-3">
+            <Img 
+              name="hisl_logo"
+              alt="HISL company logo"
+              width={40}
+              height={40}
+              className="rounded-lg"
+            />
+            <span className="text-2xl font-bold gradient-text">
+              {logo}
+            </span>
           </Link>
 
           {/* Desktop Navigation */}

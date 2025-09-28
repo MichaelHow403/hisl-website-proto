@@ -31,10 +31,17 @@ export default function HeroCosmic({
 
   return (
     <section className="relative min-h-screen w-full overflow-hidden bg-gradient-to-br from-gray-900 via-gray-800 to-black">
-      {/* Industrial background with safety patterns */}
+      {/* Space background with AI theme */}
       <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-gradient-to-br from-gray-900/95 via-gray-800/90 to-black/95 z-10" />
-        <div className="absolute inset-0 opacity-10">
+        <Img 
+          name="huma_ai_space"
+          alt="AI space background with neural networks"
+          className="w-full h-full object-cover"
+          fill
+          priority
+        />
+        <div className="absolute inset-0 bg-gradient-to-br from-gray-900/80 via-gray-800/70 to-black/80 z-10" />
+        <div className="absolute inset-0 opacity-20">
           <div className="absolute inset-0" style={{
             backgroundImage: `linear-gradient(90deg, transparent 0%, #D9A441 50%, transparent 100%),
                              linear-gradient(0deg, transparent 0%, #D9A441 50%, transparent 100%)`,

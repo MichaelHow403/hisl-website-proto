@@ -200,8 +200,76 @@ function PulseTrail({ log, index }: { log: LogData; index: number }) {
   );
 }
 
+// Data routing arc effect
+function RoutingArc({ isProcessing }: { isProcessing: boolean }) {
+  const arcRef = useRef<THREE.Mesh>(null);
+  
+  useFrame((state) => {
+    if (arcRef.current && isProcessing) {
+      const time = state.clock.getElapsedTime();
+      
+      // Create a subtle pulsing effect
+      const pulse = 0.5 + 0.5 * Math.sin(time * 3);
+      arcRef.current.scale.setScalar(pulse);
+      
+      // Rotate the arc
+      arcRef.current.rotation.z += 0.01;
+    }
+  });
+  
+  if (!isProcessing) return null;
+  
+  return (
+    <mesh ref={arcRef}>
+      <torusGeometry args={[1.1, 0.02, 8, 100]} />
+      <meshBasicMaterial 
+        color="#D9A441" 
+        transparent 
+        opacity={0.6}
+        blending={THREE.AdditiveBlending}
+      />
+    </mesh>
+  );
+}
+
+// Processing pulse effect
+function ProcessingPulse({ isProcessing }: { isProcessing: boolean }) {
+  const pulseRef = useRef<THREE.Mesh>(null);
+  
+  useFrame((state) => {
+    if (pulseRef.current && isProcessing) {
+      const time = state.clock.getElapsedTime();
+      
+      // Create expanding pulse effect
+      const scale = 1 + Math.sin(time * 4) * 0.1;
+      const opacity = 0.3 + 0.2 * Math.sin(time * 2);
+      
+      pulseRef.current.scale.setScalar(scale);
+      
+      if (pulseRef.current.material) {
+        (pulseRef.current.material as THREE.MeshBasicMaterial).opacity = opacity;
+      }
+    }
+  });
+  
+  if (!isProcessing) return null;
+  
+  return (
+    <mesh ref={pulseRef}>
+      <sphereGeometry args={[1.05, 32, 32]} />
+      <meshBasicMaterial 
+        color="#D9A441" 
+        transparent 
+        opacity={0.3}
+        blending={THREE.AdditiveBlending}
+        side={THREE.BackSide}
+      />
+    </mesh>
+  );
+}
+
 // Main globe component
-function GlobeScene({ logs }: { logs: LogData[] }) {
+function GlobeScene({ logs, isProcessing }: { logs: LogData[]; isProcessing: boolean }) {
   // Limit to last 500 logs for performance
   const recentLogs = useMemo(() => logs.slice(-500), [logs]);
   
@@ -219,11 +287,15 @@ function GlobeScene({ logs }: { logs: LogData[] }) {
       
       {/* Earth with Suspense for texture loading */}
       <Suspense fallback={<EarthFallback />}>
-        <Earth earthMapPath="/imagery/earth/earth_globe_realistic.png" />
+        <Earth earthMapPath="/imagery/earth/earth-globe-realistic.png" />
       </Suspense>
       
       {/* Atmosphere */}
       <Atmosphere />
+      
+      {/* Processing effects */}
+      <ProcessingPulse isProcessing={isProcessing} />
+      <RoutingArc isProcessing={isProcessing} />
       
       {/* Log points */}
       {recentLogs.map((log, index) => (
@@ -280,7 +352,7 @@ function InstructionsOverlay() {
 }
 
 // Main Globe component
-export default function Globe() {
+export default function Globe({ isProcessing = false }: { isProcessing?: boolean }) {
   const [logs, setLogs] = useState<LogData[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -355,7 +427,7 @@ export default function Globe() {
             <meshBasicMaterial color="#dc2626" />
           </mesh>
         ) : (
-          <GlobeScene logs={logs} />
+          <GlobeScene logs={logs} isProcessing={isProcessing} />
         )}
       </Canvas>
       

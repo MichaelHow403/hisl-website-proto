@@ -13,10 +13,34 @@ export interface ImageManifest {
 
 export const IMAGERY: ImageManifest = {
   "earth_globe_realistic": {
-    "fallback": "/imagery/earth/earth_globe_realistic.png"
+    "fallback": "/imagery/earth/earth-globe-realistic.png"
   },
   "globe_3d_with_ravens": {
-    "fallback": "/imagery/earth/globe_3d_with_ravens.png"
+    "fallback": "/imagery/composite/globe-3d-with-ravens.png"
+  },
+  "earth_daymap": {
+    "fallback": "/imagery/earth/earth-daymap.jpg"
+  },
+  "earth_base": {
+    "fallback": "/imagery/earth/earth.jpg"
+  },
+  "huma_ai_space": {
+    "fallback": "/imagery/space/huma-ai-space.jpg"
+  },
+  "creation_ai": {
+    "fallback": "/imagery/space/creation-ai.png"
+  },
+  "hisl_logo": {
+    "fallback": "/imagery/logos/hisl-logo.jpeg"
+  },
+  "integai_logo": {
+    "fallback": "/imagery/logos/integai-logo.png"
+  },
+  "data_sovereignty_badge": {
+    "fallback": "/imagery/badges/data-sovereignty-badge.png"
+  },
+  "ireland_landscape": {
+    "fallback": "/imagery/landscapes/ireland-landscape.jpg"
   },
   "galaxy_spiral": {
     "fallback": "/imagery/galaxies/galaxy_spiral.jpg"
