@@ -1,0 +1,42 @@
+{
+  "ci": {
+    "collect": {
+      "numberOfRuns": 3,
+      "url": [
+        "https://hisl-website-proto.vercel.app/",
+        "https://hisl-website-proto.vercel.app/sectors",
+        "https://hisl-website-proto.vercel.app/agents",
+        "https://hisl-website-proto.vercel.app/docs"
+      ],
+      "settings": {
+        "chromeFlags": "--no-sandbox --disable-dev-shm-usage"
+      }
+    },
+    "assert": {
+      "assertions": {
+        "categories:performance": ["error", {"minScore": 0.85}],
+        "categories:accessibility": ["error", {"minScore": 0.9}],
+        "categories:best-practices": ["error", {"minScore": 0.9}],
+        "categories:seo": ["error", {"minScore": 0.9}],
+        "largest-contentful-paint": ["error", {"maxNumericValue": 2500}],
+        "cumulative-layout-shift": ["error", {"maxNumericValue": 0.1}],
+        "server-response-time": ["error", {"maxNumericValue": 200}],
+        "first-contentful-paint": ["error", {"maxNumericValue": 2000}],
+        "first-meaningful-paint": ["error", {"maxNumericValue": 2000}],
+        "speed-index": ["error", {"maxNumericValue": 3000}],
+        "total-blocking-time": ["error", {"maxNumericValue": 300}],
+        "interactive": ["error", {"maxNumericValue": 3000}],
+        "uses-optimized-images": "error",
+        "uses-text-compression": "error",
+        "modern-image-formats": "error",
+        "unused-css-rules": "error",
+        "unused-javascript": "error",
+        "efficient-animated-content": "error",
+        "render-blocking-resources": "error"
+      }
+    },
+    "upload": {
+      "target": "temporary-public-storage"
+    }
+  }
+}

@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Img from "@/components/ui/Img";
+import Img from "@/components/Img";
 
 type Props = {
   sectionTitle: string;
@@ -46,7 +46,7 @@ export default function FusionPrinciple({
           >
             <div className="flex items-start gap-6 mb-6">
               <div className="w-16 h-16 rounded-full overflow-hidden flex-shrink-0">
-                <Img assetId="michael_headshot" sizes="64px" />
+                <Img name="michael_howardbio" alt="Michael Howard headshot" sizes="64px" />
               </div>
               <div>
                 <h3 className="text-xl font-semibold text-text mb-2">

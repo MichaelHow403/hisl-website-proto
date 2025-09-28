@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import Img from "@/components/ui/Img";
+import Img from "@/components/Img";
 
 type Props = {
   michaelTeaser: string;
@@ -37,7 +37,7 @@ export default function AboutTeasers({ michaelTeaser, integaiTeaser }: Props) {
           >
             <div className="flex items-start gap-6 mb-6">
               <div className="w-16 h-16 rounded-full overflow-hidden flex-shrink-0">
-                <Img assetId="michael_headshot" sizes="64px" />
+                <Img name="michael_howardbio" alt="Michael Howard headshot" sizes="64px" />
               </div>
               <div>
                 <h3 className="text-xl font-semibold text-text group-hover:text-aiGreen transition-colors mb-2">

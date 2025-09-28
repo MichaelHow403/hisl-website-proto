@@ -2,22 +2,36 @@
   "name": "hisl-website",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build --turbopack",
     "start": "next start",
     "lint": "eslint",
-    "type-check": "tsc --noEmit"
+    "type-check": "tsc --noEmit",
+    "images": "node scripts/prepare-images.js",
+    "imagery:manifest": "tsx scripts/build-imagery-manifest.ts",
+    "docs:clean": "tsx scripts/clean-md.ts",
+    "lighthouse": "lhci autorun",
+    "lighthouse:local": "node scripts/lighthouse-test.js http://localhost:3000",
+    "lighthouse:vercel": "node scripts/lighthouse-test.js https://hisl-website-proto.vercel.app",
+    "lighthouse:strict": "lhci autorun --config=lighthouserc.strict.json"
   },
   "dependencies": {
     "@next/mdx": "^15.5.3",
     "@react-three/drei": "^10.7.6",
     "@react-three/fiber": "^9.3.0",
+    "@tailwindcss/typography": "^0.5.18",
     "@types/three": "^0.180.0",
     "framer-motion": "^12.23.16",
-    "next": "15.5.3",
+    "gray-matter": "^4.0.3",
+    "next": "15.5.0",
+    "next-mdx-remote": "^5.0.0",
     "react": "19.1.0",
     "react-dom": "19.1.0",
+    "remark": "^15.0.1",
+    "remark-html": "^16.0.1",
+    "sharp": "0.33.3",
     "three": "^0.180.0"
   },
   "devDependencies": {
@@ -26,9 +40,13 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "autoprefixer": "10.4.20",
     "eslint": "^9",
     "eslint-config-next": "15.5.3",
-    "tailwindcss": "^4",
-    "typescript": "^5"
+    "lighthouse-ci": "^1.13.1",
+    "postcss": "8.4.47",
+    "tailwindcss": "3.4.13",
+    "tsx": "^4.20.5",
+    "typescript": "5.6.3"
   }
 }

@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import Link from "next/link";
-import Img from "@/components/ui/Img";
+import Img from "@/components/Img";
 
 type Props = {
   headline: string;
@@ -36,10 +36,10 @@ export default function HeroCosmic({
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent z-10" />
         <div className="absolute inset-0">
           <Img 
-            assetId="reach_for_the_stars" 
+            name="reach_for_the_stars" 
+            alt="Reach for the stars - cosmic background"
             priority 
             sizes="(max-width: 1024px) 100vw, 1400px" 
-            rounded={false}
           />
         </div>
       </div>
@@ -111,7 +111,7 @@ export default function HeroCosmic({
               ease: "easeInOut" 
             }}
           >
-            <Img assetId="raven_huginn" rounded={false} />
+            <Img name="raven_huginn" alt="Raven Huginn" />
           </motion.div>
           <motion.div
             className="absolute w-20 md:w-28 opacity-70"
@@ -129,7 +129,7 @@ export default function HeroCosmic({
               delay: 3 
             }}
           >
-            <Img assetId="raven_muninn" rounded={false} />
+            <Img name="raven_muninn" alt="Raven Muninn" />
           </motion.div>
         </div>
       )}

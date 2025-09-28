@@ -1,0 +1,587 @@
+[
+  {
+    "name": "minScore",
+    "expected": 0.85,
+    "actual": 0.48,
+    "values": [
+      0.47,
+      0.48,
+      0.46
+    ],
+    "operator": ">=",
+    "passed": false,
+    "auditProperty": "performance",
+    "auditId": "categories",
+    "level": "error",
+    "url": "http://localhost:3000/"
+  },
+  {
+    "name": "minScore",
+    "expected": 0.9,
+    "actual": 0.89,
+    "values": [
+      0.89,
+      0.89,
+      0.89
+    ],
+    "operator": ">=",
+    "passed": false,
+    "auditProperty": "best-practices",
+    "auditId": "categories",
+    "level": "warn",
+    "url": "http://localhost:3000/"
+  },
+  {
+    "name": "minScore",
+    "expected": 0.9,
+    "actual": 0.82,
+    "values": [
+      0.82,
+      0.82,
+      0.82
+    ],
+    "operator": ">=",
+    "passed": false,
+    "auditProperty": "seo",
+    "auditId": "categories",
+    "level": "warn",
+    "url": "http://localhost:3000/"
+  },
+  {
+    "name": "maxNumericValue",
+    "expected": 2500,
+    "actual": 6822.8775000000005,
+    "values": [
+      6822.8775000000005,
+      7662.290000000001,
+      7971.81
+    ],
+    "operator": "<=",
+    "passed": false,
+    "auditId": "largest-contentful-paint",
+    "level": "error",
+    "url": "http://localhost:3000/",
+    "auditTitle": "Largest Contentful Paint",
+    "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/performance/lighthouse-largest-contentful-paint/"
+  },
+  {
+    "name": "maxNumericValue",
+    "expected": 0.1,
+    "actual": 0.4511847342345728,
+    "values": [
+      0.4511847342345728,
+      0.8453189281307086,
+      0.8376055421690858
+    ],
+    "operator": "<=",
+    "passed": false,
+    "auditId": "cumulative-layout-shift",
+    "level": "error",
+    "url": "http://localhost:3000/",
+    "auditTitle": "Cumulative Layout Shift",
+    "auditDocumentationLink": "https://web.dev/articles/cls"
+  },
+  {
+    "name": "maxNumericValue",
+    "expected": 2000,
+    "actual": null,
+    "values": [
+      null,
+      null,
+      null
+    ],
+    "operator": "<=",
+    "passed": false,
+    "message": "Audit did not produce a value at all. \"maxNumericValue\" might not be a valid assertion for this audit.",
+    "auditId": "first-meaningful-paint",
+    "level": "warn",
+    "url": "http://localhost:3000/",
+    "auditTitle": "First Meaningful Paint",
+    "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/performance/first-meaningful-paint/"
+  },
+  {
+    "name": "maxNumericValue",
+    "expected": 3000,
+    "actual": 7702.675475000001,
+    "values": [
+      7702.675475000001,
+      7953.550125000002,
+      8171.357750000001
+    ],
+    "operator": "<=",
+    "passed": false,
+    "auditId": "interactive",
+    "level": "warn",
+    "url": "http://localhost:3000/",
+    "auditTitle": "Time to Interactive",
+    "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/performance/interactive/"
+  },
+  {
+    "name": "auditRan",
+    "expected": 1,
+    "actual": 0,
+    "values": [
+      0,
+      0,
+      0
+    ],
+    "operator": ">=",
+    "passed": false,
+    "message": "\"uses-webp-images\" is not a known audit.",
+    "auditId": "uses-webp-images",
+    "level": "error",
+    "url": "http://localhost:3000/"
+  },
+  {
+    "name": "minScore",
+    "expected": 0.9,
+    "actual": 0,
+    "values": [
+      0,
+      0,
+      0
+    ],
+    "operator": ">=",
+    "passed": false,
+    "auditId": "unused-javascript",
+    "level": "warn",
+    "url": "http://localhost:3000/",
+    "auditTitle": "Reduce unused JavaScript",
+    "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/performance/unused-javascript/"
+  },
+  {
+    "name": "auditRan",
+    "expected": 1,
+    "actual": 0,
+    "values": [
+      0,
+      0,
+      0
+    ],
+    "operator": ">=",
+    "passed": false,
+    "message": "\"preload-lcp-image\" is not a known audit.",
+    "auditId": "preload-lcp-image",
+    "level": "warn",
+    "url": "http://localhost:3000/"
+  },
+  {
+    "name": "minScore",
+    "expected": 0.9,
+    "actual": 0,
+    "values": [
+      0,
+      0,
+      0
+    ],
+    "operator": ">=",
+    "passed": false,
+    "auditId": "render-blocking-resources",
+    "level": "warn",
+    "url": "http://localhost:3000/",
+    "auditTitle": "Eliminate render-blocking resources",
+    "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/performance/render-blocking-resources/"
+  },
+  {
+    "name": "minScore",
+    "expected": 0.85,
+    "actual": 0.71,
+    "values": [
+      0.71,
+      0.71,
+      0.71
+    ],
+    "operator": ">=",
+    "passed": false,
+    "auditProperty": "performance",
+    "auditId": "categories",
+    "level": "error",
+    "url": "http://localhost:3000/sectors"
+  },
+  {
+    "name": "maxNumericValue",
+    "expected": 2500,
+    "actual": 6764.112499999998,
+    "values": [
+      6902.9625,
+      6910.8825,
+      6764.112499999998
+    ],
+    "operator": "<=",
+    "passed": false,
+    "auditId": "largest-contentful-paint",
+    "level": "error",
+    "url": "http://localhost:3000/sectors",
+    "auditTitle": "Largest Contentful Paint",
+    "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/performance/lighthouse-largest-contentful-paint/"
+  },
+  {
+    "name": "maxNumericValue",
+    "expected": 2000,
+    "actual": null,
+    "values": [
+      null,
+      null,
+      null
+    ],
+    "operator": "<=",
+    "passed": false,
+    "message": "Audit did not produce a value at all. \"maxNumericValue\" might not be a valid assertion for this audit.",
+    "auditId": "first-meaningful-paint",
+    "level": "warn",
+    "url": "http://localhost:3000/sectors",
+    "auditTitle": "First Meaningful Paint",
+    "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/performance/first-meaningful-paint/"
+  },
+  {
+    "name": "maxNumericValue",
+    "expected": 3000,
+    "actual": 6790.112374999999,
+    "values": [
+      6902.9625,
+      6910.8825,
+      6790.112374999999
+    ],
+    "operator": "<=",
+    "passed": false,
+    "auditId": "interactive",
+    "level": "warn",
+    "url": "http://localhost:3000/sectors",
+    "auditTitle": "Time to Interactive",
+    "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/performance/interactive/"
+  },
+  {
+    "name": "auditRan",
+    "expected": 1,
+    "actual": 0,
+    "values": [
+      0,
+      0,
+      0
+    ],
+    "operator": ">=",
+    "passed": false,
+    "message": "\"uses-webp-images\" is not a known audit.",
+    "auditId": "uses-webp-images",
+    "level": "error",
+    "url": "http://localhost:3000/sectors"
+  },
+  {
+    "name": "minScore",
+    "expected": 0.9,
+    "actual": 0,
+    "values": [
+      0,
+      0,
+      0
+    ],
+    "operator": ">=",
+    "passed": false,
+    "auditId": "unused-javascript",
+    "level": "warn",
+    "url": "http://localhost:3000/sectors",
+    "auditTitle": "Reduce unused JavaScript",
+    "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/performance/unused-javascript/"
+  },
+  {
+    "name": "auditRan",
+    "expected": 1,
+    "actual": 0,
+    "values": [
+      0,
+      0,
+      0
+    ],
+    "operator": ">=",
+    "passed": false,
+    "message": "\"preload-lcp-image\" is not a known audit.",
+    "auditId": "preload-lcp-image",
+    "level": "warn",
+    "url": "http://localhost:3000/sectors"
+  },
+  {
+    "name": "minScore",
+    "expected": 0.9,
+    "actual": 0,
+    "values": [
+      0,
+      0,
+      0
+    ],
+    "operator": ">=",
+    "passed": false,
+    "auditId": "render-blocking-resources",
+    "level": "warn",
+    "url": "http://localhost:3000/sectors",
+    "auditTitle": "Eliminate render-blocking resources",
+    "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/performance/render-blocking-resources/"
+  },
+  {
+    "name": "minScore",
+    "expected": 0.85,
+    "actual": 0.71,
+    "values": [
+      0.71,
+      0.71,
+      0.71
+    ],
+    "operator": ">=",
+    "passed": false,
+    "auditProperty": "performance",
+    "auditId": "categories",
+    "level": "error",
+    "url": "http://localhost:3000/agents"
+  },
+  {
+    "name": "maxNumericValue",
+    "expected": 2500,
+    "actual": 6766.392499999999,
+    "values": [
+      6766.392499999999,
+      6920.9349999999995,
+      6894.620000000001
+    ],
+    "operator": "<=",
+    "passed": false,
+    "auditId": "largest-contentful-paint",
+    "level": "error",
+    "url": "http://localhost:3000/agents",
+    "auditTitle": "Largest Contentful Paint",
+    "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/performance/lighthouse-largest-contentful-paint/"
+  },
+  {
+    "name": "maxNumericValue",
+    "expected": 2000,
+    "actual": null,
+    "values": [
+      null,
+      null,
+      null
+    ],
+    "operator": "<=",
+    "passed": false,
+    "message": "Audit did not produce a value at all. \"maxNumericValue\" might not be a valid assertion for this audit.",
+    "auditId": "first-meaningful-paint",
+    "level": "warn",
+    "url": "http://localhost:3000/agents",
+    "auditTitle": "First Meaningful Paint",
+    "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/performance/first-meaningful-paint/"
+  },
+  {
+    "name": "maxNumericValue",
+    "expected": 3000,
+    "actual": 6799.7471749999995,
+    "values": [
+      6799.7471749999995,
+      6920.9349999999995,
+      6894.620000000001
+    ],
+    "operator": "<=",
+    "passed": false,
+    "auditId": "interactive",
+    "level": "warn",
+    "url": "http://localhost:3000/agents",
+    "auditTitle": "Time to Interactive",
+    "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/performance/interactive/"
+  },
+  {
+    "name": "auditRan",
+    "expected": 1,
+    "actual": 0,
+    "values": [
+      0,
+      0,
+      0
+    ],
+    "operator": ">=",
+    "passed": false,
+    "message": "\"uses-webp-images\" is not a known audit.",
+    "auditId": "uses-webp-images",
+    "level": "error",
+    "url": "http://localhost:3000/agents"
+  },
+  {
+    "name": "minScore",
+    "expected": 0.9,
+    "actual": 0,
+    "values": [
+      0,
+      0,
+      0
+    ],
+    "operator": ">=",
+    "passed": false,
+    "auditId": "unused-javascript",
+    "level": "warn",
+    "url": "http://localhost:3000/agents",
+    "auditTitle": "Reduce unused JavaScript",
+    "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/performance/unused-javascript/"
+  },
+  {
+    "name": "auditRan",
+    "expected": 1,
+    "actual": 0,
+    "values": [
+      0,
+      0,
+      0
+    ],
+    "operator": ">=",
+    "passed": false,
+    "message": "\"preload-lcp-image\" is not a known audit.",
+    "auditId": "preload-lcp-image",
+    "level": "warn",
+    "url": "http://localhost:3000/agents"
+  },
+  {
+    "name": "minScore",
+    "expected": 0.9,
+    "actual": 0,
+    "values": [
+      0,
+      0,
+      0
+    ],
+    "operator": ">=",
+    "passed": false,
+    "auditId": "render-blocking-resources",
+    "level": "warn",
+    "url": "http://localhost:3000/agents",
+    "auditTitle": "Eliminate render-blocking resources",
+    "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/performance/render-blocking-resources/"
+  },
+  {
+    "name": "minScore",
+    "expected": 0.85,
+    "actual": 0.7,
+    "values": [
+      0.7,
+      0.7,
+      0.7
+    ],
+    "operator": ">=",
+    "passed": false,
+    "auditProperty": "performance",
+    "auditId": "categories",
+    "level": "error",
+    "url": "http://localhost:3000/docs"
+  },
+  {
+    "name": "maxNumericValue",
+    "expected": 2500,
+    "actual": 6917.662499999999,
+    "values": [
+      6920.245000000001,
+      6927.537499999999,
+      6917.662499999999
+    ],
+    "operator": "<=",
+    "passed": false,
+    "auditId": "largest-contentful-paint",
+    "level": "error",
+    "url": "http://localhost:3000/docs",
+    "auditTitle": "Largest Contentful Paint",
+    "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/performance/lighthouse-largest-contentful-paint/"
+  },
+  {
+    "name": "maxNumericValue",
+    "expected": 2000,
+    "actual": null,
+    "values": [
+      null,
+      null,
+      null
+    ],
+    "operator": "<=",
+    "passed": false,
+    "message": "Audit did not produce a value at all. \"maxNumericValue\" might not be a valid assertion for this audit.",
+    "auditId": "first-meaningful-paint",
+    "level": "warn",
+    "url": "http://localhost:3000/docs",
+    "auditTitle": "First Meaningful Paint",
+    "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/performance/first-meaningful-paint/"
+  },
+  {
+    "name": "maxNumericValue",
+    "expected": 3000,
+    "actual": 6917.6625,
+    "values": [
+      6920.245000000001,
+      6927.5375,
+      6917.6625
+    ],
+    "operator": "<=",
+    "passed": false,
+    "auditId": "interactive",
+    "level": "warn",
+    "url": "http://localhost:3000/docs",
+    "auditTitle": "Time to Interactive",
+    "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/performance/interactive/"
+  },
+  {
+    "name": "auditRan",
+    "expected": 1,
+    "actual": 0,
+    "values": [
+      0,
+      0,
+      0
+    ],
+    "operator": ">=",
+    "passed": false,
+    "message": "\"uses-webp-images\" is not a known audit.",
+    "auditId": "uses-webp-images",
+    "level": "error",
+    "url": "http://localhost:3000/docs"
+  },
+  {
+    "name": "minScore",
+    "expected": 0.9,
+    "actual": 0,
+    "values": [
+      0,
+      0,
+      0
+    ],
+    "operator": ">=",
+    "passed": false,
+    "auditId": "unused-javascript",
+    "level": "warn",
+    "url": "http://localhost:3000/docs",
+    "auditTitle": "Reduce unused JavaScript",
+    "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/performance/unused-javascript/"
+  },
+  {
+    "name": "auditRan",
+    "expected": 1,
+    "actual": 0,
+    "values": [
+      0,
+      0,
+      0
+    ],
+    "operator": ">=",
+    "passed": false,
+    "message": "\"preload-lcp-image\" is not a known audit.",
+    "auditId": "preload-lcp-image",
+    "level": "warn",
+    "url": "http://localhost:3000/docs"
+  },
+  {
+    "name": "minScore",
+    "expected": 0.9,
+    "actual": 0,
+    "values": [
+      0,
+      0,
+      0
+    ],
+    "operator": ">=",
+    "passed": false,
+    "auditId": "render-blocking-resources",
+    "level": "warn",
+    "url": "http://localhost:3000/docs",
+    "auditTitle": "Eliminate render-blocking resources",
+    "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/performance/render-blocking-resources/"
+  }
+]

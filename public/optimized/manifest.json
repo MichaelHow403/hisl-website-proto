@@ -1,0 +1,262 @@
+{
+  "generated": "2025-09-23T05:42:43.555Z",
+  "sourceDirs": [
+    "/home/michael/projects/hisl-website-proto/public/imagery/processed",
+    "/home/michael/projects/hisl-website-proto/public/imagery/starfields"
+  ],
+  "outputDir": "/home/michael/projects/hisl-website-proto/public/optimized",
+  "images": [
+    {
+      "original": "AI_DNA.png",
+      "baseName": "AI_DNA",
+      "variants": [
+        {
+          "variant": "1200",
+          "filename": "AI_DNA-1200.webp",
+          "path": "/optimized/AI_DNA-1200.webp"
+        },
+        {
+          "variant": "2400",
+          "filename": "AI_DNA-2400.webp",
+          "path": "/optimized/AI_DNA-2400.webp"
+        },
+        {
+          "variant": "blur",
+          "filename": "AI_DNA-blur.webp",
+          "path": "/optimized/AI_DNA-blur.webp"
+        }
+      ]
+    },
+    {
+      "original": "ai_construction_bridge_banner.png",
+      "baseName": "ai_construction_bridge_banner",
+      "variants": [
+        {
+          "variant": "1200",
+          "filename": "ai_construction_bridge_banner-1200.webp",
+          "path": "/optimized/ai_construction_bridge_banner-1200.webp"
+        },
+        {
+          "variant": "2400",
+          "filename": "ai_construction_bridge_banner-2400.webp",
+          "path": "/optimized/ai_construction_bridge_banner-2400.webp"
+        },
+        {
+          "variant": "blur",
+          "filename": "ai_construction_bridge_banner-blur.webp",
+          "path": "/optimized/ai_construction_bridge_banner-blur.webp"
+        }
+      ]
+    },
+    {
+      "original": "ai_technology.jpeg",
+      "baseName": "ai_technology",
+      "variants": [
+        {
+          "variant": "1200",
+          "filename": "ai_technology-1200.webp",
+          "path": "/optimized/ai_technology-1200.webp"
+        },
+        {
+          "variant": "2400",
+          "filename": "ai_technology-2400.webp",
+          "path": "/optimized/ai_technology-2400.webp"
+        },
+        {
+          "variant": "blur",
+          "filename": "ai_technology-blur.webp",
+          "path": "/optimized/ai_technology-blur.webp"
+        }
+      ]
+    },
+    {
+      "original": "compliance_shield_premium.png",
+      "baseName": "compliance_shield_premium",
+      "variants": [
+        {
+          "variant": "1200",
+          "filename": "compliance_shield_premium-1200.webp",
+          "path": "/optimized/compliance_shield_premium-1200.webp"
+        },
+        {
+          "variant": "2400",
+          "filename": "compliance_shield_premium-2400.webp",
+          "path": "/optimized/compliance_shield_premium-2400.webp"
+        },
+        {
+          "variant": "blur",
+          "filename": "compliance_shield_premium-blur.webp",
+          "path": "/optimized/compliance_shield_premium-blur.webp"
+        }
+      ]
+    },
+    {
+      "original": "data_sovereignty_badge.png",
+      "baseName": "data_sovereignty_badge",
+      "variants": [
+        {
+          "variant": "1200",
+          "filename": "data_sovereignty_badge-1200.webp",
+          "path": "/optimized/data_sovereignty_badge-1200.webp"
+        },
+        {
+          "variant": "2400",
+          "filename": "data_sovereignty_badge-2400.webp",
+          "path": "/optimized/data_sovereignty_badge-2400.webp"
+        },
+        {
+          "variant": "blur",
+          "filename": "data_sovereignty_badge-blur.webp",
+          "path": "/optimized/data_sovereignty_badge-blur.webp"
+        }
+      ]
+    },
+    {
+      "original": "elevation.jpg",
+      "baseName": "elevation",
+      "variants": [
+        {
+          "variant": "1200",
+          "filename": "elevation-1200.webp",
+          "path": "/optimized/elevation-1200.webp"
+        },
+        {
+          "variant": "2400",
+          "filename": "elevation-2400.webp",
+          "path": "/optimized/elevation-2400.webp"
+        },
+        {
+          "variant": "blur",
+          "filename": "elevation-blur.webp",
+          "path": "/optimized/elevation-blur.webp"
+        }
+      ]
+    },
+    {
+      "original": "ireland_landscape.jpg",
+      "baseName": "ireland_landscape",
+      "variants": [
+        {
+          "variant": "1200",
+          "filename": "ireland_landscape-1200.webp",
+          "path": "/optimized/ireland_landscape-1200.webp"
+        },
+        {
+          "variant": "2400",
+          "filename": "ireland_landscape-2400.webp",
+          "path": "/optimized/ireland_landscape-2400.webp"
+        },
+        {
+          "variant": "blur",
+          "filename": "ireland_landscape-blur.webp",
+          "path": "/optimized/ireland_landscape-blur.webp"
+        }
+      ]
+    },
+    {
+      "original": "michael_howardbio.jpeg",
+      "baseName": "michael_howardbio",
+      "variants": [
+        {
+          "variant": "1200",
+          "filename": "michael_howardbio-1200.webp",
+          "path": "/optimized/michael_howardbio-1200.webp"
+        },
+        {
+          "variant": "2400",
+          "filename": "michael_howardbio-2400.webp",
+          "path": "/optimized/michael_howardbio-2400.webp"
+        },
+        {
+          "variant": "blur",
+          "filename": "michael_howardbio-blur.webp",
+          "path": "/optimized/michael_howardbio-blur.webp"
+        }
+      ]
+    },
+    {
+      "original": "raven_huginn.png",
+      "baseName": "raven_huginn",
+      "variants": [
+        {
+          "variant": "1200",
+          "filename": "raven_huginn-1200.webp",
+          "path": "/optimized/raven_huginn-1200.webp"
+        },
+        {
+          "variant": "2400",
+          "filename": "raven_huginn-2400.webp",
+          "path": "/optimized/raven_huginn-2400.webp"
+        },
+        {
+          "variant": "blur",
+          "filename": "raven_huginn-blur.webp",
+          "path": "/optimized/raven_huginn-blur.webp"
+        }
+      ]
+    },
+    {
+      "original": "raven_muninn.png",
+      "baseName": "raven_muninn",
+      "variants": [
+        {
+          "variant": "1200",
+          "filename": "raven_muninn-1200.webp",
+          "path": "/optimized/raven_muninn-1200.webp"
+        },
+        {
+          "variant": "2400",
+          "filename": "raven_muninn-2400.webp",
+          "path": "/optimized/raven_muninn-2400.webp"
+        },
+        {
+          "variant": "blur",
+          "filename": "raven_muninn-blur.webp",
+          "path": "/optimized/raven_muninn-blur.webp"
+        }
+      ]
+    },
+    {
+      "original": "reach_for_the_stars.png",
+      "baseName": "reach_for_the_stars",
+      "variants": [
+        {
+          "variant": "1200",
+          "filename": "reach_for_the_stars-1200.webp",
+          "path": "/optimized/reach_for_the_stars-1200.webp"
+        },
+        {
+          "variant": "2400",
+          "filename": "reach_for_the_stars-2400.webp",
+          "path": "/optimized/reach_for_the_stars-2400.webp"
+        },
+        {
+          "variant": "blur",
+          "filename": "reach_for_the_stars-blur.webp",
+          "path": "/optimized/reach_for_the_stars-blur.webp"
+        }
+      ]
+    },
+    {
+      "original": "starfield_cosmic.jpg",
+      "baseName": "starfield_cosmic",
+      "variants": [
+        {
+          "variant": "1200",
+          "filename": "starfield_cosmic-1200.webp",
+          "path": "/optimized/starfield_cosmic-1200.webp"
+        },
+        {
+          "variant": "2400",
+          "filename": "starfield_cosmic-2400.webp",
+          "path": "/optimized/starfield_cosmic-2400.webp"
+        },
+        {
+          "variant": "blur",
+          "filename": "starfield_cosmic-blur.webp",
+          "path": "/optimized/starfield_cosmic-blur.webp"
+        }
+      ]
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 import React from 'react';
 import { MDXRemote } from 'next-mdx-remote/rsc';
-import Img from '@/components/ui/Img';
+import Img from '@/components/Img';
 
 interface BioLongformProps {
   portrait: string;
@@ -17,7 +17,7 @@ export default function BioLongform({ portrait, mdxSource, title, subtitle }: Bi
           {/* Hero Section */}
           <div className="text-center mb-16">
             <div className="w-32 h-32 mx-auto mb-8 relative rounded-full overflow-hidden">
-              <Img assetId={portrait} sizes="128px" />
+              <Img name={portrait} alt={`Portrait of ${title}`} sizes="128px" />
             </div>
             <h1 className="text-4xl md:text-5xl font-spectral font-semibold mb-4">
               {title}

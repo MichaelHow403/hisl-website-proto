@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import Img from "@/components/ui/Img";
+import Img from "@/components/Img";
 
 type Props = {
   title: string;
@@ -71,7 +71,7 @@ export default function SplitFeature({
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.8, delay: 0.4 }}
     >
-      <Img assetId={imageId} sizes="(max-width: 768px) 100vw, 600px" />
+      <Img name={imageId} alt={title} sizes="(max-width: 768px) 100vw, 600px" />
     </motion.div>
   );
 

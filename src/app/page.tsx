@@ -8,14 +8,24 @@ import SplitFeature from "@/components/sections/SplitFeature";
 import PoemPanel from "@/components/sections/PoemPanel"; // Import PoemPanel
 import BigCTA from "@/components/sections/BigCTA";
 import GlobalFooter from "@/components/sections/GlobalFooter";
+import Img from "@/components/Img"; // Import the new Img component
 import { POEM_LOCK, getLockedPoemText } from "@/lib/poem-lock"; // Import POEM_LOCK and getLockedPoemText
+import { generateSEOMetadata } from "@/lib/seo";
 import type { Metadata } from "next";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = generateSEOMetadata({
   title: "HISL — AI + Human... with Soul",
-  description:
-    "Experience sovereign AI built to amplify human capability, cut waste, and respect compliance and sustainability.",
-};
+  description: "Experience sovereign AI built to amplify human capability, cut waste, and respect compliance and sustainability.",
+  slug: "",
+  keywords: ["AI", "artificial intelligence", "sovereign AI", "compliance", "sustainability", "HISL", "IntegAI", "human-AI collaboration"],
+  section: "Home"
+}, {
+  siteName: "HISL",
+  siteUrl: "https://hisl.ai",
+  defaultImage: "/optimized/hisl-logo-1200.webp",
+  twitterHandle: "@HISL_AI",
+  author: "HISL Team"
+});
 
 export default function Home() {
   const poemText = getLockedPoemText();
@@ -61,7 +71,7 @@ export default function Home() {
       <FeatureTile 
         title="Where your prompts go"
         link="/globe"
-        thumb="globe.webp"
+        thumb="globe_3d_with_ravens"
         caption="R3F globe + energy badge"
       />
 
@@ -69,7 +79,7 @@ export default function Home() {
       <FeatureTile 
         title="Live News & Trends"
         link="/news"
-        thumb="trends.webp"
+        thumb="starfield_cosmic"
         caption="Realtime stream"
       />
 
@@ -86,6 +96,36 @@ export default function Home() {
         bullets={["Offline-first", "Agentic graph (9-core)", "Immutable artifacts"]}
         link="/about/integai"
       />
+      
+      {/* Example of using the Img component */}
+      <section className="py-16 bg-panel">
+        <div className="container-wrap">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-3xl font-spectral font-bold text-brandGold mb-6">
+              Optimized Images with Sharp
+            </h2>
+            <p className="text-xl text-muted mb-8">
+              Example of using the &lt;Img&gt; component with Sharp-optimized images
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <Img
+          name="AI_DNA"
+          alt="Abstract double helix made of circuitry representing AI DNA"
+          width={600}
+          height={400}
+          className="rounded-lg shadow-lg"
+        />
+              <Img 
+                name="ai_technology" 
+                alt="AI technology visualization"
+                width={600}
+                height={400}
+                className="rounded-lg shadow-lg"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
       
       {/* Contact CTA */}
       <BigCTA 

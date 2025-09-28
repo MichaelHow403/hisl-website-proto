@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import Img from "@/components/ui/Img";
+import Img from "@/components/Img";
 
 type Props = {
   title: string;
@@ -31,9 +31,9 @@ export default function FeatureTile({
         <div className="bg-panel border border-edge rounded-xl overflow-hidden hover:border-aiGreen/50 transition-all duration-300 hover:shadow-glow">
           <div className="relative aspect-video overflow-hidden">
             <Img 
-              assetId={thumb} 
+              name={thumb} 
+              alt={title}
               sizes="(max-width: 768px) 100vw, 400px"
-              rounded={false}
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
           </div>
