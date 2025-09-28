@@ -100,15 +100,19 @@ export default function HeroCosmic({
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
           >
-            {finalPrimaryCTA && (
-              <Link href={finalPrimaryCTA.to} className="btn btn-gold px-8 py-4 text-lg font-semibold min-w-[200px]">
-                {finalPrimaryCTA.label}
-              </Link>
-            )}
-            {finalSecondaryCTA && (
-              <Link href={finalSecondaryCTA.to} className="btn btn-outline px-8 py-4 text-lg min-w-[200px]">
-                {finalSecondaryCTA.label}
-              </Link>
+            {(finalPrimaryCTA || finalSecondaryCTA) && (
+              <>
+                {finalPrimaryCTA && (
+                  <Link href={finalPrimaryCTA.to || finalPrimaryCTA.href || "/contact"} className="btn btn-gold px-8 py-4 text-lg font-semibold min-w-[200px]">
+                    {finalPrimaryCTA.label || finalPrimaryCTA.text || "Get Started"}
+                  </Link>
+                )}
+                {finalSecondaryCTA && (
+                  <Link href={finalSecondaryCTA.to || finalSecondaryCTA.href || "/globe"} className="btn btn-outline px-8 py-4 text-lg min-w-[200px]">
+                    {finalSecondaryCTA.label || finalSecondaryCTA.text || "Learn More"}
+                  </Link>
+                )}
+              </>
             )}
           </motion.div>
         </div>
