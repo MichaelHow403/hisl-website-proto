@@ -6,39 +6,86 @@
 @tailwind utilities;
 
 :root {
-  --bg:#0b1220;
-  --panel:#0f1828;
-  --edge:#1e2a42;
-  --text:#e8f0ff;
-  --muted:#a8b8d6;
-  --brandGold:#d4af37;
-  --aiGreen:#39d7c9;
+  --bg:#ffffff;
+  --panel:#f8f9fa;
+  --edge:#e1e5e9;
+  --text:#1d1d1f;
+  --muted:#6e6e73;
+  --brandGold:#D9A441;
+  --aiGreen:#007AFF;
+  --accent:#D9A441;
+  --surface:#ffffff;
+  --surface-secondary:#f5f5f7;
+  --border:#d2d2d7;
+  --shadow:rgba(0, 0, 0, 0.1);
+  --shadow-lg:rgba(0, 0, 0, 0.15);
 }
 
 /* Base */
 html,body{height:100%; background:var(--bg); color:var(--text);}
 
-body{font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; font-weight:400; line-height:1.6; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;}
 
-a:focus-visible, button:focus-visible{ outline: none; box-shadow: var(--ring, 0 0 0 3px rgba(158,197,255,.45)); border-radius:.6rem;}
+a:focus-visible, button:focus-visible{ outline: none; box-shadow: 0 0 0 3px rgba(217,164,65,0.3); border-radius:8px;}
 
 /* Helpers */
 .container-wrap{max-width:1200px;margin:0 auto;padding:0 1.25rem;}
 
-.vignette{background: radial-gradient(60% 60% at 50% 40%, transparent 0%, rgba(0,0,0,.55) 60%, rgba(0,0,0,.75) 100%);}
+.section-spacing{padding:120px 0;}
+
+.glass-effect{background:rgba(255,255,255,0.8); backdrop-filter:blur(20px); border:1px solid rgba(255,255,255,0.2);}
+
+.gradient-gold{background:linear-gradient(135deg, #D9A441 0%, #F4D03F 100%);}
+
+.gradient-text{background:linear-gradient(135deg, #D9A441 0%, #F4D03F 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;}
 
 /* Buttons */
 @layer components {
-  .btn { @apply inline-flex items-center justify-center rounded-xl px-4 py-2 text-[15px] border transition;
-    border-color: var(--edge);
-    background: color-mix(in srgb, var(--panel) 90%, transparent); }
+  .btn { @apply inline-flex items-center justify-center rounded-2xl px-6 py-3 text-[15px] font-medium border transition-all duration-200;
+    border-color: var(--border);
+    background: var(--surface);
+    box-shadow: 0 1px 3px var(--shadow); }
 
-  .btn:hover{ box-shadow: inset 0 0 0 2px rgba(255,255,255,.06); }
+  .btn:hover{ 
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px var(--shadow-lg);
+    border-color: var(--brandGold);
+  }
 
-  .btn-gold{ @apply text-black border-0; background: linear-gradient(#f6d36a,var(--brandGold));
-    box-shadow: 0 6px 24px rgba(212,175,55,.25); }
+  .btn-gold{ 
+    @apply text-white border-0 font-semibold; 
+    background: linear-gradient(135deg, #D9A441 0%, #F4D03F 100%);
+    box-shadow: 0 4px 16px rgba(217,164,65,0.3);
+  }
 
-  .btn-ghost{ color:#bed3ff; background: transparent; border-color: var(--edge); }
+  .btn-gold:hover{ 
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(217,164,65,0.4);
+  }
+
+  .btn-ghost{ 
+    color: var(--text); 
+    background: transparent; 
+    border-color: var(--border);
+    box-shadow: none;
+  }
+
+  .btn-ghost:hover{ 
+    background: var(--surface-secondary);
+    border-color: var(--brandGold);
+  }
+
+  .btn-outline{ 
+    color: var(--brandGold); 
+    background: transparent; 
+    border: 2px solid var(--brandGold);
+    box-shadow: none;
+  }
+
+  .btn-outline:hover{ 
+    background: var(--brandGold);
+    color: white;
+  }
 }
 
 @media (prefers-reduced-motion: reduce){

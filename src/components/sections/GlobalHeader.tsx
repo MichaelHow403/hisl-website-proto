@@ -86,11 +86,11 @@ export default function GlobalHeader({
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
 
   return (
-    <header className="sticky top-0 z-50 bg-bg/95 backdrop-blur-sm border-b border-edge">
+    <header className="sticky top-0 z-50 glass-effect border-b border-gray-200/50">
       <div className="container-wrap">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link href="/" className="text-xl font-spectral font-bold text-brandGold">
+          <Link href="/" className="text-2xl font-bold gradient-text">
             {logo}
           </Link>
 
@@ -105,7 +105,7 @@ export default function GlobalHeader({
               >
                 <Link
                   href={item.href}
-                  className="text-sm font-medium text-muted hover:text-text transition-colors flex items-center"
+                  className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors flex items-center py-2 px-3 rounded-lg hover:bg-gray-50"
                 >
                   {item.label}
                   {item.children && (
@@ -121,14 +121,14 @@ export default function GlobalHeader({
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 10 }}
-                    className="absolute top-full left-0 mt-2 w-64 bg-panel border border-edge rounded-lg shadow-lg z-50"
+                    className="absolute top-full left-0 mt-2 w-64 bg-white border border-gray-200 rounded-xl shadow-xl z-50"
                   >
                     <div className="py-2 max-h-96 overflow-y-auto">
                       {item.children.map((child, childIndex) => (
                         <Link
                           key={createStableKey(child.href, childIndex)}
                           href={child.href}
-                          className="block px-4 py-2 text-sm text-muted hover:text-text hover:bg-brandGold/10 transition-colors"
+                          className="block px-4 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-amber-50 transition-colors"
                         >
                           {child.label}
                         </Link>
