@@ -41,7 +41,7 @@ export const LOCKED_CONTENT = {
         { title: "Idempotent Forms", desc: "Every POST uses Idempotency‑Key; no duplicates, ever.", iconId: "home_solution_security" },
         { title: "Data Sovereignty", desc: "NGINX + Keycloak + Vault front‑door; air‑gap by policy.", iconId: "home_solution_badge" }
       ],
-      brandStrip: ["HISL_Logo.jpeg", "integai_logo.png"]
+      brandStrip: ["footer_logo_hisl", "footer_logo_integai"]
     },
     ethics: {
       title: "Sovereign by design.",

@@ -72,7 +72,7 @@ export default function EnhancedFeatureGrid({
                   {feature.iconId.endsWith('.svg') ? (
                     <div className="w-12 h-12 bg-amber-500/20 rounded-lg flex items-center justify-center">
                       <img 
-                        src={IMAGES[feature.iconId as ImageId]?.src || `/imagery/processed/${feature.iconId}`} 
+                        src={`/${feature.iconId}`} 
                         alt={feature.title}
                         className="w-8 h-8"
                       />
