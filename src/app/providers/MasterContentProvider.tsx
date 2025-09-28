@@ -54,13 +54,16 @@ export function MasterContentProvider({ slug, children }: MasterContentProviderP
         let masterContent: MasterContent | null = null;
         
         try {
-          // This is a simplified approach - in a real app you'd have an API endpoint
+          // Try to load master content from API first
           const response = await fetch(`/api/v1/site/page?slug=${slug}`);
           if (response.ok) {
             masterContent = await response.json();
+            console.log(`[${slug}] source: master`);
+          } else {
+            console.log(`[${slug}] source: legacy (API returned ${response.status})`);
           }
         } catch (apiError) {
-          console.log('API not available, falling back to static files');
+          console.log(`[${slug}] source: legacy (API error: ${apiError.message})`);
         }
         
         setContent(masterContent);

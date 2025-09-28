@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import GlobalHeader from "@/components/sections/GlobalHeader";
 import HeroCosmic from "@/components/sections/HeroCosmic";
 import PerfBadges from "@/components/sections/PerfBadges";
@@ -13,6 +13,7 @@ import BigCTA from "@/components/sections/BigCTA";
 import GlobalFooter from "@/components/sections/GlobalFooter";
 import Img from "@/components/Img"; // Import the new Img component
 import { POEM_LOCK, getLockedPoemText } from "@/lib/poem-lock"; // Import POEM_LOCK and getLockedPoemText
+import { loadMasterSectionsClient } from "@/app/lib/master-content-loader";
 import dynamic from 'next/dynamic';
 import { Suspense } from 'react';
 import GlobeErrorBoundary from '@/components/globe/GlobeErrorBoundary';
@@ -43,6 +44,14 @@ export default function Home() {
     responseTime: number;
   } | null>(null);
   const [aiProvider, setAiProvider] = useState<string>('');
+  const [masterContent, setMasterContent] = useState<any>(null);
+
+  // Load master content on component mount
+  useEffect(() => {
+    loadMasterSectionsClient('home').then(content => {
+      setMasterContent(content);
+    });
+  }, []);
 
   const handleSubmitPrompt = async () => {
     if (!prompt.trim()) return;
