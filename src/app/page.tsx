@@ -104,6 +104,107 @@ export default function Home() {
     <main className="min-h-screen bg-gray-900 text-white">
       <GlobalHeader />
       
+      {/* Hero Section - From 01-hero.mdx */}
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0">
+          <OptimizedImage 
+            imageId="home_hero_main"
+            alt="Construction bridge and digital intelligence overlay"
+            className="w-full h-full object-cover"
+            fill
+          />
+          <div className="absolute inset-0 bg-black/50"></div>
+        </div>
+        <div className="relative z-10 container-wrap text-center">
+          <h1 className="text-5xl md:text-7xl font-bold mb-6">
+            Sovereign AI, built on the ground — for the ground.
+          </h1>
+          <p className="text-xl md:text-2xl mb-8 max-w-4xl mx-auto">
+            I'm <strong>Michael Howard MCIOB</strong>, a hands-on Chartered Construction Manager working in the field, delivering projects in pharma, energy, and manufacturing.
+          </p>
+          <p className="text-lg mb-12 max-w-4xl mx-auto">
+            I founded <strong>HISL</strong> and built our platform <strong>IntegAI</strong> because the tools I needed didn't exist: AI that works inside regulated environments, cuts downtime, and drives sustainability — without leaking data to the cloud or breaking compliance.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="/contact" className="btn btn-gold px-8 py-4 text-lg font-semibold">
+              Book a Demo
+            </a>
+            <a href="/globe" className="btn btn-ghost px-8 py-4 text-lg font-semibold">
+              Where your prompts go
+            </a>
+          </div>
+        </div>
+      </section>
+      
+      {/* Problem Panel - From 02-capabilities.mdx */}
+      <section className="section-spacing bg-gray-800">
+        <div className="container-wrap">
+          <div className="max-w-4xl mx-auto text-center mb-12">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">From pain points to practical outcomes</h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="text-center">
+              <h3 className="text-2xl font-semibold mb-4">Blind spots create risks</h3>
+              <p className="text-lg mb-4">Identify hazards before they occur.</p>
+              <p className="text-gray-300">On-site sensing + AI oversight reveal weak signals early — from safety non-conformances to asset drift.</p>
+            </div>
+            <div className="text-center">
+              <h3 className="text-2xl font-semibold mb-4">Inefficiency drains resources</h3>
+              <p className="text-lg mb-4">Optimize performance in-line.</p>
+              <p className="text-gray-300">Continuous tuning keeps throughput high, resources lean, and downtime low across teams and shifts.</p>
+            </div>
+            <div className="text-center">
+              <h3 className="text-2xl font-semibold mb-4">Sustainability is fragmented</h3>
+              <p className="text-lg mb-4">Measure what matters.</p>
+              <p className="text-gray-300">Track impact, cut waste, and prove emissions reductions with evidence that stands up to audit.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Solution Grid - From 03-features.mdx */}
+      <section className="section-spacing">
+        <div className="container-wrap">
+          <div className="max-w-4xl mx-auto text-center mb-12">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">Technology with sovereignty at its core</h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="bg-gray-800 p-6 rounded-xl border border-gray-700">
+              <h3 className="text-lg font-semibold mb-3">ComplianceGuard</h3>
+              <p className="text-gray-300">GDPR/NIS2 monitoring with human-readable evidence.</p>
+            </div>
+            <div className="bg-gray-800 p-6 rounded-xl border border-gray-700">
+              <h3 className="text-lg font-semibold mb-3">DataSovereign</h3>
+              <p className="text-gray-300">Local-first processing keeps sensitive data in-region.</p>
+            </div>
+            <div className="bg-gray-800 p-6 rounded-xl border border-gray-700">
+              <h3 className="text-lg font-semibold mb-3">PrivacyShield</h3>
+              <p className="text-gray-300">Encrypted channels, hardened agent comms.</p>
+            </div>
+            <div className="bg-gray-800 p-6 rounded-xl border border-gray-700">
+              <h3 className="text-lg font-semibold mb-3">AuditTrail</h3>
+              <p className="text-gray-300">Immutable logs with prompt/response hashing.</p>
+            </div>
+            <div className="bg-gray-800 p-6 rounded-xl border border-gray-700">
+              <h3 className="text-lg font-semibold mb-3">EthicsCore</h3>
+              <p className="text-gray-300">Human-aligned decision rules with escalation paths.</p>
+            </div>
+            <div className="bg-gray-800 p-6 rounded-xl border border-gray-700">
+              <h3 className="text-lg font-semibold mb-3">SecureComms</h3>
+              <p className="text-gray-300">Enforced encryption and access control.</p>
+            </div>
+            <div className="bg-gray-800 p-6 rounded-xl border border-gray-700">
+              <h3 className="text-lg font-semibold mb-3">DocuGenie</h3>
+              <p className="text-gray-300">Document intelligence tailored for regulated industries.</p>
+            </div>
+            <div className="bg-gray-800 p-6 rounded-xl border border-gray-700">
+              <h3 className="text-lg font-semibold mb-3">BuildLens</h3>
+              <p className="text-gray-300">Construction ops insight: RAMS, QA/QC, handover.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Render Hybrid Sections */}
       {hybridSections.map((section, index) => {
         switch (section.component) {
@@ -337,8 +438,8 @@ export default function Home() {
       <section className="section-spacing bg-gray-800">
         <PoemPanel
           title="Engineering with human dignity"
-          author="The Craftsman's Creed"
-          text="Then prove we now with best endevour, what from our efforts yet may spring; he justly is dispised who never, did thought to aide his labours bring; for this is arts true indication - when skill is minister to thought, when types that are the minds creation - the hand to perfect form has wrought"
+          author="— Family verse, adapted"
+          text="Then prove we now with best endeavour, What from our efforts yet may spring; He justly is despised who never Did thought to aid his labours bring; For this is Art's true indication, When skill is minister to thought, When types that are the mind's creation — The hand to perfect form has wrought."
           align="center"
           imageId="poem_backdrop"
           footnote="Locked verbatim; guarded by SHA‑256 in build."
@@ -352,13 +453,13 @@ export default function Home() {
             <FeatureTile 
               title="Real-time Intelligence"
               link="/news"
-              thumb="ai_brain_network"
+              thumb="home_hero_overlay"
               caption="Live data streams and insights"
             />
             <FeatureTile 
               title="Safety Analytics"
               link="/sectors"
-              thumb="data_sovereignty_badge"
+              thumb="home_solution_security"
               caption="Industry-specific safety metrics"
             />
           </div>
