@@ -292,13 +292,13 @@ export default function Home() {
             <FeatureTile 
               title="Real-time Intelligence"
               link="/news"
-              thumb="starfield_cosmic"
+              thumb="home_hero_overlay"
               caption="Live data streams and insights"
             />
             <FeatureTile 
               title="Safety Analytics"
               link="/sectors"
-              thumb="ai_technology"
+              thumb="home_solution_security"
               caption="Industry-specific safety metrics"
             />
           </div>
