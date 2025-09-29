@@ -81,8 +81,8 @@ export default function AboutPage() {
             <h2>Get Started</h2>
             <p>
               Ready to experience the future of AI? Explore our <a href="/agents">agent technology</a>, 
-              discover <a href="/sectors">sector-specific solutions</a>, or dive into our 
-              <a href="/docs">comprehensive documentation</a>.
+              discover <a href="/sectors">sector-specific solutions</a>, or learn more about our 
+              <a href="/about/integai">platform capabilities</a>.
             </p>
           </div>
         </div>

@@ -267,7 +267,7 @@ export const LOCKED_CONTENT = {
       features: {
         features: [
           { title: "Heritage Preservation Agent", desc: "Restoration planning, asset scans." },
-          { title: "Planning Approvals Agent", desc: "Permits & SPAB guidance workflows." }
+          { title: "Planning Approvals Agent", desc: "Permits & heritage guidance workflows." }
         ]
       }
     },

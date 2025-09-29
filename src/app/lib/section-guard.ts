@@ -132,3 +132,4 @@ export function isComponentAllowed(component: string): boolean {
   return allowedComponents.includes(component);
 }
 
+

@@ -27,12 +27,12 @@ interface LogData {
   error?: string;
 }
 
-// Enhanced Earth component with texture
+// Enhanced Earth component with realistic colors and texture
 function Earth({ earthMapPath }: { earthMapPath?: string }) {
   const earthRef = useRef<THREE.Mesh>(null);
   
   // Always call useTexture unconditionally - no try/catch around hooks
-  const mapPath = earthMapPath ?? "/imagery/earth/earth_globe_realistic.png";
+  const mapPath = earthMapPath ?? "/imagery/earth/earth-globe-realistic.png";
   const earthTexture = useTexture(mapPath);
 
   useFrame((state) => {
@@ -43,23 +43,60 @@ function Earth({ earthMapPath }: { earthMapPath?: string }) {
 
   return (
     <group>
-      {/* Earth */}
+      {/* Main Earth */}
       <mesh ref={earthRef}>
         <sphereGeometry args={[1, 64, 64]} />
         <meshStandardMaterial
           map={earthTexture}
-          roughness={0.8}
-          metalness={0.1}
+          roughness={0.7}
+          metalness={0.05}
+          color="#ffffff"
+          emissive="#001122"
+          emissiveIntensity={0.1}
         />
       </mesh>
       
-      {/* Atmosphere glow */}
+      {/* Ocean enhancement layer */}
+      <mesh>
+        <sphereGeometry args={[1.001, 64, 64]} />
+        <meshBasicMaterial
+          color="#0077be"
+          transparent
+          opacity={0.3}
+          blending={THREE.MultiplyBlending}
+        />
+      </mesh>
+      
+      {/* Land enhancement layer */}
+      <mesh>
+        <sphereGeometry args={[1.002, 64, 64]} />
+        <meshBasicMaterial
+          color="#228b22"
+          transparent
+          opacity={0.2}
+          blending={THREE.MultiplyBlending}
+        />
+      </mesh>
+      
+      {/* Enhanced atmosphere glow */}
       <mesh>
         <sphereGeometry args={[1.02, 32, 32]} />
         <meshBasicMaterial
-          color="#39d7c9"
+          color="#87ceeb"
           transparent
-          opacity={0.1}
+          opacity={0.15}
+          side={THREE.BackSide}
+          blending={THREE.AdditiveBlending}
+        />
+      </mesh>
+      
+      {/* Blue rim effect */}
+      <mesh>
+        <sphereGeometry args={[1.03, 32, 32]} />
+        <meshBasicMaterial
+          color="#4169e1"
+          transparent
+          opacity={0.08}
           side={THREE.BackSide}
           blending={THREE.AdditiveBlending}
         />
@@ -68,7 +105,7 @@ function Earth({ earthMapPath }: { earthMapPath?: string }) {
   );
 }
 
-// Fallback Earth component for Suspense
+// Enhanced fallback Earth component for Suspense
 function EarthFallback() {
   const earthRef = useRef<THREE.Mesh>(null);
 
@@ -80,19 +117,59 @@ function EarthFallback() {
 
   return (
     <group>
-      {/* Earth fallback */}
+      {/* Main Earth fallback */}
       <mesh ref={earthRef}>
         <sphereGeometry args={[1, 64, 64]} />
-        <meshStandardMaterial color="#1b2a4a" roughness={0.8} metalness={0.1} />
+        <meshStandardMaterial 
+          color="#ffffff" 
+          roughness={0.7} 
+          metalness={0.05}
+          emissive="#001122"
+          emissiveIntensity={0.1}
+        />
       </mesh>
       
-      {/* Atmosphere glow */}
+      {/* Ocean enhancement */}
+      <mesh>
+        <sphereGeometry args={[1.001, 64, 64]} />
+        <meshBasicMaterial
+          color="#0077be"
+          transparent
+          opacity={0.4}
+          blending={THREE.MultiplyBlending}
+        />
+      </mesh>
+      
+      {/* Land enhancement */}
+      <mesh>
+        <sphereGeometry args={[1.002, 64, 64]} />
+        <meshBasicMaterial
+          color="#228b22"
+          transparent
+          opacity={0.3}
+          blending={THREE.MultiplyBlending}
+        />
+      </mesh>
+      
+      {/* Enhanced atmosphere glow */}
       <mesh>
         <sphereGeometry args={[1.02, 32, 32]} />
         <meshBasicMaterial
-          color="#39d7c9"
+          color="#87ceeb"
           transparent
-          opacity={0.1}
+          opacity={0.15}
+          side={THREE.BackSide}
+          blending={THREE.AdditiveBlending}
+        />
+      </mesh>
+      
+      {/* Blue rim effect */}
+      <mesh>
+        <sphereGeometry args={[1.03, 32, 32]} />
+        <meshBasicMaterial
+          color="#4169e1"
+          transparent
+          opacity={0.08}
           side={THREE.BackSide}
           blending={THREE.AdditiveBlending}
         />
@@ -233,11 +310,28 @@ export default function SimpleGlobe() {
           toneMappingExposure: 1
         }}
       >
-        {/* Lighting */}
-        <ambientLight intensity={0.3} />
+        {/* Enhanced realistic lighting setup */}
+        <ambientLight intensity={0.4} color="#ffffff" />
+        
+        {/* Main sun light */}
         <directionalLight 
-          position={[1, 1, 1]} 
-          intensity={0.8}
+          position={[5, 3, 5]} 
+          intensity={1.2}
+          color="#fff8dc"
+        />
+        
+        {/* Secondary fill light */}
+        <directionalLight 
+          position={[-2, 1, -3]} 
+          intensity={0.3}
+          color="#87ceeb"
+        />
+        
+        {/* Rim light for atmosphere effect */}
+        <directionalLight 
+          position={[-5, -2, -4]} 
+          intensity={0.5}
+          color="#4169e1"
         />
         
         {/* Background stars */}

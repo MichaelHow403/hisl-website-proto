@@ -62,7 +62,7 @@ const curatedNewsItems: NewsItem[] = [
   {
     id: 'performance-optimization',
     title: 'Performance Optimization Complete',
-    url: '/docs',
+    url: '/about',
     publishedAt: new Date(Date.now() - 172800000).toISOString(), // 2 days ago
     source: 'HISL',
     summary: 'We\'ve implemented comprehensive performance optimizations including image processing, Lighthouse CI integration, and enhanced SEO capabilities.'
@@ -297,7 +297,7 @@ export default async function NewsPage() {
               Want to stay updated with the latest from HISL? Here are a few ways to connect:
             </p>
             <ul>
-              <li><strong>Documentation:</strong> Explore our <a href="/docs">comprehensive docs</a> for technical details</li>
+              <li><strong>Documentation:</strong> Explore our <a href="/about">platform overview</a> for technical details</li>
               <li><strong>Technology:</strong> Learn about our <a href="/agents">AI agents</a> and <a href="/sectors">sector solutions</a></li>
               <li><strong>Interactive Demo:</strong> Try our <a href="/globe">global activity visualization</a></li>
               <li><strong>Contact:</strong> Reach out through our <a href="/contact">contact page</a></li>

@@ -7,8 +7,8 @@ import GlobalHeader from '@/components/sections/GlobalHeader';
 import GlobalFooter from '@/components/sections/GlobalFooter';
 import GlobeErrorBoundary from '@/components/globe/GlobeErrorBoundary';
 
-// Dynamic import with SSR disabled for the Globe component
-const Globe = dynamic(() => import('@/components/globe/Globe'), { 
+// Dynamic import with SSR disabled for the PhotorealisticEarth component
+const PhotorealisticEarth = dynamic(() => import('@/components/globe/PhotorealisticEarth'), { 
   ssr: false,
   loading: () => (
     <div className="h-[70vh] w-full flex items-center justify-center">
@@ -188,7 +188,7 @@ export default function GlobePage() {
                 </div>
               </div>
             }>
-              <Globe isProcessing={isLoading} />
+              <PhotorealisticEarth />
             </Suspense>
           </GlobeErrorBoundary>
         </div>

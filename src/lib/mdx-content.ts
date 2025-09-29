@@ -102,3 +102,4 @@ export function parseMDXForComponent(mdxContent: MDXContent) {
     frontmatter: mdxContent.frontmatter
   };
 }
+

@@ -82,3 +82,4 @@ async function processNewsletterForm(body: any, idempotencyKey: string) {
   return { message: 'Newsletter subscription successful' };
 }
 
+

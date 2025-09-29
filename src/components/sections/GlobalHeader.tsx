@@ -12,26 +12,17 @@ type MenuItem = {
   children?: MenuItem[];
 };
 
-// Curated top-level routes that should NOT appear in docs dropdown
+// Curated top-level routes
 const curatedRoutes = new Set([
   '/',
   '/about',
   '/agents', 
   '/sectors',
-  '/docs',
   '/globe',
   '/news',
   '/contact',
   '/demo'
 ]);
-
-// User-facing documentation links
-const docsFiles = [
-  { label: "Platform Overview", href: "/docs/platform-overview" },
-  { label: "API Documentation", href: "/docs/api" },
-  { label: "Integration Guide", href: "/docs/integration" },
-  { label: "Case Studies", href: "/docs/case-studies" }
-];
 
 // Helper function to create stable, unique keys
 function createStableKey(href: string, index: number): string {
@@ -58,11 +49,6 @@ export default function GlobalHeader({
       { label: "About", href: "/about" },
       { label: "Agents", href: "/agents" },
       { label: "Sectors", href: "/sectors" },
-      { 
-        label: "Docs", 
-        href: "/docs",
-        children: docsFiles
-      },
       { label: "Globe", href: "/globe" },
       { label: "News", href: "/news" },
       { label: "Contact", href: "/contact" }

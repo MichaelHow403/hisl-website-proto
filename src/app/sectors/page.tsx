@@ -52,7 +52,7 @@ export default async function SectorsPage() {
                 icon: '🌱'
               },
               {
-                title: 'Conservation / SPAB',
+                title: 'Conservation',
                 description: 'Heritage Preservation and Planning Approvals agents for restoration and permit workflows.',
                 icon: '🏛️'
               },

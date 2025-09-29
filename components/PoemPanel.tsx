@@ -20,3 +20,4 @@ export default function PoemPanel({ text, align="center", title, author, footnot
   );
 }
 
+
