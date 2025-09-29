@@ -6,6 +6,7 @@ import React, { Suspense } from 'react';
 import GlobalHeader from '@/components/sections/GlobalHeader';
 import GlobalFooter from '@/components/sections/GlobalFooter';
 import GlobeErrorBoundary from '@/components/globe/GlobeErrorBoundary';
+import EnvironmentStats from '@/components/EnvironmentStats';
 
 // Dynamic import with SSR disabled for the PhotorealisticEarth component
 const PhotorealisticEarth = dynamic(() => import('@/components/globe/PhotorealisticEarth'), { 
@@ -166,6 +167,11 @@ export default function GlobePage() {
               </div>
             )}
           </div>
+        </div>
+
+        {/* Environment Stats Display */}
+        <div className="max-w-6xl mx-auto mb-8">
+          <EnvironmentStats />
         </div>
         
         {/* Globe Visualization with Loading Overlay */}

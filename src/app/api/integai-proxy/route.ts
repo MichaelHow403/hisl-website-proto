@@ -101,7 +101,11 @@ export async function POST(request: NextRequest) {
         ...metadata,
         geoLocation,
         model: integaiData.model,
-        usage: integaiData.usage
+        usage: integaiData.usage,
+        energyUsage: integaiData.energyUsage || 0.24,
+        waterUsage: integaiData.waterUsage || 0.26,
+        co2e: integaiData.co2e || 0.03,
+        responseLength: integaiData.responseLength || 0
       },
       success: true
     });

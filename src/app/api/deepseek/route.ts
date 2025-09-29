@@ -6,10 +6,7 @@ interface AIResponse {
   model: string;
   provider: string;
   energyUsage: number;
-  waterUsage: number;
-  co2e: number;
   responseTime: number;
-  responseLength: number;
 }
 
 async function callIntegAI(prompt: string): Promise<AIResponse> {
@@ -39,24 +36,14 @@ async function callIntegAI(prompt: string): Promise<AIResponse> {
 
   const data = await response.json();
   const tokens = data.usage?.total_tokens || 0;
-  const content = data.choices[0]?.message?.content || '';
-  const responseLength = content.length;
-  
-  // IntegAI optimized metrics (best efficiency)
-  const energyUsage = 0.24 + (tokens * 0.0008); // Optimized for efficiency
-  const waterUsage = 0.26 + (tokens * 0.0006); // Lower water consumption
-  const co2e = 0.03 + (tokens * 0.0003); // Minimal CO2e emissions
   
   return {
-    content,
+    content: data.choices[0]?.message?.content || '',
     tokens,
     model: data.model || 'integai-chat',
     provider: 'IntegAI',
-    energyUsage,
-    waterUsage,
-    co2e,
-    responseTime: 0, // Will be set by caller
-    responseLength
+    energyUsage: 0.3 + (tokens * 0.001), // Base 0.3 Wh + 0.001 Wh per token
+    responseTime: 0 // Will be set by caller
   };
 }
 
@@ -86,24 +73,14 @@ async function callAnthropic(prompt: string): Promise<AIResponse> {
 
   const data = await response.json();
   const tokens = (data.usage?.input_tokens || 0) + (data.usage?.output_tokens || 0);
-  const content = data.content[0]?.text || '';
-  const responseLength = content.length;
-  
-  // Anthropic Claude metrics
-  const energyUsage = 0.34 + (tokens * 0.0012);
-  const waterUsage = 0.32 + (tokens * 0.0008);
-  const co2e = 0.14 + (tokens * 0.0005);
   
   return {
-    content,
+    content: data.content[0]?.text || '',
     tokens,
     model: data.model || 'claude-3-sonnet',
     provider: 'Claude',
-    energyUsage,
-    waterUsage,
-    co2e,
-    responseTime: 0,
-    responseLength
+    energyUsage: 0.3 + (tokens * 0.001),
+    responseTime: 0
   };
 }
 
@@ -135,24 +112,14 @@ async function callGemini(prompt: string): Promise<AIResponse> {
 
   const data = await response.json();
   const tokens = data.usageMetadata?.totalTokenCount || 0;
-  const content = data.candidates?.[0]?.content?.parts?.[0]?.text || '';
-  const responseLength = content.length;
-  
-  // Google Gemini metrics
-  const energyUsage = 0.32 + (tokens * 0.001);
-  const waterUsage = 0.30 + (tokens * 0.0007);
-  const co2e = 0.12 + (tokens * 0.0004);
   
   return {
-    content,
+    content: data.candidates?.[0]?.content?.parts?.[0]?.text || '',
     tokens,
     model: 'gemini-pro',
     provider: 'Gemini',
-    energyUsage,
-    waterUsage,
-    co2e,
-    responseTime: 0,
-    responseLength
+    energyUsage: 0.3 + (tokens * 0.001),
+    responseTime: 0
   };
 }
 
