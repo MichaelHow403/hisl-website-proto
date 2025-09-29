@@ -7,13 +7,16 @@ import * as THREE from 'three';
 
 // Convert lat/lng to 3D coordinates on unit sphere
 function latLngToVector3(lat: number, lng: number, radius: number = 1): THREE.Vector3 {
-  const phi = (90 - lat) * (Math.PI / 180);
-  const theta = (lng + 180) * (Math.PI / 180);
+  // Convert degrees to radians
+  const phi = lat * (Math.PI / 180); // latitude in radians
+  const theta = lng * (Math.PI / 180); // longitude in radians
   
+  // Correct spherical to Cartesian conversion
+  // x = R * cos(lat) * cos(lon), y = R * sin(lat), z = R * cos(lat) * sin(lon)
   return new THREE.Vector3(
-    radius * Math.sin(phi) * Math.cos(theta),
-    radius * Math.cos(phi),
-    radius * Math.sin(phi) * Math.sin(theta)
+    radius * Math.cos(phi) * Math.cos(theta),
+    radius * Math.sin(phi),
+    radius * Math.cos(phi) * Math.sin(theta)
   );
 }
 
@@ -41,8 +44,8 @@ function DataCenterMarker({
   
   useFrame((state) => {
     if (meshRef.current) {
-      // Gentle pulsing animation
-      const pulse = Math.sin(state.clock.getElapsedTime() * 2) * 0.1 + 1;
+      // Gentle pulsing animation (10-20% scale variation)
+      const pulse = Math.sin(state.clock.getElapsedTime() * 2) * 0.15 + 1;
       meshRef.current.scale.setScalar(pulse);
     }
     
@@ -56,23 +59,23 @@ function DataCenterMarker({
   
   return (
     <group position={position}>
-      {/* Data center marker */}
+      {/* Data center marker - smaller relative to earth */}
       <mesh ref={meshRef}>
-        <sphereGeometry args={[0.03, 16, 16]} />
+        <sphereGeometry args={[0.02, 12, 12]} />
         <meshPhongMaterial 
           color={statusColor}
           emissive={statusColor}
-          emissiveIntensity={0.4}
+          emissiveIntensity={0.5}
         />
       </mesh>
       
       {/* Glowing ring around marker */}
       <mesh ref={ringRef} rotation={[Math.PI / 2, 0, 0]}>
-        <ringGeometry args={[0.05, 0.08, 16]} />
+        <ringGeometry args={[0.03, 0.05, 16]} />
         <meshBasicMaterial 
           color={statusColor}
           transparent={true}
-          opacity={0.6}
+          opacity={0.7}
           blending={THREE.AdditiveBlending}
         />
       </mesh>
@@ -80,8 +83,8 @@ function DataCenterMarker({
       {/* Point light for glow effect */}
       <pointLight
         color={statusColor}
-        intensity={0.3}
-        distance={0.5}
+        intensity={0.2}
+        distance={0.3}
       />
     </group>
   );
@@ -104,37 +107,40 @@ function Earth() {
     <group>
       {/* Main Earth with realistic texture */}
       <mesh ref={earthRef}>
-        <sphereGeometry args={[1, 64, 64]} />
+        <sphereGeometry args={[1, 128, 128]} />
         <meshStandardMaterial
           map={earthTexture}
-          roughness={0.8}
-          metalness={0.1}
+          roughness={0.7}
+          metalness={0.05}
           // Enhanced properties for realistic appearance
           color="#ffffff"
           emissive="#001122"
-          emissiveIntensity={0.05}
+          emissiveIntensity={0.02}
+          // Add subtle specular for ocean reflectivity
+          specular="#444444"
+          shininess={30}
         />
       </mesh>
       
       {/* Enhanced atmosphere glow */}
       <mesh>
-        <sphereGeometry args={[1.02, 32, 32]} />
+        <sphereGeometry args={[1.015, 64, 64]} />
         <meshBasicMaterial
           color="#87ceeb"
           transparent
-          opacity={0.15}
+          opacity={0.12}
           side={THREE.BackSide}
           blending={THREE.AdditiveBlending}
         />
       </mesh>
       
-      {/* Blue rim effect */}
+      {/* Blue rim effect for atmosphere */}
       <mesh>
-        <sphereGeometry args={[1.03, 32, 32]} />
+        <sphereGeometry args={[1.025, 64, 64]} />
         <meshBasicMaterial
           color="#4169e1"
           transparent
-          opacity={0.08}
+          opacity={0.06}
           side={THREE.BackSide}
           blending={THREE.AdditiveBlending}
         />
