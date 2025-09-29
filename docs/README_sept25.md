@@ -108,7 +108,7 @@ NEXT\_PUBLIC\_POSTHOG\_KEY=
 NEXT\_PUBLIC\_POSTHOG\_HOST=https://eu.i.posthog.com
 \# Live features (optional for local)
 GROK\_API\_KEY= \# News & Trends
-DEEPSEEK\_API\_KEY= \# Globe demo (if using DeepSeek for copy)
+INTEGAI\_API\_KEY= \# Globe demo (if using IntegAI for copy)
 \# Energy badge defaults
 NEXT\_PUBLIC\_ENERGY\_BASE\_WH=0.3
 NEXT\_PUBLIC\_ENERGY\_PER100TOK\_WH=0.1
@@ -321,7 +321,7 @@ SENTRY\_DSN=
 NEXT\_PUBLIC\_POSTHOG\_KEY=
 NEXT\_PUBLIC\_POSTHOG\_HOST=https://eu.i.posthog.com
 GROK\_API\_KEY=
-DEEPSEEK\_API\_KEY=
+INTEGAI\_API\_KEY=
 NEXT\_PUBLIC\_ENERGY\_BASE\_WH=0.3
 NEXT\_PUBLIC\_ENERGY\_PER100TOK\_WH=0.1
 NEXT\_PUBLIC\_CO2\_KG\_PER\_KWH=0.233

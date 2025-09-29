@@ -52,12 +52,12 @@ const curatedNewsItems: NewsItem[] = [
     summary: 'We\'re excited to announce the launch of our new website featuring comprehensive documentation, interactive demos, and detailed information about our AI solutions.'
   },
   {
-    id: 'deepseek-integration',
-    title: 'DeepSeek Integration Live',
+    id: 'integai-integration',
+    title: 'IntegAI Integration Live',
     url: '/globe',
     publishedAt: new Date(Date.now() - 86400000).toISOString(), // 1 day ago
     source: 'HISL',
-    summary: 'Our new DeepSeek API integration is now live, providing real-time AI capabilities with global activity visualization on our interactive globe.'
+    summary: 'Our new IntegAI API integration is now live, providing real-time AI capabilities with global activity visualization on our interactive globe.'
   },
   {
     id: 'performance-optimization',
@@ -269,10 +269,10 @@ export default async function NewsPage() {
                   <span className="ml-4 px-2 py-1 bg-brandGold/20 text-brandGold text-xs rounded">Feature</span>
                 </div>
                 <h3 className="text-xl font-spectral font-bold text-text mb-2">
-                  DeepSeek Integration
+                  IntegAI Integration
                 </h3>
                 <p className="text-muted">
-                  Our new DeepSeek API integration is now live, providing real-time AI capabilities 
+                  Our new IntegAI API integration is now live, providing real-time AI capabilities 
                   with global activity visualization on our interactive globe.
                 </p>
               </article>

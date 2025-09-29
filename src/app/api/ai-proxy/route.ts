@@ -9,16 +9,16 @@ interface AIProvider {
 }
 
 const providers: AIProvider[] = [
-  // DeepSeek (Primary)
+  // IntegAI (Primary)
   {
-    name: 'DeepSeek',
-    endpoint: 'https://api.deepseek.com/v1/chat/completions',
+    name: 'IntegAI',
+    endpoint: 'https://api.integai.com/v1/chat/completions',
     headers: {
-      'Authorization': `Bearer ${process.env.DEEPSEEK_API_KEY}`,
+      'Authorization': `Bearer ${process.env.INTEGAI_API_KEY}`,
       'Content-Type': 'application/json',
     },
     body: (prompt: string) => ({
-      model: 'deepseek-chat',
+      model: 'integai-chat',
       messages: [{ role: 'user', content: prompt }],
       max_tokens: 1000,
       temperature: 0.7,
@@ -27,7 +27,7 @@ const providers: AIProvider[] = [
     parseResponse: (data: any) => ({
       content: data.choices[0]?.message?.content || '',
       tokens: data.usage?.total_tokens || 0,
-      model: data.model || 'deepseek-chat'
+      model: data.model || 'integai-chat'
     })
   },
   // Anthropic Claude (Fallback 1)
@@ -100,7 +100,7 @@ export async function POST(request: NextRequest) {
         // Skip providers without API keys
         if (provider.name === 'Claude' && !process.env.ANTHROPIC_API_KEY) continue;
         if (provider.name === 'Gemini' && !process.env.GEMINI_API_KEY) continue;
-        if (provider.name === 'DeepSeek' && !process.env.DEEPSEEK_API_KEY) continue;
+        if (provider.name === 'IntegAI' && !process.env.INTEGAI_API_KEY) continue;
 
         const apiResponse = await fetch(provider.endpoint, {
           method: 'POST',

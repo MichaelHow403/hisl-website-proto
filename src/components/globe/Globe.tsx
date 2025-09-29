@@ -407,7 +407,7 @@ function StatsOverlay({ logs }: { logs: LogData[] }) {
   
   return (
     <div className="absolute top-4 right-4 bg-panel/90 backdrop-blur-sm border border-edge rounded-lg p-4 text-sm z-10">
-      <h3 className="font-semibold text-brandGold mb-2">DeepSeek Activity</h3>
+      <h3 className="font-semibold text-brandGold mb-2">IntegAI Activity</h3>
       <div className="space-y-1 text-muted">
         <div>Total Requests: <span className="text-text">{totalRequests}</span></div>
         <div>Success Rate: <span className="text-text">{totalRequests > 0 ? Math.round((successfulRequests / totalRequests) * 100) : 0}%</span></div>
@@ -424,7 +424,7 @@ function InstructionsOverlay() {
     <div className="absolute bottom-4 left-4 bg-panel/90 backdrop-blur-sm border border-edge rounded-lg p-4 text-sm max-w-md z-10">
       <h3 className="font-semibold text-brandGold mb-2">Interactive Globe</h3>
       <div className="text-muted space-y-1">
-        <div>• Green dots: Successful DeepSeek requests</div>
+        <div>• Green dots: Successful IntegAI requests</div>
         <div>• Red dots: Failed requests</div>
         <div>• Hover over dots for details</div>
         <div>• Globe updates every 5 seconds</div>
@@ -443,7 +443,7 @@ export default function Globe({ isProcessing = false }: { isProcessing?: boolean
   // Fetch logs
   const fetchLogs = async () => {
     try {
-      const response = await fetch('/api/deepseek-logs?limit=500');
+      const response = await fetch('/api/integai-logs?limit=500');
       const data = await response.json();
       
       if (data.success) {

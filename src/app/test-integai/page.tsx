@@ -4,7 +4,7 @@ import { useState } from 'react';
 import GlobalHeader from '@/components/sections/GlobalHeader';
 import GlobalFooter from '@/components/sections/GlobalFooter';
 
-export default function TestDeepSeekPage() {
+export default function TestIntegAIPage() {
   const [prompt, setPrompt] = useState('');
   const [response, setResponse] = useState('');
   const [loading, setLoading] = useState(false);
@@ -18,7 +18,7 @@ export default function TestDeepSeekPage() {
     setError(null);
     
     try {
-      const res = await fetch('/api/deepseek-proxy', {
+      const res = await fetch('/api/integai-proxy', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -50,7 +50,7 @@ export default function TestDeepSeekPage() {
   
   const fetchLogs = async () => {
     try {
-      const res = await fetch('/api/deepseek-logs?limit=10');
+      const res = await fetch('/api/integai-logs?limit=10');
       const data = await res.json();
       
       if (data.success) {
@@ -63,7 +63,7 @@ export default function TestDeepSeekPage() {
   
   const clearLogs = async () => {
     try {
-      await fetch('/api/deepseek-logs', { method: 'DELETE' });
+      await fetch('/api/integai-logs', { method: 'DELETE' });
       setLogs([]);
       setResponse('');
     } catch (err) {
@@ -79,10 +79,10 @@ export default function TestDeepSeekPage() {
         <div className="max-w-4xl mx-auto">
           <div className="mb-8">
             <h1 className="text-4xl font-spectral font-bold text-brandGold mb-4">
-              DeepSeek API Test
+              IntegAI API Test
             </h1>
             <p className="text-xl text-muted">
-              Test the DeepSeek API integration and see real-time activity on the globe.
+              Test the IntegAI API integration and see real-time activity on the globe.
             </p>
           </div>
           
@@ -97,7 +97,7 @@ export default function TestDeepSeekPage() {
                   id="prompt"
                   value={prompt}
                   onChange={(e) => setPrompt(e.target.value)}
-                  placeholder="Ask DeepSeek anything..."
+                  placeholder="Ask IntegAI anything..."
                   className="w-full h-32 px-4 py-3 bg-panel border border-edge rounded-lg text-text placeholder-muted focus:outline-none focus:ring-2 focus:ring-brandGold focus:border-transparent resize-none"
                 />
               </div>
@@ -108,7 +108,7 @@ export default function TestDeepSeekPage() {
                   disabled={loading || !prompt.trim()}
                   className="btn btn-gold px-6 py-3 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  {loading ? 'Sending...' : 'Send to DeepSeek'}
+                  {loading ? 'Sending...' : 'Send to IntegAI'}
                 </button>
                 
                 <button
@@ -128,7 +128,7 @@ export default function TestDeepSeekPage() {
               
               {response && (
                 <div className="p-4 bg-panel border border-edge rounded-lg">
-                  <div className="text-brandGold font-medium mb-2">DeepSeek Response:</div>
+                  <div className="text-brandGold font-medium mb-2">IntegAI Response:</div>
                   <div className="text-text whitespace-pre-wrap">{response}</div>
                 </div>
               )}

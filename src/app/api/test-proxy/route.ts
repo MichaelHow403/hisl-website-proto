@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { addRequestLog, getRequestLogs } from '../deepseek-logs/route';
+import { addRequestLog, getRequestLogs } from '../integai-logs/route';
 
 // Geo mapping for IP addresses to coordinates
 const geoMapping: Record<string, { lat: number; lng: number; city: string; country: string }> = {

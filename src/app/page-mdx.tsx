@@ -73,7 +73,7 @@ export default function Home() {
     setAiProvider('Processing...');
     
     try {
-      const res = await fetch('/api/deepseek', {
+      const res = await fetch('/api/integai', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ prompt })
@@ -211,7 +211,7 @@ export default function Home() {
                 <div className="mb-4 text-center">
                   <div className="inline-flex items-center gap-2 px-4 py-2 bg-gray-800 rounded-lg">
                     <div className={`w-2 h-2 rounded-full ${
-                      aiProvider === 'DeepSeek' ? 'bg-blue-400' :
+                      aiProvider === 'IntegAI' ? 'bg-blue-400' :
                       aiProvider === 'Claude' ? 'bg-orange-400' :
                       aiProvider === 'Gemini' ? 'bg-green-400' :
                       aiProvider === 'Processing...' ? 'bg-amber-400 animate-pulse' :

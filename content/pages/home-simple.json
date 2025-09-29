@@ -8,7 +8,7 @@
         "title": "Industrial intelligence that keeps people safe — and operations sustainable.",
         "subtitle": "HISL combines on-site sensing with AI you control to prevent incidents, boost throughput, and cut emissions — even when the network doesn't cooperate.",
         "imageId": "ai_construction_bridge_banner",
-        "overlayImageId": "ai_technology",
+        "overlayImageId": "home_hero_overlay",
         "badge": "Industrial Safety Intelligence",
         "ctaPrimary": { "label": "Start Demo", "href": "/contact" },
         "ctaSecondary": { "label": "Download the brief", "href": "/#brief" }

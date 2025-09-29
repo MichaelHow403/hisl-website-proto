@@ -50,7 +50,7 @@ export default function TestGlobePage() {
   
   const fetchLogs = async () => {
     try {
-      const res = await fetch('/api/deepseek-logs?limit=10');
+      const res = await fetch('/api/integai-logs?limit=10');
       const data = await res.json();
       
       if (data.success) {
@@ -63,7 +63,7 @@ export default function TestGlobePage() {
   
   const clearLogs = async () => {
     try {
-      await fetch('/api/deepseek-logs', { method: 'DELETE' });
+      await fetch('/api/integai-logs', { method: 'DELETE' });
       setLogs([]);
       setResponse('');
     } catch (err) {

@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { addRequestLog, getRequestLogs } from '../deepseek-logs/route';
+import { addRequestLog, getRequestLogs } from '../integai-logs/route';
 
 // Geo mapping for IP addresses to coordinates
 const geoMapping: Record<string, { lat: number; lng: number; city: string; country: string }> = {
@@ -55,20 +55,20 @@ export async function POST(request: NextRequest) {
       throw new Error('Prompt is required');
     }
     
-    const apiKey = process.env.DEEPSEEK_API_KEY;
+    const apiKey = process.env.INTEGAI_API_KEY;
     if (!apiKey) {
-      throw new Error('DeepSeek API key not configured');
+      throw new Error('IntegAI API key not configured');
     }
     
-    // Call DeepSeek API
-    const deepseekResponse = await fetch('https://api.deepseek.com/v1/chat/completions', {
+    // Call IntegAI API
+    const integaiResponse = await fetch('https://api.integai.com/v1/chat/completions', {
       method: 'POST',
       headers: {
         'Authorization': `Bearer ${apiKey}`,
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        model: 'deepseek-chat',
+        model: 'integai-chat',
         messages: [
           {
             role: 'user',
@@ -81,11 +81,11 @@ export async function POST(request: NextRequest) {
       })
     });
     
-    if (!deepseekResponse.ok) {
-      throw new Error(`DeepSeek API error: ${deepseekResponse.status} ${deepseekResponse.statusText}`);
+    if (!integaiResponse.ok) {
+      throw new Error(`IntegAI API error: ${integaiResponse.status} ${integaiResponse.statusText}`);
     }
     
-    const deepseekData = await deepseekResponse.json();
+    const integaiData = await integaiResponse.json();
     const responseTime = Date.now() - startTime;
     
     // Log successful request
@@ -94,21 +94,21 @@ export async function POST(request: NextRequest) {
       id: logId,
       timestamp: new Date().toISOString(),
       userIP,
-      endpoint: '/api/deepseek-proxy',
+      endpoint: '/api/integai-proxy',
       responseTime,
       prompt: prompt.substring(0, 100) + (prompt.length > 100 ? '...' : ''), // Truncate for storage
       metadata: {
         ...metadata,
         geoLocation,
-        model: deepseekData.model,
-        usage: deepseekData.usage
+        model: integaiData.model,
+        usage: integaiData.usage
       },
       success: true
     });
     
     return NextResponse.json({
       success: true,
-      data: deepseekData,
+      data: integaiData,
       logId
     });
     
@@ -122,7 +122,7 @@ export async function POST(request: NextRequest) {
       id: logId,
       timestamp: new Date().toISOString(),
       userIP,
-      endpoint: '/api/deepseek-proxy',
+      endpoint: '/api/integai-proxy',
       responseTime,
       prompt: 'Error occurred',
       metadata: {

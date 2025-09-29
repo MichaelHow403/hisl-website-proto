@@ -273,7 +273,7 @@ export default function SimpleGlobe() {
   // Fetch logs
   const fetchLogs = async () => {
     try {
-      const response = await fetch('/api/deepseek-logs?limit=100');
+      const response = await fetch('/api/integai-logs?limit=100');
       const data = await response.json();
       
       if (data.success) {
@@ -367,7 +367,7 @@ export default function SimpleGlobe() {
       
       {/* Stats overlay */}
       <div className="absolute top-4 right-4 bg-panel/90 backdrop-blur-sm border border-edge rounded-lg p-4 text-sm z-10">
-        <h3 className="font-semibold text-brandGold mb-2">DeepSeek Activity</h3>
+        <h3 className="font-semibold text-brandGold mb-2">IntegAI Activity</h3>
         <div className="space-y-1 text-muted">
           <div>Total Requests: <span className="text-text">{logs.length}</span></div>
           <div>Success Rate: <span className="text-text">

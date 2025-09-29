@@ -9,20 +9,20 @@ interface AIResponse {
   responseTime: number;
 }
 
-async function callDeepSeek(prompt: string): Promise<AIResponse> {
-  const apiKey = process.env.DEEPSEEK_API_KEY;
+async function callIntegAI(prompt: string): Promise<AIResponse> {
+  const apiKey = process.env.INTEGAI_API_KEY;
   if (!apiKey) {
-    throw new Error('DeepSeek API key not configured');
+    throw new Error('IntegAI API key not configured');
   }
 
-  const response = await fetch('https://api.deepseek.com/v1/chat/completions', {
+  const response = await fetch('https://api.integai.com/v1/chat/completions', {
     method: 'POST',
     headers: {
       'Authorization': `Bearer ${apiKey}`,
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
-      model: 'deepseek-chat',
+      model: 'integai-chat',
       messages: [{ role: 'user', content: prompt }],
       max_tokens: 1000,
       temperature: 0.7,
@@ -31,7 +31,7 @@ async function callDeepSeek(prompt: string): Promise<AIResponse> {
   });
 
   if (!response.ok) {
-    throw new Error(`DeepSeek API error: ${response.status} ${response.statusText}`);
+    throw new Error(`IntegAI API error: ${response.status} ${response.statusText}`);
   }
 
   const data = await response.json();
@@ -40,8 +40,8 @@ async function callDeepSeek(prompt: string): Promise<AIResponse> {
   return {
     content: data.choices[0]?.message?.content || '',
     tokens,
-    model: data.model || 'deepseek-chat',
-    provider: 'DeepSeek',
+    model: data.model || 'integai-chat',
+    provider: 'IntegAI',
     energyUsage: 0.3 + (tokens * 0.001), // Base 0.3 Wh + 0.001 Wh per token
     responseTime: 0 // Will be set by caller
   };
@@ -140,9 +140,9 @@ export async function POST(request: NextRequest) {
     let response: AIResponse | null = null;
     let lastError: Error | null = null;
 
-    // Try providers in order: DeepSeek → Anthropic → Gemini
+    // Try providers in order: IntegAI → Anthropic → Gemini
     const providers = [
-      { name: 'DeepSeek', fn: callDeepSeek },
+      { name: 'IntegAI', fn: callIntegAI },
       { name: 'Anthropic', fn: callAnthropic },
       { name: 'Gemini', fn: callGemini }
     ];
