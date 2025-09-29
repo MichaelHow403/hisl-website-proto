@@ -8,15 +8,15 @@ import * as THREE from 'three';
 // Convert lat/lng to 3D coordinates on unit sphere
 function latLngToVector3(lat: number, lng: number, radius: number = 1): THREE.Vector3 {
   // Convert degrees to radians
-  const phi = lat * (Math.PI / 180); // latitude in radians
-  const theta = lng * (Math.PI / 180); // longitude in radians
+  const phi = (90 - lat) * (Math.PI / 180); // latitude in radians (0 to 180)
+  const theta = (lng + 180) * (Math.PI / 180); // longitude in radians (0 to 360)
   
   // Correct spherical to Cartesian conversion
-  // x = R * cos(lat) * cos(lon), y = R * sin(lat), z = R * cos(lat) * sin(lon)
+  // x = R * sin(phi) * cos(theta), y = R * cos(phi), z = R * sin(phi) * sin(theta)
   return new THREE.Vector3(
-    radius * Math.cos(phi) * Math.cos(theta),
-    radius * Math.sin(phi),
-    radius * Math.cos(phi) * Math.sin(theta)
+    radius * Math.sin(phi) * Math.cos(theta),
+    radius * Math.cos(phi),
+    radius * Math.sin(phi) * Math.sin(theta)
   );
 }
 
@@ -110,12 +110,12 @@ function Earth() {
         <sphereGeometry args={[1, 128, 128]} />
         <meshStandardMaterial
           map={earthTexture}
-          roughness={0.7}
-          metalness={0.05}
+          roughness={0.8}
+          metalness={0.2}
           // Enhanced properties for realistic appearance
           color="#ffffff"
           emissive="#001122"
-          emissiveIntensity={0.02}
+          emissiveIntensity={0.05}
           // Add subtle specular for ocean reflectivity
           specular="#444444"
           shininess={30}
@@ -270,12 +270,12 @@ export default function PhotorealisticEarth() {
         }}
       >
         {/* Enhanced realistic lighting setup */}
-        <ambientLight intensity={0.4} color="#ffffff" />
+        <ambientLight intensity={0.6} color="#ffffff" />
         
-        {/* Main sun light */}
+        {/* Main sun light - much brighter */}
         <directionalLight 
           position={[5, 3, 5]} 
-          intensity={1.2}
+          intensity={2.5}
           color="#fff8dc"
           castShadow
         />
@@ -283,16 +283,19 @@ export default function PhotorealisticEarth() {
         {/* Secondary fill light */}
         <directionalLight 
           position={[-2, 1, -3]} 
-          intensity={0.3}
+          intensity={0.8}
           color="#87ceeb"
         />
         
         {/* Rim light for atmosphere effect */}
         <directionalLight 
           position={[-5, -2, -4]} 
-          intensity={0.5}
+          intensity={0.6}
           color="#4169e1"
         />
+        
+        {/* Additional point light for better visibility */}
+        <pointLight position={[-5, -5, -5]} intensity={0.5} color="#ffffff" />
         
         {/* Background stars */}
         <Stars 
