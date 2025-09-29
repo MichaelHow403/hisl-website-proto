@@ -12,6 +12,7 @@ export type PoemPanelProps = {
   stanzas?: string[][];
   footnote?: string;
   align?: "center" | "left";
+  imageId?: string;
 };
 
 export default function PoemPanel({
@@ -21,6 +22,7 @@ export default function PoemPanel({
   stanzas,
   footnote,
   align = "center",
+  imageId,
 }: PoemPanelProps) {
   const prefersReduced = useReducedMotion();
 
@@ -30,8 +32,21 @@ export default function PoemPanel({
 
   return (
     <section className="relative overflow-hidden border-y border-white/5" aria-label="Poem">
-      <div className="poem-backdrop" aria-hidden />
-      <div className="hero-vignette" aria-hidden />
+      {/* Background image */}
+      {imageId && (
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: imageId === 'poem_backdrop' 
+              ? `url(/reach-for-the-stars.png)`
+              : `url(/imagery/processed/${imageId}-1200.webp)`,
+          }}
+          aria-hidden="true"
+        />
+      )}
+      {/* Dark overlay for text readability */}
+      <div className="absolute inset-0 bg-black/40" aria-hidden="true" />
+      <div className="hero-vignette" aria-hidden="true" />
 
       <div className="container-wrap relative z-10 py-20 md:py-28">
         {(title || author) && (

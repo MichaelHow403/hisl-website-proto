@@ -91,7 +91,7 @@ export async function loadHybridHomeContent(): Promise<HybridSection[]> {
     sectionId: 'poem_panel_v1',
     component: 'PoemPanel',
     props: {
-      title: "",
+      title: "Engineering with human dignity",
       author: "The Craftsman's Creed",
       text: "Then prove we now with best endevour, what from our efforts yet may spring; he justly is dispised who never, did thought to aide his labours bring; for this is arts true indication - when skill is minister to thought, when types that are the minds creation - the hand to perfect form has wrought",
       align: "center",

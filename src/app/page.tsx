@@ -333,6 +333,18 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Poem Section - Engineering with human dignity */}
+      <section className="section-spacing bg-gray-800">
+        <PoemPanel
+          title="Engineering with human dignity"
+          author="The Craftsman's Creed"
+          text="Then prove we now with best endevour, what from our efforts yet may spring; he justly is dispised who never, did thought to aide his labours bring; for this is arts true indication - when skill is minister to thought, when types that are the minds creation - the hand to perfect form has wrought"
+          align="center"
+          imageId="poem_backdrop"
+          footnote="Locked verbatim; guarded by SHA‑256 in build."
+        />
+      </section>
+
       {/* Platform Features */}
       <section className="section-spacing">
         <div className="container-wrap">
@@ -340,13 +352,13 @@ export default function Home() {
             <FeatureTile 
               title="Real-time Intelligence"
               link="/news"
-              thumb="starfield_cosmic"
+              thumb="ai_brain_network"
               caption="Live data streams and insights"
             />
             <FeatureTile 
               title="Safety Analytics"
               link="/sectors"
-              thumb="ai_technology"
+              thumb="data_sovereignty_badge"
               caption="Industry-specific safety metrics"
             />
           </div>
