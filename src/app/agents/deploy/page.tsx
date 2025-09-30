@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import GlobalHeader from '@/components/sections/GlobalHeader';
 import GlobalFooter from '@/components/sections/GlobalFooter';
@@ -81,7 +81,7 @@ const MOCK_LOGS = [
   { timestamp: '14:29:41', level: 'info', message: 'Observer Agent: Telemetry data sent to Langfuse' }
 ];
 
-export default function AgentDeployPage() {
+function AgentDeployContent() {
   const searchParams = useSearchParams();
   const sector = searchParams.get('sector');
   
@@ -415,5 +415,24 @@ export default function AgentDeployPage() {
 
       <GlobalFooter />
     </main>
+  );
+}
+
+export default function AgentDeployPage() {
+  return (
+    <Suspense fallback={
+      <main className="min-h-screen bg-bg">
+        <GlobalHeader />
+        <div className="flex items-center justify-center h-96">
+          <div className="text-center">
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-brandGold mx-auto mb-4"></div>
+            <p className="text-muted">Loading deployment platform...</p>
+          </div>
+        </div>
+        <GlobalFooter />
+      </main>
+    }>
+      <AgentDeployContent />
+    </Suspense>
   );
 }

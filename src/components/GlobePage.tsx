@@ -5,6 +5,8 @@ import { Canvas } from '@react-three/fiber';
 import { OrbitControls, Stars } from '@react-three/drei';
 import dynamic from 'next/dynamic';
 import OrbitingRaven from './OrbitingRaven';
+import { LOCKED_CONTENT } from '@/lib/content-lock';
+import { IMAGES } from '@/lib/imagery';
 
 // Dynamically import RealisticGlobe to avoid SSR issues
 const RealisticGlobe = dynamic(() => import('./RealisticGlobe'), { ssr: false });
@@ -26,14 +28,14 @@ function GlobeScene({ data }: { data: GlobeData }) {
       
       {/* Orbiting Ravens */}
       <OrbitingRaven 
-        imageUrl="/imagery/processed/raven_huginn.png"
+        imageUrl={IMAGES.raven_huginn}
         radius1={2.5}
         radius2={1.8}
         speed={0.3}
         offset={0}
       />
       <OrbitingRaven 
-        imageUrl="/imagery/processed/raven_muninn.png"
+        imageUrl={IMAGES.raven_muninn}
         radius1={2.2}
         radius2={2.1}
         speed={0.25}

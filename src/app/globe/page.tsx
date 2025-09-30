@@ -162,7 +162,7 @@ export default function GlobePage() {
           
           {/* "Online true infrastructure" badge with icon */}
           <div className="absolute bottom-4 left-4 flex items-center gap-2 bg-panel/90 backdrop-blur border border-edge rounded-lg px-3 py-2">
-            <img src="/imagery/globe_3d_with_ravens.png" alt="" className="w-5 h-5" aria-hidden="true" />
+            <img src={getImage('earth_realistic')} alt="" className="w-5 h-5" aria-hidden="true" />
             <span className="text-xs text-muted">Online true infrastructure</span>
           </div>
         </div>

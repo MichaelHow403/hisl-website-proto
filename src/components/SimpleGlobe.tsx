@@ -5,6 +5,8 @@ import { Canvas, useFrame } from '@react-three/fiber';
 import { OrbitControls, Stars, Text, Sphere } from '@react-three/drei';
 import { Group, Mesh, Vector3 } from 'three';
 import * as THREE from 'three';
+import { LOCKED_CONTENT } from '@/lib/content-lock';
+import { IMAGES } from '@/lib/imagery';
 
 interface DataCenter {
   lat: number;

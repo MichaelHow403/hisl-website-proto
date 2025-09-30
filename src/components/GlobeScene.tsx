@@ -5,6 +5,8 @@ import { Canvas } from '@react-three/fiber';
 import { OrbitControls, Stars } from '@react-three/drei';
 import RealisticGlobe from './RealisticGlobe';
 import OrbitingRaven from './OrbitingRaven';
+import { LOCKED_CONTENT } from '@/lib/content-lock';
+import { IMAGES } from '@/lib/imagery';
 
 export default function GlobeScene() {
   return (

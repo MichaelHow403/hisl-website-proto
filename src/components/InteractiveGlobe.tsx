@@ -5,6 +5,8 @@ import { Canvas, useFrame } from '@react-three/fiber';
 import { OrbitControls, Stars, Text } from '@react-three/drei';
 import { Group, Vector3 } from 'three';
 import dynamic from 'next/dynamic';
+import { LOCKED_CONTENT } from '@/lib/content-lock';
+import { IMAGES } from '@/lib/imagery';
 
 // Dynamically import ThreeGlobe to avoid SSR issues
 const ThreeGlobe = dynamic(() => import('three-globe'), { ssr: false });

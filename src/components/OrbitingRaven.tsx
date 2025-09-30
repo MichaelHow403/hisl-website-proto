@@ -4,6 +4,7 @@ import { useRef } from 'react';
 import { useFrame } from '@react-three/fiber';
 import { Billboard, useTexture } from '@react-three/drei';
 import * as THREE from 'three';
+import { LOCKED_CONTENT } from '@/lib/content-lock';
 
 interface OrbitingRavenProps {
   imageUrl: string;

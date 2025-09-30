@@ -3,6 +3,8 @@
 import { useRef, useEffect, useState } from 'react';
 import { useFrame, useLoader } from '@react-three/fiber';
 import * as THREE from 'three';
+import { LOCKED_CONTENT } from '@/lib/content-lock';
+import { IMAGES } from '@/lib/imagery';
 
 interface DataCenter {
   lat: number;

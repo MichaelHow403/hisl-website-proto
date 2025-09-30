@@ -1,6 +1,7 @@
 import GlobalHeader from '@/components/sections/GlobalHeader';
 import GlobalFooter from '@/components/sections/GlobalFooter';
 import { getImage } from '@/app/lib/imagery';
+import { LOCKED_CONTENT } from '@/lib/content-lock';
 
 export default function NewsPage() {
   return (
@@ -33,12 +34,12 @@ export default function NewsPage() {
           </p>
           
           <p className="text-[16px] leading-relaxed text-muted/80 max-w-3xl mx-auto">
-            Sovereign AI-filtered news coming soon. Our 9-core agent architecture will provide real-time industry intelligence across HISL's target sectors.
+            Our 9-core agent architecture will provide real-time industry intelligence across HISL's target sectors.
           </p>
         </div>
       </section>
 
-      {/* Coming Soon Section */}
+      {/* News Intelligence Section */}
       <section className="py-20 md:py-28">
         <div className="container-wrap">
           <div className="max-w-4xl mx-auto text-center">
