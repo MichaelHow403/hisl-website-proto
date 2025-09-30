@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
 import Link from "next/link";
 import OptimizedImage from "@/components/OptimizedImage";
 import { ImageId } from "@/lib/imagery";
@@ -102,12 +101,7 @@ export default function GlobalHeader({
                 
                 {/* Dropdown Menu */}
                 {item.children && activeDropdown === item.href && (
-                  <motion.div
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: 10 }}
-                    className="absolute top-full left-0 mt-2 w-64 bg-gray-800 border border-gray-700 rounded-xl shadow-xl z-50"
-                  >
+                  <div className="absolute top-full left-0 mt-2 w-64 bg-gray-800 border border-gray-700 rounded-xl shadow-xl z-50">
                     <div className="py-2 max-h-96 overflow-y-auto">
                       {item.children.map((child, childIndex) => (
                         <Link
@@ -119,7 +113,7 @@ export default function GlobalHeader({
                         </Link>
                       ))}
                     </div>
-                  </motion.div>
+                  </div>
                 )}
               </div>
             ))}
@@ -145,28 +139,30 @@ export default function GlobalHeader({
             aria-label="Toggle menu"
           >
             <div className="w-6 h-6 flex flex-col justify-center space-y-1">
-              <motion.div
-                className="w-full h-0.5 bg-text"
-                animate={{ rotate: isOpen ? 45 : 0, y: isOpen ? 6 : 0 }}
+              <div
+                className={`w-full h-0.5 bg-text transition-transform duration-300 ${
+                  isOpen ? 'rotate-45 translate-y-1.5' : ''
+                }`}
               />
-              <motion.div
-                className="w-full h-0.5 bg-text"
-                animate={{ opacity: isOpen ? 0 : 1 }}
+              <div
+                className={`w-full h-0.5 bg-text transition-opacity duration-300 ${
+                  isOpen ? 'opacity-0' : 'opacity-100'
+                }`}
               />
-              <motion.div
-                className="w-full h-0.5 bg-text"
-                animate={{ rotate: isOpen ? -45 : 0, y: isOpen ? -6 : 0 }}
+              <div
+                className={`w-full h-0.5 bg-text transition-transform duration-300 ${
+                  isOpen ? '-rotate-45 -translate-y-1.5' : ''
+                }`}
               />
             </div>
           </button>
         </div>
 
         {/* Mobile Menu */}
-        <motion.div
-          className="lg:hidden overflow-hidden"
-          initial={false}
-          animate={{ height: isOpen ? "auto" : 0 }}
-          transition={{ duration: 0.3 }}
+        <div
+          className={`lg:hidden overflow-hidden transition-all duration-300 ${
+            isOpen ? 'max-h-screen' : 'max-h-0'
+          }`}
         >
           <nav className="py-4 space-y-4">
             {menu.primary.map((item, index) => (
@@ -209,7 +205,7 @@ export default function GlobalHeader({
               ))}
             </div>
           </nav>
-        </motion.div>
+        </div>
       </div>
     </header>
   );

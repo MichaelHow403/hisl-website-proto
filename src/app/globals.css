@@ -88,6 +88,143 @@ a:focus-visible, button:focus-visible{ outline: none; box-shadow: 0 0 0 3px rgba
   }
 }
 
+/* Enhanced shadow effects */
+.shadow-glow {
+  box-shadow: 0 0 40px rgba(57,215,201,.15), 0 0 80px rgba(57,215,201,.08);
+}
+
+.shadow-glow-gold {
+  box-shadow: 0 0 40px rgba(212,175,55,.15), 0 0 80px rgba(212,175,55,.08);
+}
+
+.backdrop-pattern {
+  background-image: 
+    linear-gradient(rgba(255,255,255,.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.02) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+
+/* Background image optimization */
+.bg-image-optimized {
+  object-fit: cover;
+  object-position: center;
+  image-rendering: crisp-edges;
+}
+
+@media (min-width: 1920px) {
+  .bg-image-optimized {
+    object-fit: contain;
+    object-position: center;
+  }
+}
+
 @media (prefers-reduced-motion: reduce){
   *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important}
+}
+
+/* Shooting stars animation */
+.shooting-stars {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.shooting-star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: white;
+  border-radius: 50%;
+  box-shadow: 0 0 8px 2px rgba(255,255,255,0.8);
+  animation: shoot linear infinite;
+}
+
+@keyframes shoot {
+  0% {
+    transform: translateX(0) translateY(0) rotate(-45deg) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-400px) translateY(400px) rotate(-45deg) scale(0.5);
+    opacity: 0;
+  }
+}
+
+/* Individual star timings for natural effect */
+.shooting-star:nth-child(1) {
+  top: 10%;
+  right: 20%;
+  animation-duration: 3s;
+  animation-delay: 0s;
+}
+
+.shooting-star:nth-child(2) {
+  top: 30%;
+  right: 60%;
+  animation-duration: 2.5s;
+  animation-delay: 1.2s;
+}
+
+.shooting-star:nth-child(3) {
+  top: 50%;
+  right: 10%;
+  animation-duration: 3.5s;
+  animation-delay: 2.5s;
+}
+
+.shooting-star:nth-child(4) {
+  top: 20%;
+  right: 80%;
+  animation-duration: 2.8s;
+  animation-delay: 4s;
+}
+
+.shooting-star:nth-child(5) {
+  top: 70%;
+  right: 40%;
+  animation-duration: 3.2s;
+  animation-delay: 5.5s;
+}
+
+.shooting-star:nth-child(6) {
+  top: 15%;
+  right: 50%;
+  animation-duration: 2.2s;
+  animation-delay: 3s;
+}
+
+.shooting-star:nth-child(7) {
+  top: 40%;
+  right: 30%;
+  animation-duration: 2.8s;
+  animation-delay: 1.8s;
+}
+
+.shooting-star:nth-child(8) {
+  top: 60%;
+  right: 70%;
+  animation-duration: 3.1s;
+  animation-delay: 4.5s;
+}
+
+.shooting-star:nth-child(9) {
+  top: 25%;
+  right: 5%;
+  animation-duration: 2.6s;
+  animation-delay: 6s;
+}
+
+.shooting-star:nth-child(10) {
+  top: 80%;
+  right: 90%;
+  animation-duration: 2.9s;
+  animation-delay: 2.2s;
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .shooting-star {
+    animation: none;
+    opacity: 0;
+  }
 }

@@ -1,0 +1,391 @@
+{
+  "dataCenters": [
+    {
+      "lat": 39.0438,
+      "lng": -77.4874,
+      "label": "Ashburn (Virginia), United States",
+      "energy": 12,
+      "renewable": 27,
+      "providers": [
+        "AWS",
+        "Azure",
+        "Oracle"
+      ],
+      "hyperscale": 300,
+      "tier": "I:5%, II:15%, III:60%, IV:20%",
+      "totalDataCenters": 5426,
+      "floorSpace": "~3,552,000,000",
+      "growthRate": 12
+    },
+    {
+      "lat": 37.3861,
+      "lng": -122.0839,
+      "label": "Silicon Valley, United States",
+      "energy": 12,
+      "renewable": 27,
+      "providers": [
+        "GCP",
+        "AWS"
+      ],
+      "hyperscale": 300,
+      "tier": "I:5%, II:15%, III:60%, IV:20%",
+      "totalDataCenters": 5426,
+      "floorSpace": "~3,552,000,000",
+      "growthRate": 12
+    },
+    {
+      "lat": 32.7767,
+      "lng": -96.797,
+      "label": "Dallas, United States",
+      "energy": 12,
+      "renewable": 27,
+      "providers": [
+        "Azure"
+      ],
+      "hyperscale": 300,
+      "tier": "I:5%, II:15%, III:60%, IV:20%",
+      "totalDataCenters": 5426,
+      "floorSpace": "~3,552,000,000",
+      "growthRate": 12
+    },
+    {
+      "lat": 50.1109,
+      "lng": 8.6821,
+      "label": "Frankfurt, Germany",
+      "energy": 2,
+      "renewable": 40,
+      "providers": [
+        "AWS",
+        "Azure",
+        "GCP"
+      ],
+      "hyperscale": 50,
+      "tier": "II:10%, III:70%, IV:20%",
+      "totalDataCenters": 529,
+      "floorSpace": "~350,000,000",
+      "growthRate": 8
+    },
+    {
+      "lat": 52.52,
+      "lng": 13.405,
+      "label": "Berlin, Germany",
+      "energy": 2,
+      "renewable": 40,
+      "providers": [],
+      "hyperscale": 50,
+      "tier": "II:10%, III:70%, IV:20%",
+      "totalDataCenters": 529,
+      "floorSpace": "~350,000,000",
+      "growthRate": 8
+    },
+    {
+      "lat": 51.5074,
+      "lng": -0.1278,
+      "label": "London, United Kingdom",
+      "energy": 1,
+      "renewable": 0.45,
+      "providers": [
+        "AWS",
+        "Azure",
+        "GCP",
+        "Oracle"
+      ],
+      "hyperscale": 30,
+      "tier": "II:15%, III:70%, IV:15%",
+      "totalDataCenters": 523,
+      "floorSpace": "~200,000,000",
+      "growthRate": 7
+    },
+    {
+      "lat": 48.8566,
+      "lng": 2.3522,
+      "label": "Paris, France",
+      "energy": 700,
+      "renewable": 40,
+      "providers": [
+        "AWS",
+        "Azure",
+        "GCP"
+      ],
+      "hyperscale": 20,
+      "tier": "II:20%, III:70%, IV:10%",
+      "totalDataCenters": 322,
+      "floorSpace": "~120,000,000",
+      "growthRate": 6
+    },
+    {
+      "lat": 43.6532,
+      "lng": -79.3832,
+      "label": "Toronto, Canada",
+      "energy": 500,
+      "renewable": 0.78,
+      "providers": [
+        "AWS",
+        "Azure",
+        "GCP",
+        "Oracle"
+      ],
+      "hyperscale": 15,
+      "tier": "II:20%, III:70%, IV:10%",
+      "totalDataCenters": 336,
+      "floorSpace": "~90,000,000",
+      "growthRate": 9
+    },
+    {
+      "lat": 45.5017,
+      "lng": -73.5673,
+      "label": "Montreal, Canada",
+      "energy": 500,
+      "renewable": 0.78,
+      "providers": [
+        "Azure"
+      ],
+      "hyperscale": 15,
+      "tier": "II:20%, III:70%, IV:10%",
+      "totalDataCenters": 336,
+      "floorSpace": "~90,000,000",
+      "growthRate": 9
+    },
+    {
+      "lat": -33.8688,
+      "lng": 151.2093,
+      "label": "Sydney, Australia",
+      "energy": 1,
+      "renewable": 0.3,
+      "providers": [
+        "AWS",
+        "Azure",
+        "GCP",
+        "Oracle"
+      ],
+      "hyperscale": 20,
+      "tier": "II:20%, III:70%, IV:10%",
+      "totalDataCenters": 314,
+      "floorSpace": "~40,000,000",
+      "growthRate": 10
+    },
+    {
+      "lat": 52.3676,
+      "lng": 4.9041,
+      "label": "Amsterdam, Netherlands",
+      "energy": 700,
+      "renewable": 0.9,
+      "providers": [
+        "AWS",
+        "Azure",
+        "GCP"
+      ],
+      "hyperscale": 15,
+      "tier": "II:10%, III:80%, IV:10%",
+      "totalDataCenters": 298,
+      "floorSpace": "~35,000,000",
+      "growthRate": 8
+    },
+    {
+      "lat": 35.6762,
+      "lng": 139.6503,
+      "label": "Tokyo, Japan",
+      "energy": 1,
+      "renewable": 0.25,
+      "providers": [
+        "AWS",
+        "Azure",
+        "GCP"
+      ],
+      "hyperscale": 20,
+      "tier": "II:20%, III:70%, IV:10%",
+      "totalDataCenters": 222,
+      "floorSpace": "~50,000,000",
+      "growthRate": 7
+    },
+    {
+      "lat": 34.6937,
+      "lng": 135.5023,
+      "label": "Osaka, Japan",
+      "energy": 1,
+      "renewable": 0.25,
+      "providers": [
+        "AWS",
+        "Azure"
+      ],
+      "hyperscale": 20,
+      "tier": "II:20%, III:70%, IV:10%",
+      "totalDataCenters": 222,
+      "floorSpace": "~50,000,000",
+      "growthRate": 7
+    },
+    {
+      "lat": -23.5505,
+      "lng": -46.6333,
+      "label": "São Paulo, Brazil",
+      "energy": 800,
+      "renewable": 0.25,
+      "providers": [
+        "AWS",
+        "Azure",
+        "GCP",
+        "Oracle"
+      ],
+      "hyperscale": 10,
+      "tier": "II:30%, III:60%, IV:10%",
+      "totalDataCenters": 196,
+      "floorSpace": "~20,000,000",
+      "growthRate": 12
+    },
+    {
+      "lat": 1.3521,
+      "lng": 103.8198,
+      "label": "Singapore, Singapore",
+      "energy": 500,
+      "renewable": 0.95,
+      "providers": [
+        "AWS",
+        "Azure",
+        "GCP"
+      ],
+      "hyperscale": 15,
+      "tier": "III:80%, IV:20%",
+      "totalDataCenters": 99,
+      "floorSpace": "~30,000,000",
+      "growthRate": 6
+    },
+    {
+      "lat": -26.2041,
+      "lng": 28.0473,
+      "label": "Johannesburg, South Africa",
+      "energy": 200,
+      "renewable": 0.3,
+      "providers": [
+        "Azure"
+      ],
+      "hyperscale": 5,
+      "tier": "II:40%, III:50%, IV:10%",
+      "totalDataCenters": 61,
+      "floorSpace": "~10,000,000",
+      "growthRate": 10
+    },
+    {
+      "lat": 19.076,
+      "lng": 72.8777,
+      "label": "Mumbai, India",
+      "energy": 400,
+      "renewable": 0.15,
+      "providers": [
+        "AWS",
+        "Azure",
+        "GCP"
+      ],
+      "hyperscale": 10,
+      "tier": "II:30%, III:60%, IV:10%",
+      "totalDataCenters": 99,
+      "floorSpace": "~50,000,000",
+      "growthRate": 18
+    },
+    {
+      "lat": 17.385,
+      "lng": 78.4867,
+      "label": "Hyderabad, India",
+      "energy": 400,
+      "renewable": 0.15,
+      "providers": [
+        "Azure"
+      ],
+      "hyperscale": 10,
+      "tier": "II:30%, III:60%, IV:10%",
+      "totalDataCenters": 99,
+      "floorSpace": "~50,000,000",
+      "growthRate": 18
+    },
+    {
+      "lat": 59.3293,
+      "lng": 18.0686,
+      "label": "Stockholm, Sweden",
+      "energy": 250,
+      "renewable": 0.98,
+      "providers": [
+        "Azure"
+      ],
+      "hyperscale": 6,
+      "tier": "II:10%, III:80%, IV:10%",
+      "totalDataCenters": 95,
+      "floorSpace": "~12,000,000",
+      "growthRate": 8
+    },
+    {
+      "lat": 52.2297,
+      "lng": 21.0122,
+      "label": "Warsaw, Poland",
+      "energy": 120,
+      "renewable": 0.25,
+      "providers": [
+        "Azure"
+      ],
+      "hyperscale": 4,
+      "tier": "II:30%, III:60%, IV:10%",
+      "totalDataCenters": 144,
+      "floorSpace": "~8,000,000",
+      "growthRate": 9
+    },
+    {
+      "lat": 47.3769,
+      "lng": 8.5417,
+      "label": "Zurich, Switzerland",
+      "energy": 110,
+      "renewable": 0.8,
+      "providers": [
+        "AWS",
+        "Azure",
+        "GCP"
+      ],
+      "hyperscale": 5,
+      "tier": "II:15%, III:75%, IV:10%",
+      "totalDataCenters": 121,
+      "floorSpace": "~7,000,000",
+      "growthRate": 7
+    },
+    {
+      "lat": 53.3498,
+      "lng": -6.2603,
+      "label": "Dublin, Ireland",
+      "energy": 710,
+      "renewable": 69,
+      "providers": [],
+      "hyperscale": 0,
+      "tier": "Tier III (majority), some Tier II/IV",
+      "totalDataCenters": 80,
+      "floorSpace": "150,000",
+      "growthRate": 410
+    },
+    {
+      "lat": 45.4642,
+      "lng": 9.19,
+      "label": "Milan, Italy",
+      "energy": 513,
+      "renewable": 41,
+      "providers": [],
+      "hyperscale": 0,
+      "tier": "Tier III (majority), growing Tier IV",
+      "totalDataCenters": 168,
+      "floorSpace": "3,940,000",
+      "growthRate": 3000
+    },
+    {
+      "lat": 25.2048,
+      "lng": 55.2708,
+      "label": "Dubai, United Arab Emirates",
+      "energy": 200,
+      "renewable": 60,
+      "providers": [],
+      "hyperscale": 1,
+      "tier": "Tier III (majority) & emerging Tier IV",
+      "totalDataCenters": 31,
+      "floorSpace": "450,000",
+      "growthRate": 1760
+    }
+  ],
+  "metadata": {
+    "totalPowerMW": 6647,
+    "avgRenewable": 15.7725,
+    "lastUpdated": "2025-09-30T03:49:32.244Z"
+  }
+}

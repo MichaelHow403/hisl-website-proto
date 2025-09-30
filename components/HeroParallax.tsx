@@ -27,3 +27,5 @@ export default function HeroParallax({ baseId, overlayId }:Props){
 }
 
 
+
+

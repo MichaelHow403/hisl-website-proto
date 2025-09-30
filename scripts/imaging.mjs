@@ -167,3 +167,5 @@ console.log(`\n✓ Optimized manifest written to: ${manifestPath}`);
 console.log(`✓ Optimized images written to: ${optimizedDir}`);
 
 
+
+
