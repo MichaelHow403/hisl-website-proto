@@ -38,3 +38,5 @@ export default function EnergyBadge({ energyKwh, co2Kg, renewablePercent }: Ener
   );
 }
 
+
+
