@@ -1,0 +1,73 @@
+image: node:20
+
+stages:
+  - validate
+  - test
+  - build
+  - deploy
+
+cache:
+  key:
+    files:
+      - package-lock.json
+  paths:
+    - node_modules/
+    - .next/cache/
+
+variables:
+  NODE_OPTIONS: "--max_old_space_size=4096"
+  NPM_CONFIG_CACHE: "$CI_PROJECT_DIR/.npm"
+
+before_script:
+  - npm ci --prefer-offline --no-audit
+
+typecheck:
+  stage: validate
+  script:
+    - npm run typecheck
+  only:
+    - merge_requests
+    - main
+
+lint:
+  stage: validate
+  script:
+    - npm run lint
+  only:
+    - merge_requests
+    - main
+  allow_failure: true
+
+build:
+  stage: build
+  script:
+    - npm run build
+  artifacts:
+    paths:
+      - .next/
+      - public/
+    expire_in: 1 hour
+  only:
+    - main
+
+deploy:production:
+  stage: deploy
+  image: node:20-alpine
+  before_script:
+    - npm install -g vercel@latest
+  script:
+    - |
+      echo "Deploying production to https://hisl.ie"
+      vercel pull --yes --environment=production --token=$VERCEL_TOKEN
+      vercel build --prod --token=$VERCEL_TOKEN
+      vercel deploy --prebuilt --prod --token=$VERCEL_TOKEN
+      echo "✅ Production deployed"
+  environment:
+    name: production
+    url: https://hisl.ie
+  only:
+    - main
+  when: manual
+  needs:
+    - typecheck
+    - build
